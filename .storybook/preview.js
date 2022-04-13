@@ -1,4 +1,3 @@
-import '../styles/globals.css'
 import '../styles/globals.scss'
 
 export const parameters = {
