@@ -5,6 +5,9 @@ import GlobalHead from '/components/GlobalHead';
 import GlobalNav from '/components/GlobalNav';
 import GlobalHero from '/components/GlobalHero';
 
+import ToolsSection from '/components/ToolsSection';
+import ToolsItem from '/components/ToolsItem';
+
 import OutboundIcon from '../components/icons/OutboundIcon';
 
 function Home() {
@@ -26,79 +29,50 @@ function Home() {
         />
 
         <div className="tools-wrapper wrapper">
-          <section className="tools-section">
-            <h2 className="tools-heading">Data science</h2>
-            <ul className="tools-list">
-              <li className="tools-item">
-                <a className="tile darkglass" href="">
-                  <div className="tile-icon">
-                    <OutboundIcon />
-                  </div>
-                  <div className="tile-inner">
-                    <img className="tile-img" src="/icons/tools/jupyterhub-logo.png" srcSet="/icons/tools/jupyterhub-logo.svg" alt="Jupyter Hub" draggable="false" />
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </section>
+          <ToolsSection sectionTitle="Data science">
+            <ToolsItem
+              href="#"
+              outbound={true}
+              imgSrc="jupyterhub-logo"
+              altText="Jupyter Hub"
+            />
+          </ToolsSection>
 
-          <section className="tools-section">
-            <h2 className="tools-heading">Data analysis</h2>
-            <ul className="tools-list">
-              <li className="tools-item">
-                <a className="tile darkglass" href="">
-                  <div className="tile-icon">
-                    <OutboundIcon />
-                  </div>
-                  <div className="tile-inner">
-                    <img className="tile-img" src="/icons/tools/business-intelligence-icon.png" srcSet="/icons/tools/business-intelligence-icon.svg" alt="" draggable="false" />
-                    <span className="tile-title">Business intelligence view</span>
-                  </div>
-                </a>
-              </li>
+          <ToolsSection sectionTitle="Data analysis">
+            <ToolsItem
+              href="#"
+              outbound={true}
+              imgSrc="business-intelligence-icon"
+              label="Business intelligence view"
+              altText=""
+            />
+            <ToolsItem
+              href="#"
+              outbound={true}
+              imgSrc="graph-view-icon"
+              label="Graph view"
+              altText=""
+            />
+          </ToolsSection>
 
-              <li className="tools-item">
-                <a className="tile darkglass" href="">
-                  <div className="tile-icon">
-                    <OutboundIcon />
-                  </div>
-                  <div className="tile-inner">
-                    <img className="tile-img" src="/icons/tools/graph-view-icon.png" srcSet="/icons/tools/graph-view-icon.svg" alt="" draggable="false" />
-                    <span className="tile-title">Graph view</span>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </section>
-
-          <section className="tools-section">
-            <h2 className="tools-heading">Browse & manage <span className="u-visually-hidden">data</span></h2>
-            <ul className="tools-list">
-              <li className="tools-item">
-                <a className="tile darkglass" href="">
-                  <div className="tile-icon">
-                    <OutboundIcon />
-                  </div>
-                  <div className="tile-inner">
-                    <img className="tile-img" src="/icons/tools/data-viewer-icon.png" srcSet="/icons/tools/data-viewer-icon.svg" alt="" draggable="false" />
-                    <span className="tile-title">Data viewer</span>
-                  </div>
-                </a>
-              </li>
-
-              <li className="tools-item">
-                <a className="tile darkglass" href="">
-                  <div className="tile-icon">
-                    <OutboundIcon />
-                  </div>
-                  <div className="tile-inner">
-                    <img className="tile-img" src="/icons/tools/prediction-engines-icon.png" srcSet="/icons/tools/prediction-engines-icon.svg" alt="" draggable="false" />
-                    <span className="tile-title">Engines</span>
-                  </div>
-                </a>
-              </li>
-            </ul>
-          </section>
+          <ToolsSection sectionTitle={<>
+            Browse & manage <span className="u-visually-hidden">data</span>
+          </>}>
+            <ToolsItem
+              href="#"
+              outbound={true}
+              imgSrc="data-viewer-icon"
+              label="Data viewer"
+              altText=""
+            />
+            <ToolsItem
+              href="#"
+              outbound={true}
+              imgSrc="prediction-engines-icon"
+              label="Engines"
+              altText=""
+            />
+          </ToolsSection>
         </div>
       </main>
 

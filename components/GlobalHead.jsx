@@ -1,13 +1,14 @@
 import Head from 'next/head';
 
 export default function GlobalHead(props) {
+  const {children, description, pageTitle} = props;
   return (
     <Head>
       <meta charSet="utf-8" />s
-      <title>Mudavar{ props.pageTitle && ` | ${ props.pageTitle }` }</title>
+      <title>Mudavar{ pageTitle && ` | ${ pageTitle }` }</title>
 
-      {props.description &&
-        <meta name="description" content={props.description} />
+      {description &&
+        <meta name="description" content={description} />
       }
       <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -18,7 +19,7 @@ export default function GlobalHead(props) {
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&Mada:wght@400;700&display=swap" rel="stylesheet" />
 
-      {props.children}
+      {children}
     </Head>
   )
 }
