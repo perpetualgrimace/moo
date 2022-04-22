@@ -1,24 +1,15 @@
 // import { useCallback, useEffect, useState } from 'react';
 // import Button from '../components/Button';
 // import ClickCount from '../components/ClickCount';
-import Head from 'next/head';
+import GlobalHead from '/components/GlobalHead';
 
 function Home() {
   return (
     <div className="home">
-      <Head>
-        <meta charSet="utf-8" />
-        <title>Mudavar | Tools</title>
-        {/* <meta name="description" content="" /> */}
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="theme-color" content="#03090C" />
-        <link rel="apple-touch-icon" href="/favicon/180.png" />
-
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&Mada:wght@400;700&display=swap" rel="stylesheet" />
-      </Head>
+      <GlobalHead
+        pageTitle="hi"
+        description="yo"
+      />
 
       <div className="nav">
         <nav className="nav-inner wrapper" role="navigation">
