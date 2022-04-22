@@ -3,26 +3,27 @@
 // import ClickCount from '../components/ClickCount';
 import GlobalHead from '/components/GlobalHead';
 import GlobalNav from '/components/GlobalNav';
+import GlobalHero from '/components/GlobalHero';
 
 import OutboundIcon from '../components/icons/OutboundIcon';
 
 function Home() {
+  const title="Toolkit";
+
   return (
     <div className="home">
       <GlobalHead
-        pageTitle="Tools"
+        pageTitle={title}
         description="Data science toolkit"
       />
 
       <GlobalNav />
 
       <main className="main" id="#main">
-        <header className="hero" role="banner">
-          <div className="hero-wrapper wrapper">
-            <h1 className="hero-headline">Tools</h1>
-          </div>
-          <img className="hero-img" src="/hero/tools-hero.png" srcSet="/hero/tools-hero.png 1x, /hero/tools-hero@2x.png 2x" alt="" draggable="false" />
-        </header>
+        <GlobalHero
+          pageTitle={title}
+          imgSlug="tools"
+        />
 
         <div className="tools-wrapper wrapper">
           <section className="tools-section">
