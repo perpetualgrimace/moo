@@ -1,6 +1,3 @@
-// import { useCallback, useEffect, useState } from 'react';
-// import Button from '../components/Button';
-// import ClickCount from '../components/ClickCount';
 import GlobalHead from '/components/GlobalHead';
 import GlobalNav from '/components/GlobalNav';
 import GlobalHero from '/components/GlobalHero';
@@ -8,10 +5,10 @@ import GlobalHero from '/components/GlobalHero';
 import ToolsSection from '/components/ToolsSection';
 import ToolsItem from '/components/ToolsItem';
 
-import OutboundIcon from '../components/icons/OutboundIcon';
+import SpaceBG from '../components/SpaceBG';
 
 function Home() {
-  const title="Toolkit";
+  const title="Data Science Toolkit";
 
   return (
     <div className="home">
@@ -76,10 +73,7 @@ function Home() {
         </div>
       </main>
 
-      <div className="bg">
-        <img className="bg-img" src="/bg.jpg" srcSet="/bg.jpg 1x, /bg@2x.jpg 2x" alt="" draggable="false" />
-      </div>
-      
+      <SpaceBG />
     </div>
   )
 }
