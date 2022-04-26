@@ -25,3 +25,29 @@
 .u-font-sm   { @include font-sm;   }
 .u-font-xs   { @include font-xs;   }
 .u-font-xxs  { @include font-xxs;  }
+
+//////////////////////////////////
+// SPACING
+//////////////////////////////////
+
+.u-mb-0  { margin-bottom: 0;      }
+.u-mb-xs { margin-bottom: $sp-xs; }
+.u-mb-sm { margin-bottom: $sp-sm; }
+.u-mb-md { margin-bottom: $sp-md; }
+.u-mb-lg { margin-bottom: $sp-lg; }
+
+.u-mr-0  { margin-right: 0;       }
+.u-mr-xs { margin-right: $sp-xs;  }
+.u-mr-sm { margin-right: $sp-sm;  }
+.u-mr-md { margin-right: $sp-md   }
+.u-mr-lg { margin-right: $sp-lg   }
+
+.u-m-auto { margin:auto; }
+.u-mh-auto {
+	margin-left: auto;
+	margin-right: auto;
+}
+.u-mv-auto {
+	margin-top: auto;
+	margin-bottom: auto;
+}

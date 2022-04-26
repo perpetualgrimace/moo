@@ -1,3 +1,25 @@
+//////////////////////////////////
+// ABSOLUTELY
+//////////////////////////////////
+
+@mixin absolute-expand {
+	position: absolute;
+	top: 0; right: 0; bottom: 0; left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+@mixin absolute-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+//////////////////////////////////
+// TYPOGRAPHY
+//////////////////////////////////
+
 @mixin body-text {
 	font-family: $body-font;
 	font-weight: $body-weight;
@@ -9,9 +31,16 @@
 	line-height: 1;
 }
 
+@mixin subhead-text {
+	font-family: $subhead-font;
+	font-weight: $subhead-weight;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
 @mixin heading-text {
   font-weight: $title-weight;
-	margin-bottom: 1rem;
+	margin-bottom: $sp-md;
 }
 
 @mixin font-xxxl {

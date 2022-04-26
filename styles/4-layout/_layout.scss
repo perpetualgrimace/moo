@@ -1,0 +1,71 @@
+//////////////////////////////////
+// BASE LAYOUT
+//////////////////////////////////
+
+.wrapper {
+	max-width: 1400px;
+	margin-left: auto;
+	margin-right: auto;
+	padding-left: 1rem;
+	padding-right: 1rem;
+
+  @media (min-width: 900px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+//////////////////////////////////
+// TOOLS TILE GRID
+//////////////////////////////////
+
+// progressively enhanced layout
+@supports (display: grid) {
+	// 2 columns
+	@media (min-width: 600px) {
+		.tools-wrapper {
+			display: grid;
+			grid-template-columns: 1fr 2rem 1fr;
+		}
+
+		.tools-section:nth-child(1) { grid-column: 1/4; }
+		.tools-section:nth-child(2) { grid-column: 1/2; }
+		.tools-section:nth-child(3) { grid-column: 3/4; }
+
+		.tools-heading {
+			text-align: center;
+		}
+
+		.tools-item:last-child .tile {
+			margin-bottom: 0;
+		}
+
+		// magic number to keep tiles vertically aligned when text breaks
+		.tools-item .tile {
+			min-height: 200px;
+		}
+	}
+
+	// 3 columns
+	@media (min-width: 900px) {
+		.tools-wrapper {
+			grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
+		}
+
+		.tools-section:nth-child(1) { grid-column: 1/2; }
+		.tools-section:nth-child(2) { grid-column: 3/4; }
+		.tools-section:nth-child(3) { grid-column: 5/6; }
+
+		// equal height columns
+		.tools-section,
+		.tools-list {
+			display: flex;
+			flex-direction: column;
+		}
+		.tools-list,
+		.tools-item:only-child,
+		.tools-item:only-child > .tile {
+			height: 100%;
+		}
+	}
+}
