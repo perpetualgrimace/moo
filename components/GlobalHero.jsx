@@ -3,7 +3,7 @@ export default function GlobalHero(props) {
   return (
     <header className="hero" role="banner">
       <div className="hero-wrapper wrapper">
-        <h1 className="hero-headline">{ pageTitle || 'missing `pageTitle` prop' }</h1>
+        <h1 className="hero-headline u-title">{ pageTitle || 'missing `pageTitle` prop' }</h1>
       </div>
       {imgSlug &&
         <img 
