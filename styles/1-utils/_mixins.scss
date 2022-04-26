@@ -1,0 +1,55 @@
+@mixin body-text {
+	font-family: $body-font;
+	font-weight: $body-weight;
+}
+
+@mixin title-text {
+  font-family: $title-font;
+	font-size: $font-size-xxxxl;
+	line-height: 1;
+}
+
+@mixin heading-text {
+  font-weight: $title-weight;
+	margin-bottom: 1rem;
+}
+
+@mixin font-xxxl {
+  font-size: $font-size-xxxl;
+	line-height: 2.5rem;
+}
+
+@mixin font-xxl {
+  font-size: $font-size-xxl;
+	line-height: 2rem;
+}
+
+@mixin font-xl {
+  font-size: $font-size-xl;
+	line-height: 1.5rem;
+}
+
+@mixin font-lg {
+  font-size: $font-size-lg;
+	line-height: 1.5rem;
+}
+
+@mixin font-md {
+  font-size: $font-size-md;
+	line-height: 1.25rem;
+}
+
+@mixin font-sm {
+  font-size: $font-size-sm;
+	line-height: 1rem;
+}
+
+@mixin font-xs {
+  font-size: $font-size-xs;
+	line-height: 0.75rem;
+}
+
+@mixin font-xxs {
+  font-size: $font-size-xxs;
+	line-height: 0.75rem;
+}

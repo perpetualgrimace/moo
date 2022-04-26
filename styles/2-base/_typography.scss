@@ -18,64 +18,20 @@ html {
 //////////////////////////////////
 
 html {
-	font-family: $body-font;
-	font-weight: $body-weight;
+	@include body-text;
 }
 
-h1, .u-title {
-	font-family: $title-font;
-	font-weight: $title-weight;
-	font-size: $font-xxxxl;
-	line-height: 1;
+h1 {
+	@include title-text;
 }
 
-h1, h2, h3, h4, h5, h6,
-.u-heading {
-	font-weight: $title-weight;
-	margin-bottom: 1rem;
+h1, h2, h3, h4, h5, h6 {
+	@include heading-text;
 }
 
-.u-font-xxxl {
-	font-size: $font-xxxl;
-	line-height: 2.5rem;
-}
-
-h2,
-.u-font-xxl {
-	font-size: $font-xxl;
-	line-height: 2rem;
-}
-
-h3,
-.u-font-xl {
-	font-size: $font-xl;
-	line-height: 1.5rem;
-}
-
-h4,
-.u-font-lg {
-	font-size: $font-lg;
-	line-height: 1.5rem;
-}
-
-h5,
-.u-font-md {
-	font-size: $font-md;
-	line-height: 1.25rem;
-}
-
-p, li, h6,
-.u-font-sm {
-	font-size: $font-sm;
-	line-height: 1rem;
-}
-
-.u-font-xs {
-	font-size: $font-xs;
-	line-height: 0.75rem;
-}
-
-small, .u-font-xxs {
-	font-size: $font-xxs;
-	line-height: 0.75rem;
-}
+h2        { @include font-xxl; }
+h3        { @include font-xl; }
+h4        { @include font-lg; }
+h5        { @include font-md; }
+p, li, h6 { @include font-sm; }
+small     { @include font-xxs; }

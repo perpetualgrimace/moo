@@ -1,0 +1,27 @@
+//////////////////////////////////
+// ACCESSIBILITY
+//////////////////////////////////
+
+.u-visually-hidden {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	height: 1px;
+	width: 1px;
+	overflow: hidden;
+}
+
+//////////////////////////////////
+// TYPOGRAPHY
+//////////////////////////////////
+
+.u-title     { @include title-text;   }
+.u-heading   { @include heading-text; }
+
+.u-font-xxxl { @include font-xxxl; }
+.u-font-xxl  { @include font-xxl;  }
+.u-font-xl   { @include font-xl;   }
+.u-font-lg   { @include font-lg;   }
+.u-font-md   { @include font-md;   }
+.u-font-sm   { @include font-sm;   }
+.u-font-xs   { @include font-xs;   }
+.u-font-xxs  { @include font-xxs;  }
