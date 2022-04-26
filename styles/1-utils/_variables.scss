@@ -5,15 +5,63 @@
 $body-font: "Mada", -apple-system, BlinkMacSystemFont, avenir next, avenir, helvetica neue, helvetica, Ubuntu, roboto, noto, segoe ui, arial, sans-serif;
 $title-font:  'Amiri', serif;
 
-$body-weight: 400;
-$title-weight: 700;
+$body-weight  : 400;
+$title-weight : 700;
 
-$font-xxxxl: 3.5rem; // 70px
-$font-xxxl:  2.2rem; // 44px
-$font-xxl:   1.7rem; // 34px
-$font-xl:    1.4rem; // 28px
-$font-lg:    1.1rem; // 22px
-$font-md:    0.9rem; // 18px
-$font-sm:    0.7rem; // 14px
-$font-xs:    0.6rem; // 12px
-$font-xxs:   0.5rem; // 10px
+$font-xxxxl : 3.5rem; // 70px
+$font-xxxl  : 2.2rem; // 44px
+$font-xxl   : 1.7rem; // 34px
+$font-xl    : 1.4rem; // 28px
+$font-lg    : 1.1rem; // 22px
+$font-md    : 0.9rem; // 18px
+$font-sm    : 0.7rem; // 14px
+$font-xs    : 0.6rem; // 12px
+$font-xxs   : 0.5rem; // 10px
+
+//////////////////////////////////
+// COLORS
+//////////////////////////////////
+
+$white      : #FFFFFF;
+$light-1    : #E0E2EB;
+$light-2    : #B8BCC7;
+$light-3    : #8F96A3;
+$gray       : #707B89;
+$dark-1     : #55606D;
+$dark-2     : #2A333C;
+$dark-3     : #091A25;
+$black      : #03090C;
+
+$lightglass : rgba($light-1, 0.9);
+$darkglass  : rgba($dark-2, 0.4);
+$shadow     : rgba($black, 0.25);
+
+$sky-light      : #42C6FF;
+$sky-md         : #0AB6FF;
+$sky-dark       : #0B678E;
+$sky-darker     : #084B68;
+
+$spring-light   : #3DFF80;
+$spring-md      : #16D459;
+$spring-dark    : #17823C;
+$spring-darker  : #115F2C;
+
+$magenta-light  : #F71DE2;
+$magenta-md     : #C309B0;
+$magenta-dark   : #821777;
+$magenta-darker : #5F1158;
+
+$sun-light      : #FFCF5C;
+$sun-md         : #FFC742;
+$sun-dark       : #8E670B;
+$sun-darker     : #684C08;
+
+$prism-transparent: makePrism(0.6);
+$prism-horizontal: makePrism(1, to left);
+$prism-vertical: makePrism(1, to bottom);
+
+//////////////////////////////////
+// MISC MEASUREMENTS
+//////////////////////////////////
+
+$radius-md: 4px;

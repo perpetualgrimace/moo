@@ -1,0 +1,33 @@
+html {
+	background-color: $black;
+	color: $light-1; // fallback
+	color: $lightglass;
+}
+
+a, button,
+h1, h2, h3, h4, h5, h6,
+.heading {
+	color: $white;
+}
+
+// darkglass theme
+.darkglass {
+	text-align: center;
+	text-decoration: none;
+	background-color: $dark-2; // fallback
+	background-color: $darkglass;
+	border: 1px solid $light-2;
+	border-radius: $radius-md;
+	box-shadow: 0 1px 12px 0 $shadow;
+	backdrop-filter: blur(4px);
+}
+
+a:focus, button:focus, [tabindex]:focus {
+	outline: 3px dotted $sky-light;
+	outline-offset: 7px;
+}
+
+::selection {
+	color: $white;
+	background-color: rgba($magenta-light, 0.6);
+}

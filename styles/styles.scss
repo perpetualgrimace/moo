@@ -1,64 +1,10 @@
-//////////////////////////////////
-// RESET
-//////////////////////////////////
-
+@import '1-utils/functions';
 @import '1-utils/variables';
+@import '1-utils/mixins';
 
 @import '2-base/reset';
 @import '2-base/typography';
-
-//////////////////////////////////
-// THEME
-//////////////////////////////////
-
-// $white      : #FFFFFF;
-// $lightglass : rgba(245, 247, 255, 0.9);
-// $light-1    : #E0E2EB;
-// $light-2    : #B8BCC7;
-// $light-3    : #8F96A3;
-// $gray       : #707B89;
-// $dark-1     : #55606D;
-// $dark-2     : #2A333C;
-// $dark-3     : #091A25;
-// $shadow     : rgba(3, 9, 12, 0.25);
-// $darkglass  : rgba(42, 51, 60, 0.4);
-// $black      : #03090C;
-
-html {
-	background-color: #03090C;
-	color: #E0E2EB; // fallback
-	color: rgba(245, 247, 255, 0.9);
-}
-
-h1, h2, h3, h4, h5, h6,
-.heading,
-a, button {
-	color: #FFFFFF;
-}
-
-// darkglass theme
-.darkglass {
-	text-align: center;
-	text-decoration: none;
-	background-color: #091A25; // fallback
-	background-color: rgba(42, 51, 60, 0.4);
-	border: 1px solid #B8BCC7;
-	border-radius: 4px;
-	box-shadow: 0 1px 12px 0 rgba(3, 9, 12, 0.25);
-	backdrop-filter: blur(4px);
-}
-
-a:focus, button:focus, [tabindex]:focus {
-	outline: 3px dotted #0AB6FF;
-	outline-offset: 7px;
-}
-
-::selection {
-	color: #FFFFFF;
-	background-color: rgba(247, 29, 226, 0.6);
-	/*background-image: linear-gradient(45deg,  0%, rgba(66, 198, 255, 0.6) 34%, rgba(61, 255, 128, 0.6) 100%);*/
-}
-
+@import '2-base/theme';
 
 //////////////////////////////////
 // UTILITIES
@@ -114,8 +60,8 @@ a:focus, button:focus, [tabindex]:focus {
 //////////////////////////////////
 
 .nav {
-	background-color: #091A25;
-	background-color: rgba(9, 26, 37, 0.9666);
+	background-color: $dark-3;
+	background-color: rgba($dark-3, 0.9666);
 }
 
 // fixed navbar on big screens
@@ -127,7 +73,7 @@ a:focus, button:focus, [tabindex]:focus {
 		right: 0;
 		z-index: 10;
 		backdrop-filter: blur(6px);
-		box-shadow: 0 1px 12px rgba(3, 9, 12, 0.5);
+		box-shadow: 0 1px 12px $shadow;
 	}
 	.nav + * {
 		margin-top: 4rem;
@@ -159,7 +105,7 @@ a:focus, button:focus, [tabindex]:focus {
 	line-height: 4rem;
 	text-decoration: none;
 	text-transform: uppercase;
-	color: #B8BCC7;
+	color: $light-2;
 	padding-left: 0.75rem;
 	padding-right: 0.75rem;
 	transition: color 0.2s ease-out;
@@ -168,7 +114,7 @@ a:focus, button:focus, [tabindex]:focus {
 .nav-link:hover,
 .nav-link:focus,
 .nav-link[aria-current="page"] {
-	color: #FFFFFF;
+	color: $white;
 }
 
 // active page bottom bump
@@ -181,8 +127,8 @@ a:focus, button:focus, [tabindex]:focus {
 	left: 1em;
 	right: 1em;
 	bottom: 0;
-	background-image: linear-gradient(to left, #3DFF80 0%, #0AB6FF 34%, #F71DE2 100%);
-	border-radius: 4px 4px 0 0;
+	background-image: $prism-horizontal;
+	border-radius: $radius-md $radius-md 0 0;
 	opacity: 0;
 	transform: scaleX(0);
 	transition: all 0.2s ease-out;
@@ -230,7 +176,7 @@ a:focus, button:focus, [tabindex]:focus {
 	bottom: 0.042em;
 	z-index: -1;
 	transform: skew(-24deg, 0);
-	background-image: linear-gradient(to bottom, #3DFF80 0%, #0AB6FF 34%, #F71DE2 100%);
+	background-image: $prism-vertical;
 }
 
 .hero-img {
@@ -307,7 +253,7 @@ a:focus, button:focus, [tabindex]:focus {
 
 .tile:hover .tile-icon path,
 .tile:focus .tile-icon path {
-	fill: #FFFFFF;
+	fill: $white;
 }
 
 .darkglass.tile {
@@ -323,8 +269,8 @@ a:focus, button:focus, [tabindex]:focus {
 	top: -1px; right: -1px; bottom: -1px; left: -1px; // behind border
 	width: calc(100% + 2px);
 	height: calc(100% + 2px);
-	background-image: linear-gradient(45deg, rgba(247, 29, 226, 0.6) 0%, rgba(66, 198, 255, 0.6) 34%, rgba(61, 255, 128, 0.6) 100%);
-	border-radius: 4px;
+	background-image: $prism-transparent;
+	border-radius: $radius-md;
 	z-index: -1;
 	opacity: 0;
 	transition: all 0.2s ease-out;
@@ -332,8 +278,8 @@ a:focus, button:focus, [tabindex]:focus {
 }
 .darkglass.tile:hover,
 .darkglass.tile:focus {
-	border-color: rgba(255, 255, 255, 0.425);
-	box-shadow: 0 1px 14px 0 rgba(255, 255, 255, 0.333);
+	border-color: rgba($white, 0.425);
+	box-shadow: 0 1px 14px 0 rgba($white, 0.333);
 	backdrop-filter: blur(1px); // transform + background blur makes inner content blurry
 }
 
