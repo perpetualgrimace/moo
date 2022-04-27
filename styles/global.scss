@@ -9,51 +9,6 @@
 
 @import '3-layout/layout';
 
-@import '4-components/space-bg';
-@import '4-components/navbar';
-
-
-//////////////////////////////////
-// HERO
-//////////////////////////////////
-
-.hero {
-	padding-top: 22.25%; // maintain aspect ratio
-	min-height: 12rem; // make sure there's room for text on small screens
-	z-index: 1; // fix hidden hero-img on Safari
-}
-
-.hero-wrapper {
-	@include absolute-center;
-	width: 100%;
-}
-// left align content edge with strike on small screens
-@media (max-width: 899px) {
-	.hero-wrapper {
-		padding-left: 2.25rem;
-	}
-}
-
-// strike
-.hero-headline:before {
-	content: "";
-	display: block;
-	height: 1.21em; // ~48px
-	width: 0.14em; // 10px
-	position: absolute;
-	left: -0.042em;
-	bottom: 0.042em;
-	z-index: -1;
-	transform: skew(-24deg, 0);
-	background-image: $prism-vertical;
-}
-
-.hero-img {
-	@include absolute-expand;
-	object-fit: cover;
-	z-index: -1;
-}
-
 
 //////////////////////////////////
 // TILE

@@ -2,7 +2,7 @@ export default function Hero(props) {
   const {pageTitle, imgSlug} = props;
   return (
     <header className="hero" role="banner">
-      <div className="hero-wrapper wrapper">
+      <div className="hero-inner wrapper">
         <h1 className="hero-headline u-title">{ pageTitle || 'missing `pageTitle` prop' }</h1>
       </div>
       {imgSlug &&
