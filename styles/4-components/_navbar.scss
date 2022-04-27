@@ -1,4 +1,4 @@
-.nav {
+.navbar {
 	background-color: $dark-3;
 	background-color: rgba($dark-3, 0.9666);
 
@@ -18,25 +18,25 @@
   }
 }
 
-.nav-inner {
+.navbar-nav {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: stretch;
 	justify-content: space-between;
 }
 
-.nav-logo {
+.navbar-logo {
 	width: 11.8rem;
 	display: flex;
 	align-items: center;
 }
 
-.nav-list {
+.navbar-list {
 	display: flex;
-	right: -$sp-xs; // offset .nav-link padding
+	right: -$sp-xs; // offset .navbar-link padding
 }
 
-.nav-link {
+.navbar-link {
 	@include subhead-text;
 	display: block;
 	line-height: 4rem;
@@ -54,7 +54,7 @@
 }
 
 // active page bottom bump
-.nav-link:after {
+.navbar-link:after {
 	content: "";
 	display: block;
 	width: calc(100% - 2em);
@@ -71,7 +71,7 @@
 	transition-property: opacity, transform;
 }
 
-.nav-link[aria-current="page"]:after {
+.navbar-link[aria-current="page"]:after {
 	opacity: 1;
 	transform: none;
 }

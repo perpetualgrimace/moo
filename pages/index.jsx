@@ -1,6 +1,6 @@
-import GlobalHead from '/components/GlobalHead';
-import GlobalNav from '/components/GlobalNav';
-import GlobalHero from '/components/GlobalHero';
+import Meta from '/components/Meta';
+import Navbar from '/components/Navbar';
+import Hero from '/components/Hero';
 
 import ToolsSection from '/components/ToolsSection';
 import ToolsItem from '/components/ToolsItem';
@@ -12,15 +12,15 @@ function Home() {
 
   return (
     <div className="home">
-      <GlobalHead
+      <Meta
         pageTitle={title}
         description="Data science toolkit"
       />
 
-      <GlobalNav />
+      <Navbar />
 
       <main className="main" id="#main">
-        <GlobalHero
+        <Hero
           pageTitle={title}
           imgSlug="tools"
         />

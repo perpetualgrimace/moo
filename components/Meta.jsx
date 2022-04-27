@@ -1,6 +1,6 @@
 import Head from 'next/head';
 
-export default function GlobalHead(props) {
+export default function Meta(props) {
   const {children, description, pageTitle} = props;
   return (
     <Head>
