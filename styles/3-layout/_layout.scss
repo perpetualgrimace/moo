@@ -69,3 +69,41 @@
 		}
 	}
 }
+
+//////////////////////////////////
+// ASSETS
+//////////////////////////////////
+
+.assets-wrapper {
+	@media (min-width: 760px) {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr;
+		grid-gap: $sp-lg;
+		margin-bottom: $sp-lg;
+
+		.tile {
+			margin-bottom: 0;
+		}
+	}
+}
+
+.assets-tile li {
+	display: inline-block;
+	color: $light-1;
+
+	& + li {
+		margin-left: 1.5rem;
+
+		&:before {
+			content: '•';
+			position: absolute;
+			left: -0.825rem;
+			color: $gray;
+		}
+	}
+
+	strong {
+		color: $white;
+	}
+}

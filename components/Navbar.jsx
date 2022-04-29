@@ -12,16 +12,24 @@ export default function Navbar() {
 
         <ul className="navbar-list">
           <li className="navbar-item">
-            <a className="navbar-link u-font-sm" href="" aria-current="page">
+            <a className="navbar-link u-font-sm" href="assets" aria-current="page">
               Asset viewer
               <ChevronDownIcon />
             </a>
 
             <Navmenu>
-              <NavmenuLink href="assets/servers">Servers</NavmenuLink>
-              <NavmenuLink href="assets/data" current={true}>Data</NavmenuLink>
-              <NavmenuLink href="assets/engines">Engines</NavmenuLink>
-              <NavmenuLink href="assets/engagements">Engagements</NavmenuLink>
+              <NavmenuLink href="assets/servers">
+                Servers
+              </NavmenuLink>
+              <NavmenuLink href="assets/data" current={true}>
+                Data
+              </NavmenuLink>
+              <NavmenuLink href="assets/engines">
+                Engines
+              </NavmenuLink>
+              <NavmenuLink href="assets/engagements">
+                Engagements
+              </NavmenuLink>
             </Navmenu>
           </li>
         </ul>
