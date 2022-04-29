@@ -82,3 +82,11 @@
   font-size: $font-size-xxs;
 	line-height: 0.75rem;
 }
+
+//////////////////////////////////
+// SHADOWS
+//////////////////////////////////
+
+@mixin box-shadow {
+	box-shadow: 0 1px 12px $shadow;
+}

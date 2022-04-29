@@ -1,0 +1,32 @@
+.navmenu {
+  position: absolute;
+  top: calc(100% - 1rem);
+  right: 0.25rem;
+  min-width: calc(100% - 0.5rem);
+  width: min-content;
+  padding: 0.125rem;
+  background-color: $dark-2;
+  border: 1px solid $dark-1;
+  border-radius: $radius-md;
+  @include box-shadow;
+  opacity: 0;
+  transform: scaleY(0.9) translateY(-10px);
+  z-index: -1;
+}
+
+@mixin navmenu-open {
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+  opacity: 1;
+  transform: none;
+  z-index: 2;
+}
+
+.navbar-link:hover + .navmenu,
+.navbar-link:focus + .navmenu,
+.navmenu:hover {
+  @include navmenu-open;
+}
+
+.navbar-item:focus-within .navmenu {
+  @include navmenu-open;
+}

@@ -1,3 +1,7 @@
+import ChevronDownIcon from 'components/icons/ChevronDownIcon';
+import Navmenu from 'components/Navmenu';
+import NavmenuLink from 'components/NavmenuLink';
+
 export default function Navbar() {
   return(
     <div className="navbar">
@@ -7,15 +11,18 @@ export default function Navbar() {
         </a>
 
         <ul className="navbar-list">
-          {/* <li className="navbar-item">
-            <a className="navbar-link u-font-xs" href="">
-              Asset viewer
-            </a>
-          </li> */}
           <li className="navbar-item">
-            <a className="navbar-link u-font-sm" aria-current="page" href="">
-              Tools
+            <a className="navbar-link u-font-sm" href="" aria-current="page">
+              Asset viewer
+              <ChevronDownIcon />
             </a>
+
+            <Navmenu>
+              <NavmenuLink href="assets/servers">Servers</NavmenuLink>
+              <NavmenuLink href="assets/data" current={true}>Data</NavmenuLink>
+              <NavmenuLink href="assets/engines">Engines</NavmenuLink>
+              <NavmenuLink href="assets/engagements">Engagements</NavmenuLink>
+            </Navmenu>
           </li>
         </ul>
       </nav>
