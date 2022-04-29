@@ -5,7 +5,7 @@ export default function Meta(props) {
   return (
     <Head>
       <meta charSet="utf-8" />s
-      <title>Mudavar{ pageTitle && ` | ${ pageTitle }` }</title>
+      <title>Mu{ pageTitle && ` | ${ pageTitle }` }</title>
 
       {description &&
         <meta name="description" content={description} />

@@ -2,8 +2,8 @@ export default function Navbar() {
   return(
     <div className="navbar">
       <nav className="navbar-nav wrapper" role="navigation">
-        <a className="navbar-logo" href="">
-          <img src="/logo-horizontal.png" srcSet="/logo-horizontal.png 1x, /logo-horizontal@2x.png 2x" alt="Mudavar, home" draggable="false" />
+        <a className="navbar-logo" href="/">
+          <img src="/logo-horizontal.png" srcSet="/logo-horizontal.png 1x, /logo-horizontal@2x.png 2x" alt="Mu, home" draggable="false" />
         </a>
 
         <ul className="navbar-list">
