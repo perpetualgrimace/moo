@@ -19,7 +19,7 @@ export default function Navbar() {
           <li className="navbar-item">
             <a
               className="navbar-link u-font-sm"
-              href="assets"
+              href="/assets"
               aria-current="page"
             >
               Asset viewer
@@ -27,12 +27,12 @@ export default function Navbar() {
             </a>
 
             <Navmenu>
-              <NavmenuLink href="assets/servers">Servers</NavmenuLink>
-              <NavmenuLink href="assets/data" current={true}>
+              <NavmenuLink href="/assets/servers">Servers</NavmenuLink>
+              <NavmenuLink href="/assets/data" current={true}>
                 Data
               </NavmenuLink>
-              <NavmenuLink href="assets/engines">Engines</NavmenuLink>
-              <NavmenuLink href="assets/engagements">Engagements</NavmenuLink>
+              <NavmenuLink href="/assets/engines">Engines</NavmenuLink>
+              <NavmenuLink href="/assets/engagements">Engagements</NavmenuLink>
             </Navmenu>
           </li>
         </ul>
