@@ -1,7 +1,8 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import checkRoute from "../functions/checkRoute";
 
-import NavbarItem from "components/NavbarItem";
+import NavbarLink from "components/NavbarLink";
 import Navmenu from "components/Navmenu";
 import NavmenuLink from "components/NavmenuLink";
 
@@ -11,21 +12,22 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <nav className="navbar-nav wrapper" role="navigation">
-        <a
-          className="navbar-logo"
-          href="/"
-          aria-current={checkRoute("/", currRoute)}
-        >
-          <img
-            src="/logo-horizontal.png"
-            srcSet="/logo-horizontal.png 1x, /logo-horizontal@2x.png 2x"
-            alt="Mu, home"
-            draggable="false"
-          />
-        </a>
+        <Link href="/assets">
+          <a
+            className="navbar-logo"
+            aria-current={checkRoute("/", currRoute)}
+          >
+            <img
+              src="/logo-horizontal.png"
+              srcSet="/logo-horizontal.png 1x, /logo-horizontal@2x.png 2x"
+              alt="Mu, home"
+              draggable="false"
+            />
+          </a>
+        </Link>
 
         <ul className="navbar-list">
-          <NavbarItem label="Asset viewer" href="/assets">
+          <NavbarLink label="Asset viewer" href="/assets">
             <Navmenu>
               <NavmenuLink href="/assets/servers">Servers</NavmenuLink>
               <NavmenuLink href="/assets/data">Data</NavmenuLink>
@@ -34,7 +36,7 @@ export default function Navbar() {
                 Engagements
               </NavmenuLink>
             </Navmenu>
-          </NavbarItem>
+          </NavbarLink>
         </ul>
       </nav>
     </div>

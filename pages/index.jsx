@@ -1,3 +1,5 @@
+// NOTE: home page currently redirects to Assets
+
 import DefaultLayout from "/components/DefaultLayout";
 import ToolsSection from "/components/ToolsSection";
 import ToolsItem from "/components/ToolsItem";
@@ -34,7 +36,8 @@ export default function Home() {
       <ToolsSection
         sectionTitle={
           <>
-            Browse & manage <span className="u-visually-hidden">data</span>
+            Browse & manage{" "}
+            <span className="u-visually-hidden">data</span>
           </>
         }
       >

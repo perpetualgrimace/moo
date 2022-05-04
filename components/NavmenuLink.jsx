@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/router";
 import checkRoute from "../functions/checkRoute";
 
@@ -7,13 +8,14 @@ export default function NavmenuLink(props) {
 
   return (
     <li className="navmenu-item">
-      <a
-        className="navmenu-link u-font-sm"
-        href={href}
-        aria-current={checkRoute(href, currRoute)}
-      >
-        {children || "NavmenuLink text = `children` prop"}
-      </a>
+      <Link href={href}>
+        <a
+          className="navmenu-link u-font-sm"
+          aria-current={checkRoute(href, currRoute)}
+        >
+          {children || "NavmenuLink text = `children` prop"}
+        </a>
+      </Link>
     </li>
   );
 }
