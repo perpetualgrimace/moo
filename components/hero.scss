@@ -28,6 +28,18 @@
   background-image: $prism-vertical;
 }
 
+.hero-breadcrumb {
+  @include subhead-text;
+  text-decoration: none;
+  position: absolute;
+  top: -1.125rem;
+  left: 3.5rem;
+
+  &:hover, &:focus {
+    text-decoration: underline;
+  }
+}
+
 .hero-img {
   @include absolute-expand;
   object-fit: cover;
