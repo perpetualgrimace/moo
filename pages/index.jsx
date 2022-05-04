@@ -1,13 +1,10 @@
-import DefaultLayout from '/components/DefaultLayout';
-import ToolsSection from '/components/ToolsSection';
-import ToolsItem from '/components/ToolsItem';
+import DefaultLayout from "/components/DefaultLayout";
+import ToolsSection from "/components/ToolsSection";
+import ToolsItem from "/components/ToolsItem";
 
 export default function Home() {
   return (
-    <DefaultLayout
-      title="Data Science Toolkit"
-      slug="tools"
-    >
+    <DefaultLayout title="Data Science Toolkit" slug="tools">
       <ToolsSection sectionTitle="Data science">
         <ToolsItem
           href="#"
@@ -34,9 +31,13 @@ export default function Home() {
         />
       </ToolsSection>
 
-      <ToolsSection sectionTitle={<>
-        Browse & manage <span className="u-visually-hidden">data</span>
-      </>}>
+      <ToolsSection
+        sectionTitle={
+          <>
+            Browse & manage <span className="u-visually-hidden">data</span>
+          </>
+        }
+      >
         <ToolsItem
           href="#"
           outbound={true}
@@ -53,5 +54,5 @@ export default function Home() {
         />
       </ToolsSection>
     </DefaultLayout>
-  )
+  );
 }

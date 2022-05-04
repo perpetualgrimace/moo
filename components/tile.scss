@@ -1,12 +1,12 @@
 .tile {
-	display: block; // fallback
-	display: flex;
-	text-align: center;
-	padding: 2.5rem;
+  display: block; // fallback
+  display: flex;
+  text-align: center;
+  padding: 2.5rem;
 }
 
 .tile-img {
-	transition: transform 0.2s ease-out;
+  transition: transform 0.2s ease-out;
 
   &:not([src*="logo"]) {
     height: 2rem;
@@ -20,26 +20,27 @@
 }
 
 .tile-title {
-	@include subhead-text;
-	line-height: 1.25;
+  @include subhead-text;
+  line-height: 1.25;
 }
 
 // outbound icon
 .tile-icon {
-	position: absolute;
-	top: $sp-xs;
-	right: $sp-xs;
-	transform: scale(0.875);
-	transition: transform 0.2s ease-out;
+  position: absolute;
+  top: $sp-xs;
+  right: $sp-xs;
+  transform: scale(0.875);
+  transition: transform 0.2s ease-out;
 
   path {
     transition: fill 0.2s ease-out;
   }
 }
 
-.tile:hover, .tile:focus {
+.tile:hover,
+.tile:focus {
   .tile-img {
-	  transform: scale(1.125);
+    transform: scale(1.125);
   }
   .tile-icon {
     transform: none;
@@ -51,31 +52,36 @@
 }
 
 .darkglass.tile {
-	z-index: 1; // prevent gradient from disappearing on hover in Safari
-	transition: border-color 0.2s ease-out;
+  z-index: 1; // prevent gradient from disappearing on hover in Safari
+  transition: border-color 0.2s ease-out;
 }
 
 // add background color to pseudo element so it can be transitioned in
 .darkglass.tile:after {
-	content: "";
-	display: block;
-	position: absolute;
-	top: -1px; right: -1px; bottom: -1px; left: -1px; // behind border
-	width: calc(100% + 2px);
-	height: calc(100% + 2px);
-	background-image: $prism-transparent;
-	border-radius: $radius-md;
-	z-index: -1;
-	opacity: 0;
-	transition: all 0.2s ease-out;
-	transition-property: opacity, box-shadow, border-color;
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  bottom: -1px;
+  left: -1px; // behind border
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-image: $prism-transparent;
+  border-radius: $radius-md;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+  transition-property: opacity, box-shadow, border-color;
 }
 
 .darkglass.tile:hover,
 .darkglass.tile:focus {
-	border-color: rgba($white, 0.425);
-	box-shadow: 0 1px 14px 0 rgba($white, 0.333);
-	backdrop-filter: blur(1px); // transform + background blur makes inner content blurry
+  border-color: rgba($white, 0.425);
+  box-shadow: 0 1px 14px 0 rgba($white, 0.333);
+  backdrop-filter: blur(
+    1px
+  ); // transform + background blur makes inner content blurry
 
   &:after {
     opacity: 1;
