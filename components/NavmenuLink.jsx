@@ -1,14 +1,14 @@
 export default function NavmenuLink(props) {
-  const { href, children, current } = props;
+  const { href, children, activePage } = props;
 
   return (
     <li className="navmenu-item">
       <a
         className="navmenu-link u-font-sm"
         href={href}
-        aria-current={current ? "page" : null}
+        aria-current={activePage ? "page" : null}
       >
-        {children || "NavmenuLink text = children"}
+        {children || "NavmenuLink text = `children` prop"}
       </a>
     </li>
   );

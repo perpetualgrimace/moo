@@ -1,4 +1,4 @@
-import ChevronDownIcon from "components/icons/ChevronDownIcon";
+import NavbarItem from "components/NavbarItem";
 import Navmenu from "components/Navmenu";
 import NavmenuLink from "components/NavmenuLink";
 
@@ -16,25 +16,26 @@ export default function Navbar() {
         </a>
 
         <ul className="navbar-list">
-          <li className="navbar-item">
-            <a
-              className="navbar-link u-font-sm"
-              href="/assets"
-              aria-current="page"
-            >
-              Asset viewer
-              <ChevronDownIcon />
-            </a>
-
+          <NavbarItem
+            label="Asset viewer"
+            href="/assets"
+            activePage={true}
+          >
             <Navmenu>
-              <NavmenuLink href="/assets/servers">Servers</NavmenuLink>
-              <NavmenuLink href="/assets/data" current={true}>
+              <NavmenuLink href="/assets/servers">
+                Servers
+              </NavmenuLink>
+              <NavmenuLink href="/assets/data" activePage={true}>
                 Data
               </NavmenuLink>
-              <NavmenuLink href="/assets/engines">Engines</NavmenuLink>
-              <NavmenuLink href="/assets/engagements">Engagements</NavmenuLink>
+              <NavmenuLink href="/assets/engines">
+                Engines
+              </NavmenuLink>
+              <NavmenuLink href="/assets/engagements">
+                Engagements
+              </NavmenuLink>
             </Navmenu>
-          </li>
+          </NavbarItem>
         </ul>
       </nav>
     </div>

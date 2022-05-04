@@ -66,8 +66,6 @@ $prism-vertical: makePrism(1, to bottom);
 // MISC MEASUREMENTS
 //////////////////////////////////
 
-$navbar-height: 4rem;
-
 $sp-xs: 0.5rem;
 $sp-sm: 0.75rem;
 $sp-md: 1.0rem;
@@ -75,3 +73,6 @@ $sp-lg: 2.0rem;
 
 $radius-sm: 2px;
 $radius-md: 4px;
+
+$navbar-height: 4rem;
+$navbar-link-padding: $sp-xs;
