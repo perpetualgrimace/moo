@@ -30,7 +30,7 @@
       {
         "name": "Server 2",
         "id": "29sk-39091-023",
-        "status": "operational",
+        "status": "warning",
         "uptime": 25,
         "utilization": 0.67,
         "diskUsage": 2600,

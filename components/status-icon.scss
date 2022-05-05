@@ -1,0 +1,29 @@
+.status-icon {
+  display: inline-block;
+  vertical-align: top;
+  top: 1px;
+  width: 1.125em;
+  height: 1.125em;
+  border-radius: 50%;
+  background-color: $spring-dark;
+  border: 1px solid $spring-light;
+
+  &.is-down {
+    background-color: $magenta-dark;
+    border: 1px solid $magenta-light;
+  }
+
+  &.is-warning {
+    background-color: $sun-dark;
+    border: 1px solid $sun-darker;
+  }
+
+  svg {
+    @include absolute-center;
+    width: 0.625em;
+
+    path {
+      fill: currentColor;
+    }
+  }
+}

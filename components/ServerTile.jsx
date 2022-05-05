@@ -1,3 +1,8 @@
+import CloudIcon from "components/icons/CloudIcon";
+import ServerIcon from "components/icons/ServerIcon";
+
+import StatusIcon from "components/StatusIcon";
+
 export default function ServerTile(props) {
   const { label, remote, servers } = props;
 
@@ -5,14 +10,25 @@ export default function ServerTile(props) {
     <div className="server-tile darkglass u-mb-md">
       <div className="server-tile-inner u-m-auto">
         <h3 className="server-tile-title u-font-lg u-mb-0">{label}</h3>
-        <p className="u-mb-auto">{remote ? "Remote" : "Local"}</p>
+        <p className="server-tile-status u-mb-auto">
+          {remote ? (
+            <>
+              <CloudIcon /> Remote
+            </>
+          ) : (
+            <>
+              <ServerIcon /> Local
+            </>
+          )}
+        </p>
 
         <ul className="server-tile-list u-m-auto">
           {servers && servers.length ? (
             servers.map((server) => (
               <li className="server-tile-item">
                 <h3 className="server-label u-font-md u-mb-xs">
-                  {server.name}
+                  {server.name} &nbsp;
+                  <StatusIcon status={server.status} />
                 </h3>
                 <img
                   className="server-img"

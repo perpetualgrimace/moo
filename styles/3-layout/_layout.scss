@@ -10,8 +10,8 @@
 	padding-right: $sp-md;
 
   @media (min-width: 900px) {
-    padding-left: $sp-lg;
-    padding-right: $sp-lg;
+    padding-left: $sp-xl;
+    padding-right: $sp-xl;
   }
 }
 
@@ -79,8 +79,8 @@
 		display: grid;
 		grid-template-columns: 1fr 1fr;
 		grid-template-rows: 1fr 1fr;
-		grid-gap: $sp-lg;
-		margin-bottom: $sp-lg;
+		grid-gap: $sp-xl;
+		margin-bottom: $sp-xl;
 
 		.tile {
 			margin-bottom: 0;
@@ -93,7 +93,7 @@
 	color: $light-1;
 
 	& + li {
-		margin-left: 1.5rem;
+		margin-left: $sp-xl;
 
 		&:before {
 			content: '•';

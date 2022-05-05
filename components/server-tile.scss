@@ -9,6 +9,7 @@
 	align-items: center;
 	justify-content: space-between;
 	min-height: 14rem;
+	height: 100%;
 }
 
 .server-tile-list {
@@ -18,6 +19,32 @@
 	justify-content: space-around;
 }
 
-.server-tile-item:first-child:not(:only-child) {
+.server-tile-status {
+	margin-top: 0;
+	padding-bottom: $sp-md;
+
+	svg {
+		width: 1em;
+		top: -1px;
+		margin-right: 0.125em;
+
+		path {
+			fill: currentColor;
+		}
+	}
+}
+
+.server-tile-item {
 	padding-top: $sp-sm;
+	padding-bottom: $sp-xs;
+
+	&:first-child {
+		padding-top: $sp-xs;
+	}
+	&:last-child {
+		padding-bottom: $sp-sm;
+	}
+	&:only-child {
+		margin-top: -$sp-lg;
+	}
 }

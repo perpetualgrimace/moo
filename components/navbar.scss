@@ -3,19 +3,19 @@
   background-color: rgba($dark-3, 0.9666);
 
   // fixed navbar on big screens
-  @media (min-width: 900px), (min-height: 900px) {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 10;
-    backdrop-filter: blur(6px);
-    @include box-shadow;
+  // @media (min-width: 900px), (min-height: 900px) {
+  //   position: fixed;
+  //   top: 0;
+  //   left: 0;
+  //   right: 0;
+  //   z-index: 10;
+  //   backdrop-filter: blur(6px);
+  //   @include box-shadow;
 
-    & + * {
-      margin-top: 4rem;
-    }
-  }
+  //   & + * {
+  //     margin-top: 4rem;
+  //   }
+  // }
 }
 
 .navbar-nav {
