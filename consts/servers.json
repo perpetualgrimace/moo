@@ -1,0 +1,57 @@
+{
+  "muthalath": {
+    "remote": true,
+    "servers": [
+      {
+        "name": "AWS",
+        "id": "29sk-39090-322",
+        "status": "operational",
+        "uptime": 127,
+        "utilization": 0.725,
+        "diskUsage": 3100,
+        "capacity": 6000,
+        "ram": 24
+      }
+    ]
+  },
+  "mudavar": {
+    "remote": false,
+    "servers": [
+      {
+        "name": "Server 1",
+        "id": "29sk-39090-321",
+        "status": "operational",
+        "uptime": 127,
+        "utilization": 0.78,
+        "diskUsage": 523,
+        "capacity": 3000,
+        "ram": 12
+      },
+      {
+        "name": "Server 2",
+        "id": "29sk-39091-023",
+        "status": "operational",
+        "uptime": 25,
+        "utilization": 0.67,
+        "diskUsage": 2600,
+        "capacity": 3000,
+        "ram": 12
+      }
+    ]
+  },
+  "muraba": {
+    "remote": false,
+    "servers": [
+      {
+        "name": "Server 3",
+        "id": "29sk-39083-327",
+        "status": "down",
+        "uptime": 0,
+        "utilization": 1,
+        "diskUsage": 3000,
+        "capacity": 3000,
+        "ram": 12
+      }
+    ]
+  }
+}

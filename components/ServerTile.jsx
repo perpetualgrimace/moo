@@ -1,23 +1,34 @@
 export default function ServerTile(props) {
-  const { label } = props;
+  const { label, remote, servers } = props;
 
   return (
     <div className="server-tile darkglass u-mb-md">
       <div className="server-tile-inner u-m-auto">
         <h3 className="server-tile-title u-font-lg u-mb-0">{label}</h3>
-        <p className="u-mb-auto">Remote</p>
+        <p className="u-mb-auto">{remote ? "Remote" : "Local"}</p>
 
         <ul className="server-tile-list u-m-auto">
-          <li className="server-tile-item">
-            <h3 className="server-label u-font-md u-mb-xs">AWS</h3>
-            <img
-              className="server-img"
-              src={`/icons/server.png`}
-              srcSet={`/icons/server.png 1x, /icons/server@2x.png 2x`}
-              alt=""
-              draggable="false"
-            />
-          </li>
+          {servers && servers.length ? (
+            servers.map((server) => (
+              <li className="server-tile-item">
+                <h3 className="server-label u-font-md u-mb-xs">
+                  {server.name}
+                </h3>
+                <img
+                  className="server-img"
+                  src={`/icons/server.png`}
+                  srcSet={`/icons/server.png 1x, /icons/server@2x.png 2x`}
+                  alt=""
+                  draggable="false"
+                />
+              </li>
+            ))
+          ) : (
+            // empty state
+            <h3 className="server-label u-font-md u-mb-xs">
+              No servers for {label} yet
+            </h3>
+          )}
         </ul>
       </div>
     </div>

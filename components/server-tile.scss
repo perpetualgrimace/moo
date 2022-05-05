@@ -14,5 +14,10 @@
 .server-tile-list {
 	display: flex;
 	flex: 1 0 auto;
-	align-items: center;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.server-tile-item:first-child:not(:only-child) {
+	padding-top: $sp-sm;
 }
