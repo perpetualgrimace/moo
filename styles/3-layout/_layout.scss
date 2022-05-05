@@ -6,12 +6,12 @@
 	max-width: 1400px;
 	margin-left: auto;
 	margin-right: auto;
-	padding-left: 1rem;
-	padding-right: 1rem;
+	padding-left: $sp-md;
+	padding-right: $sp-md;
 
   @media (min-width: 900px) {
-    padding-left: 2rem;
-    padding-right: 2rem;
+    padding-left: $sp-lg;
+    padding-right: $sp-lg;
   }
 }
 
@@ -114,4 +114,33 @@
 
 .servers-wrapper {
 	margin-top: -$sp-sm;
+}
+
+$server-grid-gutter: 5vw;
+$server-arrow-width: 0.75rem;
+
+.servers-grid {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: $server-grid-gutter;
+
+	.server-tile:not(:last-child):before,
+	.server-tile:not(:last-child):after {
+		@include absolute-vertical-center;
+		content: '';
+		display: block;
+	}
+	.server-tile:not(:last-child):before {
+		border-bottom: 4px solid $light-2;
+		width: calc(#{$server-grid-gutter} - #{$server-arrow-width});
+		left: 100%;
+	}
+	.server-tile:not(:last-child):after {
+		border-top: $server-arrow-width / 2 solid transparent;
+		border-bottom: $server-arrow-width / 2 solid transparent;
+		border-left: $server-arrow-width solid $light-2;
+		width: 0;
+		height: 0;
+		right: -$server-grid-gutter;
+	}
 }
