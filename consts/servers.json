@@ -1,5 +1,5 @@
 {
-  "muthalath": {
+  "Muthalath": {
     "remote": true,
     "servers": [
       {
@@ -14,14 +14,14 @@
       }
     ]
   },
-  "mudavar": {
+  "Mudavar": {
     "remote": false,
     "servers": [
       {
         "name": "Server 1",
         "id": "29sk-39090-321",
         "status": "operational",
-        "uptime": 127,
+        "uptime": 1270,
         "utilization": 0.78,
         "diskUsage": 523,
         "capacity": 3000,
@@ -39,7 +39,7 @@
       }
     ]
   },
-  "muraba": {
+  "Muraba": {
     "remote": false,
     "servers": [
       {

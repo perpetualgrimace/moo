@@ -1,7 +1,5 @@
-import CloudIcon from "components/icons/CloudIcon";
-import ServerIcon from "components/icons/ServerIcon";
-
-import StatusIcon from "components/StatusIcon";
+import ServerLocation from "/components/ServerLocation";
+import StatusIcon from "/components/StatusIcon";
 
 export default function ServerTile(props) {
   const { label, remote, servers, onClick, isSelected } = props;
@@ -15,22 +13,12 @@ export default function ServerTile(props) {
       >
         <div className="server-tile-inner u-m-auto">
           <h3 className="server-tile-title u-font-lg u-mb-0">{label}</h3>
-          <p className="server-tile-status u-mb-auto">
-            {remote ? (
-              <>
-                <CloudIcon /> Remote
-              </>
-            ) : (
-              <>
-                <ServerIcon /> Local
-              </>
-            )}
-          </p>
+          <ServerLocation remote={remote} />
 
           <ul className="server-tile-list u-m-auto">
             {servers && servers.length ? (
               servers.map((server) => (
-                <li className="server-tile-item">
+                <li className="server-tile-item" key={server.name}>
                   <h3 className="server-label u-font-md u-mb-xs">
                     {server.name} &nbsp;
                     <StatusIcon status={server.status} />

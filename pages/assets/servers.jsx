@@ -2,13 +2,20 @@ import { useState } from "react";
 
 import servers from "/consts/servers.json";
 
+import constructSummaryStatsObject from "/functions/constructSummaryStatsObject";
+
 import DefaultLayout from "/components/DefaultLayout";
 import ServerTile from "/components/ServerTile";
+import ServerCard from "/components/ServerCard";
 
 export default function Servers() {
-  const { muthalath, mudavar, muraba } = servers;
+  const { Muthalath, Mudavar, Muraba } = servers;
 
-  const [currServer, setCurrServer] = useState("Mudavar");
+  const [currServer, setCurrServer] = useState("Muthalath");
+
+  const summary = constructSummaryStatsObject(
+    servers[[currServer]].servers
+  );
 
   return (
     <DefaultLayout title="Servers" slug="servers">
@@ -17,24 +24,33 @@ export default function Servers() {
       <div className="servers-grid">
         <ServerTile
           label="Muthalath"
-          remote={muthalath.remote}
-          servers={muthalath.servers}
+          remote={Muthalath.remote}
+          servers={Muthalath.servers}
           isSelected={currServer === "Muthalath"}
           onClick={() => setCurrServer("Muthalath")}
         />
         <ServerTile
           label="Mudavar"
-          remote={mudavar.remote}
-          servers={mudavar.servers}
+          remote={Mudavar.remote}
+          servers={Mudavar.servers}
           isSelected={currServer === "Mudavar"}
           onClick={() => setCurrServer("Mudavar")}
         />
         <ServerTile
           label="Muraba"
-          remote={muraba.remote}
-          servers={muraba.servers}
+          remote={Muraba.remote}
+          servers={Muraba.servers}
           isSelected={currServer === "Muraba"}
           onClick={() => setCurrServer("Muraba")}
+        />
+      </div>
+
+      <div className="server-details tooltip">
+        <ServerCard
+          label={currServer}
+          remote={servers[[currServer]].remote}
+          servers={servers[[currServer]].servers}
+          summary={summary}
         />
       </div>
     </DefaultLayout>
