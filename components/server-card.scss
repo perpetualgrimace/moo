@@ -5,11 +5,17 @@
 }
 
 .server-card-col {
-  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 50%;
   padding: 0 $sp-lg;
 
   &:not(:first-child) {
     border-left: 1px solid $dark-1;
+
+    h3 {
+      margin-top: 0.375em; // magic number to align heading baseline
+    }
   }
 }
 

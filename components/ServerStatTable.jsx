@@ -17,7 +17,7 @@ export default function ServerStatTable(props) {
   } = props.server;
 
   return (
-    <table className="server-card-table u-font-md">
+    <table className="server-stat-table u-font-md">
       {serverCount ? (
         <tr>
           <th>Servers:</th>
@@ -43,10 +43,10 @@ export default function ServerStatTable(props) {
       </tr>
 
       <tr>
-        <th>Capacity:</th>
-        <td>
+        <th className="capacity-cell">Capacity:</th>
+        <td className="capacity-cell">
           {gbToTb(diskUsage)} / {gbToTb(capacity)}
-          <span className="capacity-percentage u-font-xxs">
+          <span className="capacity-percentage u-font-xs">
             ({toPercentage((capacity - diskUsage) / capacity)} available)
           </span>
         </td>
