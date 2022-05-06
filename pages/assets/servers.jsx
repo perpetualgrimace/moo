@@ -21,7 +21,7 @@ export default function Servers() {
     <DefaultLayout title="Servers" slug="servers">
       <h2 className="u-mt-0">Server flow</h2>
 
-      <div className="servers-grid">
+      <div className="servers-grid u-mb-lg">
         <ServerTile
           label="Muthalath"
           remote={Muthalath.remote}
@@ -45,7 +45,7 @@ export default function Servers() {
         />
       </div>
 
-      <div className="server-details tooltip">
+      <div className={`server-details tooltip ${currServer}-is-selected`}>
         <ServerCard
           label={currServer}
           remote={servers[[currServer]].remote}
