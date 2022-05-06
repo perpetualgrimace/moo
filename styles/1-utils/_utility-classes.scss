@@ -39,10 +39,10 @@
 .u-mr-0  { margin-right: 0;       }
 .u-mr-xs { margin-right: $sp-xs;  }
 .u-mr-sm { margin-right: $sp-sm;  }
-.u-mr-md { margin-right: $sp-md   }
-.u-mr-lg { margin-right: $sp-xl   }
+.u-mr-md { margin-right: $sp-md;  }
+.u-mr-lg { margin-right: $sp-xl;  }
 
-.u-m-auto { margin: auto; }
+.u-m-auto  { margin: auto; }
 .u-mt-auto { margin-top: auto; }
 .u-mb-auto { margin-bottom: auto; }
 .u-mh-auto {
@@ -53,3 +53,5 @@
 	margin-top: auto;
 	margin-bottom: auto;
 }
+
+.u-pb-xl { padding-bottom: $sp-xl; }

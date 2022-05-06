@@ -134,6 +134,7 @@ $server-arrow-width: 0.75rem;
 		border-bottom: 4px solid $light-2;
 		width: calc(#{$server-grid-gutter} - #{$server-arrow-width});
 		left: 100%;
+		z-index: -1;
 	}
 	.server-tile:not(:last-child):after {
 		border-top: $server-arrow-width / 2 solid transparent;

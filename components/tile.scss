@@ -52,7 +52,6 @@
 }
 
 .darkglass.tile {
-  z-index: 1; // prevent gradient from disappearing on hover in Safari
   transition: border-color 0.2s ease-out;
 }
 
@@ -79,11 +78,9 @@
 .darkglass.tile:focus {
   border-color: rgba($white, 0.425);
   box-shadow: 0 1px 14px 0 rgba($white, 0.333);
-  backdrop-filter: blur(
-    1px
-  ); // transform + background blur makes inner content blurry
+  backdrop-filter: blur(1px); // transform + background blur makes inner content blurry
 
-  &:after {
+  &:not([aria-pressed="true"]):after {
     opacity: 1;
   }
 }

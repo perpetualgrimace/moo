@@ -15,7 +15,7 @@
 
   &.is-warning {
     background-color: $sun-dark;
-    border: 1px solid $sun-darker;
+    border: 1px solid $sun-light;
   }
 
   svg {
@@ -25,5 +25,22 @@
     path {
       fill: currentColor;
     }
+  }
+}
+
+// active server tile button
+[aria-pressed="true"] .status-icon {
+  border-color: $spring-darker;
+
+  &.is-down {
+    border-color: $magenta-darker;
+  }
+
+  &.is-warning {
+    border-color: $sun-darker;
+  }
+
+  path {
+    fill: $white;
   }
 }

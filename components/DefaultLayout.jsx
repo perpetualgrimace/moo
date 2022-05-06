@@ -29,7 +29,9 @@ export default function DefaultLayout(props) {
           parentTitle={parentTitle}
         />
 
-        <div className={`${slug}-wrapper wrapper`}>{children}</div>
+        <div className={`${slug}-wrapper wrapper u-pb-xl`}>
+          {children}
+        </div>
       </main>
 
       <SpaceBG />
