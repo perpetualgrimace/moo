@@ -15,7 +15,7 @@ export default function ServerCard(props) {
 
       {servers && servers.length ? (
         servers.map((server) => (
-          <div className="server-card-col">
+          <div className="server-card-col" key={server.id}>
             <h3 className="server-card-heading u-font-lg u-mb-0">
               {server.name}
             </h3>
