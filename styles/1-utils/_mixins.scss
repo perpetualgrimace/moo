@@ -90,9 +90,31 @@
 }
 
 //////////////////////////////////
-// SHADOWS
+// EFFECTS
 //////////////////////////////////
 
 @mixin box-shadow {
 	box-shadow: 0 1px 12px $shadow;
+}
+
+@mixin fancy-outline(
+	$offset: 1px,
+	$color: $prism-transparent,
+	$radius: $radius-md
+) {
+	content: "";
+  display: block;
+  position: absolute;
+  top: -$offset;
+  right: -$offset;
+  bottom: -$offset;
+  left: -$offset; // behind border
+  width: calc(100% + #{$offset * 2});
+  height: calc(100% + #{$offset * 2});
+  background-image: $color;
+  border-radius: $radius;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.2s ease-out;
+  transition-property: opacity, box-shadow, border-color;
 }
