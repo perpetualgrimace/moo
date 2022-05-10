@@ -22,6 +22,12 @@
 	transform: translateY(-50%);
 }
 
+@mixin absolute-horizontal-center {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+}
+
 //////////////////////////////////
 // TYPOGRAPHY
 //////////////////////////////////
