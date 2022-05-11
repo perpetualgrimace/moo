@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import servers from "/consts/servers.json";
+import servers from "/data/servers.json";
 
 import constructSummaryStatsObject from "/functions/constructSummaryStatsObject";
 
