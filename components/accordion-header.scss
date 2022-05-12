@@ -1,0 +1,95 @@
+.accordion-header {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  // button overrides
+  padding: 0.325rem 1.25rem 0.325rem 1.75rem;
+  border-radius: 0;
+
+  &:after {
+    border-radius: 2px;
+  }
+
+  // active state
+  &[aria-pressed="true"] {
+    margin-top: 2px;
+
+    .accordion-header-title {
+      color: $dark-2;
+    }
+
+    .accordion-header-icon path {
+      fill: currentColor;
+    }
+
+    .accordion-header-meta-label {
+      color: $dark-2;
+    }
+  }
+
+  // inactive state
+  &:not([aria-pressed="true"]) .accordion-header-icon svg {
+    transform: translateX(2px) rotate(-90deg);
+  }
+  &:not([aria-pressed="true"]):hover .accordion-header-icon path,
+  &:not([aria-pressed="true"]):focus .accordion-header-icon path {
+    fill: $white;
+  }
+}
+
+// round the top corners
+.accordion-panel:first-of-type .accordion-header {
+  border-top-left-radius: $radius-md;
+  border-top-right-radius: $radius-md;
+
+  &:after {
+    border-top-left-radius: $radius-lg;
+    border-top-right-radius: $radius-lg;
+  }
+}
+
+// round the bottom corners, but not when open
+.accordion-panel:last-of-type .accordion-header:not([aria-pressed="true"]) {
+  border-bottom-left-radius: $radius-md;
+  border-bottom-right-radius: $radius-md;
+
+  &:after {
+    border-bottom-left-radius: $radius-lg;
+    border-bottom-right-radius: $radius-lg;
+  }
+}
+
+.accordion-header-title {
+  margin-right: auto;
+}
+
+.accordion-header-icon {
+  position: absolute;
+  left: 0.25em;
+  margin-top: -1px;
+
+  svg {
+    width: 1em;
+    height: auto;
+    transition: transform 0.2s ease-out;
+  }
+}
+
+.accordion-header-meta {
+  display: flex;
+  @include body-text;
+  text-transform: none;
+
+  &:not(:last-child) {
+    margin-right: $sp-lg;
+  }
+}
+
+.accordion-header-meta-label {
+  margin-right: $sp-xxs;
+  color: $light-1;
+}
+
+.accordion-header-meta-value {
+  font-weight: $bold-weight;
+}

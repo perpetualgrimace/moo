@@ -16,6 +16,7 @@
 
 .u-title     { @include title-text;   }
 .u-heading   { @include heading-text; }
+.u-subhead   { @include subhead-text; }
 
 .u-font-xxxl { @include font-xxxl; }
 .u-font-xxl  { @include font-xxl;  }

@@ -88,11 +88,22 @@ export default function Servers() {
               key={mart.id}
               headingLabel={mart.name}
               isOpen={openPanelId === mart.id}
-              onClick={() => setOpenPanelId(mart.id)}
+              onClick={() =>
+                setOpenPanelId(mart.id !== openPanelId ? mart.id : false)
+              }
+              meta={[
+                {
+                  label: "Created",
+                  value: mart.created,
+                },
+                {
+                  label: "Quality",
+                  value: mart.quality.overall,
+                },
+              ]}
             >
               <h3 className="u-font-sm">description</h3>
               {mart.description}
-
               <h3 className="u-font-sm">tables included</h3>
               <ul>
                 {mart.tables.map((table) => (

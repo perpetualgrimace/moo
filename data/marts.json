@@ -74,7 +74,7 @@
     "created": "Nov 3, 2022",
     "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "quality": {
-      "overall": 3.0,
+      "overall": 3.1,
       "completeness": 3.0,
       "uniqueness": 2.5,
       "timeliness": 4.0,

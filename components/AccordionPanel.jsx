@@ -1,11 +1,11 @@
 import AccordionHeader from "/components/AccordionHeader";
 
 export default function AccordionPanel(props) {
-  const { isOpen, onClick, headingLabel, children } = props;
+  const { isOpen, onClick, headingLabel, meta, children } = props;
 
   return (
     <div className="accordion-panel">
-      <AccordionHeader onClick={onClick} isOpen={isOpen}>
+      <AccordionHeader onClick={onClick} isOpen={isOpen} meta={meta}>
         {headingLabel || "missing `headingLabel` prop in AccordionPanel"}
       </AccordionHeader>
       <div className="accordion-panel-inner">{children}</div>
