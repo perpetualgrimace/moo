@@ -8,6 +8,8 @@ import DefaultLayout from "/components/DefaultLayout";
 import Button from "/components/Button";
 import ButtonGroup from "/components/ButtonGroup";
 import Select from "/components/Select";
+import Accordion from "/components/Accordion";
+import AccordionPanel from "/components/AccordionPanel";
 
 export default function Servers() {
   const [view, setView] = useState("lake");
@@ -26,6 +28,8 @@ export default function Servers() {
   useEffect(() => {
     console.log("Eventually sorting by: ", sortBy);
   }, [sortBy]);
+
+  const [openPanelId, setOpenPanelId] = useState(false);
 
   return (
     <DefaultLayout title="Data" slug="data">
@@ -78,11 +82,14 @@ export default function Servers() {
           </tbody>
         </table>
       ) : (
-        <ul>
+        <Accordion>
           {marts.map((mart) => (
-            <li key={mart.id}>
-              <h2>{mart.name}</h2>
-
+            <AccordionPanel
+              key={mart.id}
+              headingLabel={mart.name}
+              isOpen={openPanelId === mart.id}
+              onClick={() => setOpenPanelId(mart.id)}
+            >
               <h3 className="u-font-sm">description</h3>
               {mart.description}
 
@@ -96,9 +103,9 @@ export default function Servers() {
                   </li>
                 ))}
               </ul>
-            </li>
+            </AccordionPanel>
           ))}
-        </ul>
+        </Accordion>
       )}
     </DefaultLayout>
   );
