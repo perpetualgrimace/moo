@@ -145,3 +145,17 @@ $server-arrow-width: 0.75rem;
 		right: -$server-grid-gutter;
 	}
 }
+
+.controls {
+	height: 2rem;
+	display: flex;
+	align-items: stretch;
+
+	& > :first-child {
+		margin-right: auto;
+	}
+
+	& * {
+		height: 100%;
+	}
+}

@@ -3,7 +3,7 @@
   align-items: center;
   width: 100%;
   // button overrides
-  padding: 0.325rem 1.25rem 0.325rem 1.75rem;
+  padding: 0.325rem 1.25rem 0.325rem $sp-lg;
   border-radius: 0;
 
   &:after {
@@ -22,18 +22,24 @@
       fill: currentColor;
     }
 
-    .accordion-header-meta-label {
+    .stat-label {
       color: $dark-2;
+    }
+    .stat-value {
+      color: $black;
     }
   }
 
   // inactive state
-  &:not([aria-pressed="true"]) .accordion-header-icon svg {
-    transform: translateX(2px) rotate(-90deg);
-  }
-  &:not([aria-pressed="true"]):hover .accordion-header-icon path,
-  &:not([aria-pressed="true"]):focus .accordion-header-icon path {
-    fill: $white;
+  &:not([aria-pressed="true"]) {
+    .accordion-header-icon svg {
+      transform: translateX(2px) rotate(-90deg);
+    }
+
+    &:hover .accordion-header-icon path,
+    &:focus .accordion-header-icon path {
+      fill: $white;
+    }
   }
 }
 
@@ -73,23 +79,4 @@
     height: auto;
     transition: transform 0.2s ease-out;
   }
-}
-
-.accordion-header-meta {
-  display: flex;
-  @include body-text;
-  text-transform: none;
-
-  &:not(:last-child) {
-    margin-right: $sp-lg;
-  }
-}
-
-.accordion-header-meta-label {
-  margin-right: $sp-xxs;
-  color: $light-1;
-}
-
-.accordion-header-meta-value {
-  font-weight: $bold-weight;
 }

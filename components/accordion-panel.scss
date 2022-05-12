@@ -1,0 +1,33 @@
+.accordion-panel-inner {
+  padding: $sp-lg 1.25rem $sp-lg 0;
+  background-color: $dark-3;
+  border-left: 1px solid $dark-1;
+  border-right: 1px solid $dark-1;
+
+  @media (max-width: 499px) {
+    .accordion-panel-column:not(:last-of-type) {
+      margin-bottom: $sp-lg;
+    }
+  }
+
+  @media (min-width: 500px) {
+    display: grid;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+    grid-gap: $sp-lg;
+
+    .accordion-panel-column {
+      padding-left: $sp-lg;
+    }
+
+    .accordion-panel-column:not(:first-of-type) {
+      border-left: 1px solid $dark-1;
+    }
+  }
+}
+
+.accordion-panel:last-of-type .accordion-panel-inner {
+  border-bottom-left-radius: $radius-lg;
+  border-bottom-right-radius: $radius-lg;
+  border-bottom: 1px solid $dark-1;
+}

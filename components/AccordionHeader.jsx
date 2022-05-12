@@ -1,5 +1,7 @@
 import ChevronDownIcon from "/components/icons/ChevronDownIcon";
 
+import Stat from "/components/Stat";
+
 export default function AccordionHeader(props) {
   const { children, meta, onClick, isOpen } = props;
 
@@ -23,13 +25,11 @@ export default function AccordionHeader(props) {
 
       {meta &&
         meta.map((stat) => (
-          <dl
-            className="accordion-header-meta u-font-sm"
+          <Stat
             key={`${children}-${stat.label}-stat`}
-          >
-            <dt className="accordion-header-meta-label">{stat.label}</dt>
-            <dd className="accordion-header-meta-value">{stat.value}</dd>
-          </dl>
+            label={stat.label}
+            value={stat.value}
+          />
         ))}
     </button>
   );

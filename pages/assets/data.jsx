@@ -4,14 +4,28 @@ import Link from "next/link";
 import marts from "/data/marts.json";
 import tables from "/data/tables.json";
 
+import uppercaseFirst from "/functions/uppercaseFirst";
+
 import DefaultLayout from "/components/DefaultLayout";
 import Button from "/components/Button";
 import ButtonGroup from "/components/ButtonGroup";
 import Select from "/components/Select";
+import Stat from "/components/Stat";
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
 
 export default function Servers() {
+  const metaKeys = ["source"];
+
+  const qualityKeys = [
+    "completeness",
+    "uniqueness",
+    "timeliness",
+    "validity",
+    "accuracy",
+    "consistency",
+  ];
+
   const [view, setView] = useState("lake");
 
   const [sortBy, setSortBy] = useState("one");
@@ -33,28 +47,32 @@ export default function Servers() {
 
   return (
     <DefaultLayout title="Data" slug="data">
-      <ButtonGroup toggle label="hi">
-        <Button
-          aria-pressed={view === "lake"}
-          onClick={() => setView("lake")}
-        >
-          Data lake
-        </Button>
-        <Button
-          aria-pressed={view === "marts"}
-          onClick={() => setView("marts")}
-        >
-          Data marts
-        </Button>
-      </ButtonGroup>
+      <div className="controls u-mb-lg">
+        <ButtonGroup toggle label="select view">
+          <Button
+            aria-pressed={view === "lake"}
+            onClick={() => setView("lake")}
+            fontSize="md"
+          >
+            Data lake
+          </Button>
+          <Button
+            aria-pressed={view === "marts"}
+            onClick={() => setView("marts")}
+            fontSize="md"
+          >
+            Data marts
+          </Button>
+        </ButtonGroup>
 
-      <Select
-        label="Sort by"
-        options={options}
-        selection={sortBy}
-        onChange={handleSortByChange}
-        inline
-      />
+        <Select
+          label="Sort by"
+          options={options}
+          selection={sortBy}
+          onChange={handleSortByChange}
+          inline
+        />
+      </div>
 
       {view === "lake" ? (
         <table>
@@ -102,18 +120,46 @@ export default function Servers() {
                 },
               ]}
             >
-              <h3 className="u-font-sm">description</h3>
-              {mart.description}
-              <h3 className="u-font-sm">tables included</h3>
-              <ul>
-                {mart.tables.map((table) => (
-                  <li key={table.id}>
-                    <Link href={`/assets/data/table/${table.id}`}>
-                      <a>{table.name}</a>
-                    </Link>
-                  </li>
+              <div className="accordion-panel-column">
+                <h3 className="u-font-md">Description</h3>
+                <p className="u-font-xs">{mart.description}</p>
+              </div>
+
+              <div className="accordion-panel-column">
+                <h3 className="u-font-md">Metadata</h3>
+
+                {metaKeys.map((meta) => (
+                  <Stat
+                    key={`${mart.id}-${meta}`}
+                    label={uppercaseFirst(meta)}
+                    value={mart[[meta]]}
+                  />
                 ))}
-              </ul>
+              </div>
+
+              <div className="accordion-panel-column">
+                <h3 className="u-font-md">Tables included</h3>
+                <ul>
+                  {mart.tables.map((table) => (
+                    <li key={table.id}>
+                      <Link href={`/assets/data/table/${table.id}`}>
+                        <a>{table.name}</a>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div className="accordion-panel-column">
+                <h3 className="u-font-md">Quality breakdown</h3>
+                {qualityKeys.map((quality) => (
+                  <Stat
+                    key={`${mart.id}-${quality}`}
+                    label={uppercaseFirst(quality)}
+                    value={mart.quality[[quality]]}
+                  />
+                ))}
+              </div>
             </AccordionPanel>
           ))}
         </Accordion>
