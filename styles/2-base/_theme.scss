@@ -23,8 +23,8 @@ h1, h2, h3, h4, h5, h6,
 }
 
 a:focus, button:focus, [tabindex]:focus {
-	outline: 3px dotted $sky-light;
-	outline-offset: 7px;
+	outline: 3px dotted rgba($sky-light, 0.5);
+	outline-offset: 3px;
 }
 
 ::selection {
