@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import marts from "/data/marts.json";
 import tables from "/data/tables.json";
@@ -11,7 +11,7 @@ import Select from "/components/Select";
 import DataMartList from "../../components/DataMartList";
 import DataLakeTable from "../../components/DataLakeTable";
 
-export default function Servers() {
+export default function Data() {
   const lakeSortOptions = [
     { value: "name", label: "Name" },
     { value: "created", label: "Date created" },
@@ -24,7 +24,7 @@ export default function Servers() {
   ];
 
   const [view, setView] = useState("lake");
-  const [sortBy, setSortBy] = useState("one");
+  const [sortBy, setSortBy] = useState("name");
 
   const options = view === "lake" ? lakeSortOptions : martSortOptions;
 
