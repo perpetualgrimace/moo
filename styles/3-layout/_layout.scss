@@ -159,3 +159,8 @@ $server-arrow-width: 0.75rem;
 		height: 100%;
 	}
 }
+
+.hero + .wrapper > .controls:first-child {
+	margin-top: -$sp-xl;
+	z-index: 1; // above hero
+}
