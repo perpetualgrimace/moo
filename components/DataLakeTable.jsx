@@ -1,7 +1,10 @@
 import Link from "next/link";
+import sortArrayByObjKey from "functions/sortArrayByObjKey";
 
 export default function DataLakeTable(props) {
-  const { data } = props;
+  const { data, sortKey } = props;
+
+  const sortedData = sortArrayByObjKey(data, sortKey);
 
   return (
     <table className="data-lake-table">
@@ -14,7 +17,7 @@ export default function DataLakeTable(props) {
         </tr>
       </thead>
       <tbody>
-        {data.map((table) => (
+        {sortedData.map((table) => (
           <tr className="data-lake-tr" key={table.id}>
             <td className="data-lake-td">
               <Link href={`/assets/data/table/${table.id}`}>

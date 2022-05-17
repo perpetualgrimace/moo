@@ -12,22 +12,25 @@ import DataMartList from "../../components/DataMartList";
 import DataLakeTable from "../../components/DataLakeTable";
 
 export default function Servers() {
-  const [view, setView] = useState("lake");
-
-  const [sortBy, setSortBy] = useState("one");
-  const options = [
+  const lakeSortOptions = [
     { value: "name", label: "Name" },
-    { value: "creationDate", label: "Date created" },
+    { value: "created", label: "Date created" },
+    { value: "size", label: "Size" },
+  ];
+  const martSortOptions = [
+    { value: "name", label: "Name" },
+    { value: "created", label: "Date created" },
     { value: "quality", label: "Quality" },
   ];
+
+  const [view, setView] = useState("lake");
+  const [sortBy, setSortBy] = useState("one");
+
+  const options = view === "lake" ? lakeSortOptions : martSortOptions;
 
   function handleSortByChange(event) {
     setSortBy(event.target.value);
   }
-
-  useEffect(() => {
-    console.log("Eventually sorting by: ", sortBy);
-  }, [sortBy]);
 
   return (
     <DefaultLayout title="Data" slug="data">
@@ -59,9 +62,9 @@ export default function Servers() {
       </div>
 
       {view === "lake" ? (
-        <DataLakeTable data={tables} />
+        <DataLakeTable data={tables} sortKey={sortBy} />
       ) : (
-        <DataMartList data={marts} />
+        <DataMartList data={marts} sortKey={sortBy} />
       )}
     </DefaultLayout>
   );

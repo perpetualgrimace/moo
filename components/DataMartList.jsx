@@ -2,6 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 
 import uppercaseFirst from "/functions/uppercaseFirst";
+import sortArrayByObjKey from "functions/sortArrayByObjKey";
 
 import Stat from "/components/Stat";
 import Accordion from "/components/Accordion";
@@ -19,13 +20,14 @@ export default function DataMartList(props) {
     "consistency",
   ];
 
-  const { data } = props;
+  const { data, sortKey } = props;
+  const sortedData = sortArrayByObjKey(data, sortKey);
 
   const [openPanelId, setOpenPanelId] = useState(false);
 
   return (
     <Accordion>
-      {data.map((mart) => (
+      {sortedData.map((mart) => (
         <AccordionPanel
           key={mart.id}
           headingLabel={mart.name}
