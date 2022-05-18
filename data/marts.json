@@ -3,7 +3,7 @@
     "id": "data-mart-1",
     "name": "Data mart 1",
     "source": "source 1",
-    "created": "Jan 8, 2022",
+    "created": "2022-01-08",
     "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "quality": {
       "overall": 4.2,
@@ -26,7 +26,7 @@
     "id": "data-mart-2",
     "name": "Data mart 2",
     "source": "source 2",
-    "created": "Apr 6, 2022",
+    "created": "2022-04-06",
     "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "quality": {
       "overall": 4.2,
@@ -47,7 +47,7 @@
     "id": "data-mart-3",
     "name": "Data mart 3",
     "source": "source 3",
-    "created": "Dec 8, 2022",
+    "created": "2022-12-08",
     "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "quality": {
       "overall": 3.2,
@@ -71,7 +71,7 @@
     "id": "data-mart-4",
     "name": "Data mart 4",
     "source": "source 4",
-    "created": "Nov 3, 2022",
+    "created": "2022-11-03",
     "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "quality": {
       "overall": 3.1,

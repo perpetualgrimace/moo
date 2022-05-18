@@ -4,7 +4,7 @@
     "id": "GVS62YAC6FL",
     "mart": "Data mart 1",
     "size": "6 mb",
-    "created": "Jan 12, 2022",
+    "created": "2022-01-12",
     "data": {
       "country": "Abha",
       "name": "Abdullah",
@@ -25,7 +25,7 @@
     "id": "ETE09XLQ5TI",
     "mart": "Data mart 1",
     "size": "2 mb",
-    "created": "Apr 6, 2022",
+    "created": "2022-04-06",
     "data": {
       "country": "Al Bahah",
       "name": "Muhammad",
@@ -46,7 +46,7 @@
     "id": "QFN79IOC5LN",
     "mart": "Data mart 1",
     "size": "15 mb",
-    "created": "Dec 8, 2022",
+    "created": "2022-12-08",
     "data": {
       "country": "Abha",
       "name": "Ahmad",
@@ -67,7 +67,7 @@
     "id": "HWJ69XBG3WB",
     "mart": "Data mart 1",
     "size": "7 mb",
-    "created": "Nov 3, 2022",
+    "created": "2022-11-03",
     "data": {
       "country": "Dammam",
       "name": "Ibrahim",
@@ -88,7 +88,7 @@
     "id": "QUB36RKA0PS",
     "mart": "Data mart 1",
     "size": "5 mb",
-    "created": "Jan 8, 2022",
+    "created": "2022-01-08",
     "data": {
       "country": "Hautat Sudair",
       "name": "Ali",
@@ -109,7 +109,7 @@
     "id": "OAA50YWJ5WX",
     "mart": "Data mart 2",
     "size": "3 mb",
-    "created": "Apr 6, 2022",
+    "created": "2022-04-06",
     "data": {
       "country": "Ha'il",
       "name": "Saad",
@@ -130,7 +130,7 @@
     "id": "DMG70HGL5QK",
     "mart": "Data mart 2",
     "size": "25 mb",
-    "created": "Dec 8, 2022",
+    "created": "2022-12-08",
     "data": {
       "country": "Jeddah",
       "name": "Fatemah",
@@ -151,7 +151,7 @@
     "id": "ATF18OBL2GS",
     "mart": "Data mart 2",
     "size": "15 mb",
-    "created": "Nov 13, 2022",
+    "created": "2022-11-13",
     "data": {
       "country": "Khamis Mushait",
       "name": "Maryam",
@@ -172,7 +172,7 @@
     "id": "JOT67WJF4JJ",
     "mart": "Data mart 3",
     "size": "4 mb",
-    "created": "Jan 18, 2022",
+    "created": "2022-01-18",
     "data": {
       "country": "Mecca",
       "name": "Nura",
@@ -193,7 +193,7 @@
     "id": "BZG01PQT5ON",
     "mart": "Data mart 3",
     "size": "3 mb",
-    "created": "Apr 16, 2022",
+    "created": "2022-04-16",
     "data": {
       "country": "Najran",
       "name": "Layla",
@@ -214,7 +214,7 @@
     "id": "UFZ42BDP6SQ",
     "mart": "Data mart 3",
     "size": "2 mb",
-    "created": "Dec 18, 2022",
+    "created": "2022-12-18",
     "data": {
       "country": "Al-Omran",
       "name": "Ayasha",
@@ -235,7 +235,7 @@
     "id": "THY38NZU4YL",
     "mart": "Data mart 3",
     "size": "30 mb",
-    "created": "Nov 7, 2022",
+    "created": "2022-11-07",
     "data": {
       "country": "Qatif",
       "name": "Sarah",
@@ -256,7 +256,7 @@
     "id": "IFR81KEV5WN",
     "mart": "Data mart 3",
     "size": "3 mb",
-    "created": "Jan 3, 2022",
+    "created": "2022-01-03",
     "data": {
       "country": "Mecca",
       "name": "Maha",
@@ -277,7 +277,7 @@
     "id": "GQN15YUM5GD",
     "mart": "Data mart 4",
     "size": "10 mb",
-    "created": "Apr 4, 2022",
+    "created": "2022-04-04",
     "data": {
       "country": "Riyadh",
       "name": "Bader",
@@ -298,7 +298,7 @@
     "id": "JVW20TYP1KZ",
     "mart": "Data mart 4",
     "size": "12 mb",
-    "created": "Dec 9, 2022",
+    "created": "2022-12-09",
     "data": {
       "country": "Abha",
       "name": "Majed",
