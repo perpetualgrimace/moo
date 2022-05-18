@@ -1,6 +1,7 @@
 .navbar {
   background-color: $dark-3;
   background-color: rgba($dark-3, 0.9666);
+  z-index: 2;
 
   // fixed navbar on big screens
   // @media (min-width: 900px), (min-height: 900px) {
