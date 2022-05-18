@@ -22,7 +22,7 @@ export default function Engines() {
   }
 
   return (
-    <DefaultLayout title="Data" slug="data">
+    <DefaultLayout title="Engines" slug="engines">
       <div className="controls u-mb-lg">
         <Select
           label="Sort by"
