@@ -5,6 +5,8 @@
   border-right: 1px solid $dark-1;
 
   @media (max-width: 499px) {
+    padding-left: $sp-lg;
+
     .accordion-panel-column:not(:last-of-type) {
       margin-bottom: $sp-lg;
     }

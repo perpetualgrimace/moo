@@ -12,6 +12,7 @@ export default function Engagements() {
   const sortOptions = [
     { value: "name", label: "Name" },
     { value: "eta", label: "ETA" },
+    { value: "progress", label: "progress" },
   ];
 
   const [sortBy, setSortBy] = useState("one");

@@ -97,28 +97,7 @@
     "id": "engagement-4",
     "name": "Engagement 4",
     "eta": "2022-11-03",
-    "tasks": [
-      {
-        "id": "task-1",
-        "title": "Task 1 title",
-        "completionDate": "2021-02-13"
-      },
-      {
-        "id": "task-2",
-        "title": "Task 2 title",
-        "completionDate": "2021-06-07"
-      },
-      {
-        "id": "task-3",
-        "title": "Task 3 title",
-        "completionDate": null
-      },
-      {
-        "id": "task-4",
-        "title": "Task 4 title",
-        "completionDate": null
-      }
-    ],
+    "tasks": [],
     "description": "The purpose of this engagement is to lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   }
 ]

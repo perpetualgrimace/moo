@@ -5,6 +5,7 @@ import toPercentage from "functions/toPercentage";
 
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
+import TaskItem from "/components/TaskItem";
 
 function getCompletedTaskRatio(tasks) {
   const completedTasks = tasks.filter((task) => task.completionDate);
@@ -34,24 +35,44 @@ export default function EngagementsList(props) {
               engagement.id !== openPanelId ? engagement.id : false
             )
           }
-          meta={[
-            {
-              label: "ETA",
-              value: engagement.eta,
-            },
-            {
-              label: "Tasks",
-              value: getCompletedTaskRatio(engagement.tasks),
-            },
-            {
-              label: "Progress",
-              value: getCompletedTaskPercentage(engagement.tasks),
-            },
-          ]}
+          meta={
+            engagement.tasks && engagement.tasks.length
+              ? [
+                  {
+                    label: "ETA",
+                    value: engagement.eta,
+                  },
+                  {
+                    label: "Tasks",
+                    value: getCompletedTaskRatio(engagement.tasks),
+                  },
+                  {
+                    label: "Progress",
+                    value: getCompletedTaskPercentage(engagement.tasks),
+                  },
+                ]
+              : []
+          }
         >
           <div className="accordion-panel-column">
             <h3 className="u-font-md">Description</h3>
             <p className="u-font-xs">{engagement.description}</p>
+          </div>
+
+          <div className="accordion-panel-column">
+            <h3 className="u-font-md">Tasks</h3>
+
+            {engagement.tasks && engagement.tasks.length ? (
+              <ul className="task-list">
+                {engagement.tasks.map((task) => (
+                  <TaskItem completionDate={task.completionDate}>
+                    {task.title}
+                  </TaskItem>
+                ))}
+              </ul>
+            ) : (
+              <p>No tasks yet</p>
+            )}
           </div>
         </AccordionPanel>
       ))}
