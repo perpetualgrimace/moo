@@ -65,7 +65,10 @@ export default function EngagementsList(props) {
             {engagement.tasks && engagement.tasks.length ? (
               <ul className="task-list">
                 {engagement.tasks.map((task) => (
-                  <TaskItem completionDate={task.completionDate}>
+                  <TaskItem
+                    completionDate={task.completionDate}
+                    key={`${engagement.description}-${task.title}`}
+                  >
                     {task.title}
                   </TaskItem>
                 ))}
