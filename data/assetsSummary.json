@@ -17,9 +17,9 @@
     }
   ],
   "engineStats": [
-    { "label": "enginess", "value": 4 },
+    { "label": "engines", "value": 4 },
     {
-      "label": "average predictiveness",
+      "label": "average predictivenes",
       "value": 0.62,
       "format": "percentage"
     }

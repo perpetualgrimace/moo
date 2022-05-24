@@ -1,7 +1,6 @@
 import assetsSummary from "/data/assetsSummary";
 
 import DefaultLayout from "/components/DefaultLayout";
-import Tile from "/components/Tile";
 import AssetTile from "/components/AssetTile";
 
 export default function Assets() {

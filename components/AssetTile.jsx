@@ -10,7 +10,7 @@ function formatStat(stat) {
     return formattedStat;
     // of 5
   } else if (stat.format && stat.format === "of 5") {
-    formattedStat.value = `${stat.value} / 5`;
+    formattedStat.value = `${stat.value}/5`;
     return formattedStat;
     // remove the s
   } else if (parseInt(stat.value) === 1) {
