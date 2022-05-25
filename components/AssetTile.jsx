@@ -5,15 +5,18 @@ import toPercentage from "/functions/toPercentage";
 function formatStat(stat) {
   let formattedStat = { ...stat };
 
-  if (stat.format && stat.format === "percentage") {
+  // percentage
+  if (stat.label.includes("predictivenes")) {
     formattedStat.value = toPercentage(stat.value);
     return formattedStat;
-    // of 5
-  } else if (stat.format && stat.format === "of 5") {
+  }
+  // of 5
+  else if (stat.label.includes("quality")) {
     formattedStat.value = `${stat.value}/5`;
     return formattedStat;
-    // remove the s
-  } else if (parseInt(stat.value) === 1) {
+  }
+  // handle plural words
+  else if (parseInt(stat.value) === 1) {
     formattedStat.label = stat.label.slice(0, -1);
     return formattedStat;
   }

@@ -10,19 +10,11 @@
     { "label": "tables", "value": 291 },
     { "label": "data marts", "value": 4 },
     { "label": "sources", "value": 19 },
-    {
-      "label": "average data mart quality",
-      "value": 4.0,
-      "format": "of 5"
-    }
+    { "label": "average data mart quality", "value": 4.0 }
   ],
   "engineStats": [
     { "label": "engines", "value": 4 },
-    {
-      "label": "average predictivenes",
-      "value": 0.62,
-      "format": "percentage"
-    }
+    { "label": "average predictivenes", "value": 0.62 }
   ],
   "engagementStats": [
     { "label": "completed engagements", "value": 0 },
