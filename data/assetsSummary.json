@@ -14,7 +14,7 @@
   ],
   "engineStats": [
     { "label": "engines", "value": 4 },
-    { "label": "average predictivenes", "value": 0.62 }
+    { "label": "average predictiveness", "value": 0.62 }
   ],
   "engagementStats": [
     { "label": "completed engagements", "value": 0 },
