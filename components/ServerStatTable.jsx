@@ -1,5 +1,6 @@
+import moment from "moment";
+
 import uppercaseFirst from "/functions/uppercaseFirst";
-import formatTime from "/functions/formatTime";
 import gbToTb from "/functions/gbToTb";
 import toPercentage from "/functions/toPercentage";
 
@@ -9,7 +10,7 @@ export default function ServerStatTable(props) {
   const {
     serverCount,
     status,
-    uptime,
+    upSince,
     utilization,
     diskUsage,
     capacity,
@@ -33,10 +34,12 @@ export default function ServerStatTable(props) {
           </tr>
         )}
 
-        <tr>
-          <th>Uptime:</th>
-          <td>{formatTime(uptime)}</td>
-        </tr>
+        {upSince && (
+          <tr>
+            <th>Up since:</th>
+            <td>{moment(upSince).fromNow()}</td>
+          </tr>
+        )}
 
         <tr>
           <th>Utilization:</th>

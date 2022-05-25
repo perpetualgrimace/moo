@@ -1,4 +1,7 @@
 import { useState } from "react";
+import moment from "moment";
+
+import { dateFormat } from "/consts.js";
 
 import sortArrayByObjKey from "functions/sortArrayByObjKey";
 import toPercentage from "functions/toPercentage";
@@ -25,7 +28,7 @@ export default function EnginesList(props) {
           meta={[
             {
               label: "Created",
-              value: engine.created,
+              value: moment(engine.created).format(dateFormat),
             },
             {
               label: "Predictiveness",

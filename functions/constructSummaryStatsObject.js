@@ -2,7 +2,7 @@ import getServerStatAverage from "/functions/getServerStatAverage";
 import getServerStatSum from "/functions/getServerStatSum";
 
 export default function constructSummaryStatsObject(servers) {
-  const firstUptime = servers[0].uptime;
+  const firstUpDate = servers[0].upSince;
   const averageUtilization = getServerStatAverage(servers, "utilization");
   const totalDiskUsage = getServerStatSum(servers, "diskUsage");
   const totalCapacity = getServerStatSum(servers, "capacity");
@@ -10,7 +10,7 @@ export default function constructSummaryStatsObject(servers) {
 
   return {
     serverCount: servers.length,
-    uptime: firstUptime,
+    upSince: firstUpDate,
     utilization: averageUtilization,
     diskUsage: totalDiskUsage,
     capacity: totalCapacity,

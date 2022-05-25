@@ -1,7 +1,10 @@
 import { useState } from "react";
+import moment from "moment";
 
-import sortArrayByObjKey from "functions/sortArrayByObjKey";
-import toPercentage from "functions/toPercentage";
+import { dateFormat } from "/consts.js";
+
+import sortArrayByObjKey from "/functions/sortArrayByObjKey";
+import toPercentage from "/functions/toPercentage";
 
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
@@ -40,7 +43,8 @@ export default function EngagementsList(props) {
               ? [
                   {
                     label: "ETA",
-                    value: engagement.eta,
+                    value:
+                      moment(engagement.eta).format(dateFormat) || null,
                   },
                   {
                     label: "Tasks",
@@ -66,7 +70,10 @@ export default function EngagementsList(props) {
               <ul className="task-list">
                 {engagement.tasks.map((task) => (
                   <TaskItem
-                    completionDate={task.completionDate}
+                    completionDate={
+                      task.completionDate &&
+                      moment(task.completionDate).format(dateFormat)
+                    }
                     key={`${engagement.description}-${task.title}`}
                   >
                     {task.title}

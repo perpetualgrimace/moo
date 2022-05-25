@@ -1,3 +1,7 @@
+import moment from "moment";
+
+import { dateFormat } from "/consts.js";
+
 import Link from "next/link";
 import sortArrayByObjKey from "functions/sortArrayByObjKey";
 
@@ -24,7 +28,9 @@ export default function DataLakeTable(props) {
                 <a className="data-lake-link">{table.name}</a>
               </Link>
             </td>
-            <td className="data-lake-td">{table.created}</td>
+            <td className="data-lake-td">
+              {moment(table.created).format(dateFormat)}
+            </td>
             <td className="data-lake-td">{table.size}</td>
             <td className="data-lake-td">{table.mart}</td>
           </tr>

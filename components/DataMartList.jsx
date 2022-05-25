@@ -1,5 +1,8 @@
 import { useState } from "react";
 import Link from "next/link";
+import moment from "moment";
+
+import { dateFormat } from "/consts.js";
 
 import uppercaseFirst from "/functions/uppercaseFirst";
 import sortArrayByObjKey from "functions/sortArrayByObjKey";
@@ -38,7 +41,7 @@ export default function DataMartList(props) {
           meta={[
             {
               label: "Created",
-              value: mart.created,
+              value: moment(mart.created).format(dateFormat),
             },
             {
               label: "Quality",
