@@ -8,6 +8,7 @@ import toPercentage from "functions/toPercentage";
 
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
+import AccordionPanelColumn from "/components/AccordionPanelColumn";
 
 export default function EnginesList(props) {
   const { data, sortKey } = props;
@@ -36,10 +37,10 @@ export default function EnginesList(props) {
             },
           ]}
         >
-          <div className="accordion-panel-column">
+          <AccordionPanelColumn>
             <h3 className="u-font-md">Description</h3>
             <p className="u-font-xs">{engine.description}</p>
-          </div>
+          </AccordionPanelColumn>
         </AccordionPanel>
       ))}
     </Accordion>

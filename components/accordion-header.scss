@@ -1,5 +1,6 @@
 .accordion-header {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   width: 100%;
   // button overrides
@@ -41,6 +42,15 @@
       fill: $white;
     }
   }
+}
+
+.accordion-header-title {
+  padding-right: $sp-lg;
+}
+
+.accordion-header-meta {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 // round the top corners

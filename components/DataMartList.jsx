@@ -10,6 +10,7 @@ import sortArrayByObjKey from "functions/sortArrayByObjKey";
 import Stat from "/components/Stat";
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
+import AccordionPanelColumn from "/components/AccordionPanelColumn";
 
 export default function DataMartList(props) {
   const metaKeys = ["source"];
@@ -49,12 +50,12 @@ export default function DataMartList(props) {
             },
           ]}
         >
-          <div className="accordion-panel-column">
+          <AccordionPanelColumn>
             <h3 className="u-font-md">Description</h3>
             <p className="u-font-xs">{mart.description}</p>
-          </div>
+          </AccordionPanelColumn>
 
-          <div className="accordion-panel-column">
+          <AccordionPanelColumn>
             <h3 className="u-font-md">Metadata</h3>
 
             {metaKeys.map((meta) => (
@@ -64,9 +65,9 @@ export default function DataMartList(props) {
                 value={mart[[meta]]}
               />
             ))}
-          </div>
+          </AccordionPanelColumn>
 
-          <div className="accordion-panel-column">
+          <AccordionPanelColumn>
             <h3 className="u-font-md">Tables included</h3>
             <ul>
               {mart.tables.map((table) => (
@@ -77,9 +78,9 @@ export default function DataMartList(props) {
                 </li>
               ))}
             </ul>
-          </div>
+          </AccordionPanelColumn>
 
-          <div className="accordion-panel-column">
+          <AccordionPanelColumn>
             <h3 className="u-font-md">Quality breakdown</h3>
             {qualityKeys.map((quality) => (
               <Stat
@@ -88,7 +89,7 @@ export default function DataMartList(props) {
                 value={mart.quality[[quality]]}
               />
             ))}
-          </div>
+          </AccordionPanelColumn>
         </AccordionPanel>
       ))}
     </Accordion>

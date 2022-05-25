@@ -23,14 +23,17 @@ export default function AccordionHeader(props) {
         </span>
       </h2>
 
-      {meta &&
-        meta.map((stat) => (
-          <Stat
-            key={`${children}-${stat.label}-stat`}
-            label={stat.label}
-            value={stat.value}
-          />
-        ))}
+      {meta && (
+        <div className="accordion-header-meta">
+          {meta.map((stat) => (
+            <Stat
+              key={`${children}-${stat.label}-stat`}
+              label={stat.label}
+              value={stat.value}
+            />
+          ))}
+        </div>
+      )}
     </button>
   );
 }

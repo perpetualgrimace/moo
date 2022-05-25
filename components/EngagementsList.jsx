@@ -8,6 +8,7 @@ import toPercentage from "/functions/toPercentage";
 
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
+import AccordionPanelColumn from "/components/AccordionPanelColumn";
 import TaskItem from "/components/TaskItem";
 
 function getCompletedTaskRatio(tasks) {
@@ -58,12 +59,12 @@ export default function EngagementsList(props) {
               : []
           }
         >
-          <div className="accordion-panel-column">
+          <AccordionPanelColumn>
             <h3 className="u-font-md">Description</h3>
             <p className="u-font-xs">{engagement.description}</p>
-          </div>
+          </AccordionPanelColumn>
 
-          <div className="accordion-panel-column">
+          <AccordionPanelColumn>
             <h3 className="u-font-md">Tasks</h3>
 
             {engagement.tasks && engagement.tasks.length ? (
@@ -83,7 +84,7 @@ export default function EngagementsList(props) {
             ) : (
               <p>No tasks yet</p>
             )}
-          </div>
+          </AccordionPanelColumn>
         </AccordionPanel>
       ))}
     </Accordion>

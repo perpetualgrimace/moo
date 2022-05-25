@@ -10,10 +10,6 @@
 
   @media (max-width: 499px) {
     padding-left: $sp-lg;
-
-    .accordion-panel-column:not(:last-of-type) {
-      margin-bottom: $sp-lg;
-    }
   }
 
   @media (min-width: 500px) {
@@ -21,14 +17,6 @@
     grid-auto-columns: minmax(0, 1fr);
     grid-auto-flow: column;
     grid-gap: $sp-lg;
-
-    .accordion-panel-column {
-      padding-left: $sp-lg;
-    }
-
-    .accordion-panel-column:not(:first-of-type) {
-      border-left: 1px solid $dark-1;
-    }
   }
 }
 
