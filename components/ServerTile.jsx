@@ -29,6 +29,7 @@ export default function ServerTile(props) {
                     srcSet={`/icons/server.png 1x, /icons/server@2x.png 2x`}
                     alt=""
                     draggable="false"
+                    loading="lazy"
                   />
                 </li>
               ))

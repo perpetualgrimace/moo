@@ -38,9 +38,10 @@ export default function Tile(props) {
           {imgSrc && (
             <img
               className="asset-tile-header-bg"
-              src={`/hero/${imgSrc}-hero.png`}
+              src={`/thumbnail/${imgSrc}-thumb.png`}
               alt=""
               draggable="false"
+              loading="lazy"
             />
           )}
         </header>

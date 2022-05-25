@@ -23,6 +23,7 @@ export default function Hero(props) {
           srcSet={`/hero/${imgSlug}-hero.png 1x, /hero/${imgSlug}-hero@2x.png 2x`}
           alt=""
           draggable="false"
+          loading="lazy"
         />
       )}
     </header>
