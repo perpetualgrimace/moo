@@ -1,3 +1,7 @@
+.accordion-panel {
+  margin-top: -1px; // offset double border
+}
+
 .accordion-panel-inner {
   padding: $sp-lg 1.25rem $sp-lg 0;
   background-color: $dark-3;
