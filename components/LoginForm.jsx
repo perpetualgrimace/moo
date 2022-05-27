@@ -1,34 +1,34 @@
 import { withFormik, Form, Field } from "formik";
 import * as Yup from "yup";
 
+import TextField from "/components/Textfield";
 import Button from "/components/Button";
 
 const TheForm = (props) => {
   const { touched, errors } = props;
+
   return (
     <Form className="login-form">
-      <label>
-        Email address
-        <Field id="email" name="email" placeholder="email" />
-      </label>
-      {touched.email && errors.email && (
-        <span className="help-block text-danger">{errors.email}</span>
-      )}
+      <TextField
+        labelText="Email address"
+        placeholder="Your email address"
+        name="email"
+        touched={touched}
+        errors={errors}
+      />
 
-      <label>
-        Password
-        <Field
-          type="password"
-          id="password"
-          name="password"
-          placeholder="password"
-        />
-      </label>
-      {touched.password && errors.password && (
-        <span className="help-block text-danger">{errors.password}</span>
-      )}
+      <TextField
+        labelText="Password"
+        placeholder="8+ characters"
+        type="password"
+        name="password"
+        touched={touched}
+        errors={errors}
+      />
 
-      <Button type="submit">Log in</Button>
+      <Button type="submit" fill fontSize="md" className="darkglass">
+        Log in
+      </Button>
     </Form>
   );
 };

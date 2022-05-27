@@ -1,10 +1,14 @@
-export default function SpaceBG() {
+export default function SpaceBG(props) {
+  const { className, variant } = props;
+
   return (
-    <div className="space-bg">
+    <div className={`space-bg${className ? ` ${className}` : ""}`}>
       <img
         className="space-bg-img"
-        src="/bg.jpg"
-        srcSet="/bg.jpg 1x, /bg@2x.jpg 2x"
+        src={`/bg.jpg${variant ? `-${variant}` : ""}`}
+        srcSet={`/bg.jpg${variant ? `-${variant}` : ""} 1x, /bg${
+          variant ? `-${variant}` : ""
+        }@2x.jpg 2x`}
         alt=""
         draggable="false"
       />
