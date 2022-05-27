@@ -12,7 +12,7 @@ export default function Navbar() {
   return (
     <div className="navbar">
       <nav className="navbar-nav wrapper" role="navigation">
-        <Link href="/assets">
+        <Link href="/">
           <a
             className="navbar-logo"
             aria-current={checkRoute("/", currRoute)}

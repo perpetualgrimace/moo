@@ -2,7 +2,7 @@ module.exports = {
   async redirects() {
     return [
       {
-        source: "/",
+        source: "/tools",
         destination: "/assets",
         permanent: true,
       },

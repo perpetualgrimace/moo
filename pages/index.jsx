@@ -1,61 +1,19 @@
-// NOTE: home page currently redirects to Assets
-
-import DefaultLayout from "/components/DefaultLayout";
-import ToolsSection from "/components/ToolsSection";
-import ToolsItem from "/components/ToolsItem";
+import LoginForm from "/components/LoginForm";
+import Meta from "/components/Meta";
+import SpaceBG from "../components/SpaceBG";
 
 export default function Home() {
   return (
-    <DefaultLayout title="Data Science Toolkit" slug="tools">
-      <ToolsSection sectionTitle="Data science">
-        <ToolsItem
-          href="#"
-          outbound={true}
-          imgSrc="jupyterhub-logo"
-          altText="Jupyter Hub"
-        />
-      </ToolsSection>
+    <div className="login-layout">
+      <Meta pageTitle="Log in" description="Log in to Mu" />
 
-      <ToolsSection sectionTitle="Data analysis">
-        <ToolsItem
-          href="#"
-          outbound={true}
-          imgSrc="business-intelligence-icon"
-          label="Business intelligence view"
-          altText=""
-        />
-        <ToolsItem
-          href="#"
-          outbound={true}
-          imgSrc="graph-view-icon"
-          label="Graph view"
-          altText=""
-        />
-      </ToolsSection>
+      <main className="main" id="main">
+        <h1>Log in</h1>
 
-      <ToolsSection
-        sectionTitle={
-          <>
-            Browse & manage{" "}
-            <span className="u-visually-hidden">data</span>
-          </>
-        }
-      >
-        <ToolsItem
-          href="#"
-          outbound={true}
-          imgSrc="data-viewer-icon"
-          label="Data viewer"
-          altText=""
-        />
-        <ToolsItem
-          href="#"
-          outbound={true}
-          imgSrc="prediction-engines-icon"
-          label="Engines"
-          altText=""
-        />
-      </ToolsSection>
-    </DefaultLayout>
+        <LoginForm />
+      </main>
+
+      <SpaceBG />
+    </div>
   );
 }
