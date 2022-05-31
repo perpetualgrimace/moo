@@ -6,7 +6,7 @@ import DefaultLayout from "/components/DefaultLayout";
 import Button from "/components/Button";
 import Select from "/components/Select";
 
-import EngagementsList from "../../components/EngagementsList";
+import EngagementsList from "/components/EngagementsList";
 
 export default function Engagements() {
   const sortOptions = [

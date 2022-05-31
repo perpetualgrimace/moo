@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import checkRoute from "../functions/checkRoute";
+import checkRoute from "/helpers/checkRoute";
 
 export default function NavmenuLink(props) {
   const { href, children } = props;

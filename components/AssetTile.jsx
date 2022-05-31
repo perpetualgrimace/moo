@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import toPercentage from "/functions/toPercentage";
+import toPercentage from "/helpers/toPercentage";
 
 function formatStat(stat) {
   let formattedStat = { ...stat };

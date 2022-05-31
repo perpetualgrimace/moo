@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import servers from "/data/servers.json";
 
-import constructSummaryStatsObject from "/functions/constructSummaryStatsObject";
+import constructSummaryStatsObject from "/helpers/constructSummaryStatsObject";
 
 import DefaultLayout from "/components/DefaultLayout";
 import ServerTile from "/components/ServerTile";

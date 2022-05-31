@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Meta from "/components/Meta";
 import Navbar from "/components/Navbar";
 import Hero from "/components/Hero";
-import SpaceBG from "../components/SpaceBG";
+import SpaceBG from "/components/SpaceBG";
 
 export default function DefaultLayout(props) {
   const { title, slug, children } = props;

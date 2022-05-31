@@ -6,7 +6,7 @@ import DefaultLayout from "/components/DefaultLayout";
 import Button from "/components/Button";
 import Select from "/components/Select";
 
-import EnginesList from "../../components/EnginesList";
+import EnginesList from "/components/EnginesList";
 
 export default function Engines() {
   const sortOptions = [

@@ -1,5 +1,5 @@
-import getServerStatAverage from "/functions/getServerStatAverage";
-import getServerStatSum from "/functions/getServerStatSum";
+import getServerStatAverage from "/helpers/getServerStatAverage";
+import getServerStatSum from "/helpers/getServerStatSum";
 
 export default function constructSummaryStatsObject(servers) {
   const firstUpDate = servers[0].upSince;

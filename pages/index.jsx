@@ -1,6 +1,6 @@
 import LoginForm from "/components/LoginForm";
 import Meta from "/components/Meta";
-import SpaceBG from "../components/SpaceBG";
+import SpaceBG from "/components/SpaceBG";
 
 export default function Home() {
   return (

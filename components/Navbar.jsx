@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import checkRoute from "../functions/checkRoute";
+import checkRoute from "/helpers/checkRoute";
 
 import NavbarLink from "components/NavbarLink";
 import Navmenu from "components/Navmenu";

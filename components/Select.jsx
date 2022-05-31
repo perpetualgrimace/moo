@@ -1,4 +1,4 @@
-import slugify from "/functions/slugify";
+import slugify from "/helpers/slugify";
 
 import ChevronDownIcon from "/components/icons/ChevronDownIcon";
 

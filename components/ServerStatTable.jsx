@@ -1,8 +1,8 @@
 import moment from "moment";
 
-import uppercaseFirst from "/functions/uppercaseFirst";
-import gbToTb from "/functions/gbToTb";
-import toPercentage from "/functions/toPercentage";
+import uppercaseFirst from "/helpers/uppercaseFirst";
+import gbToTb from "/helpers/gbToTb";
+import toPercentage from "/helpers/toPercentage";
 
 import StatusIcon from "/components/StatusIcon";
 

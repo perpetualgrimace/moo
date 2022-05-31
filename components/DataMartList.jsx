@@ -4,8 +4,8 @@ import moment from "moment";
 
 import { dateFormat } from "/consts.js";
 
-import uppercaseFirst from "/functions/uppercaseFirst";
-import sortArrayByObjKey from "functions/sortArrayByObjKey";
+import uppercaseFirst from "/helpers/uppercaseFirst";
+import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 
 import Stat from "/components/Stat";
 import Accordion from "/components/Accordion";

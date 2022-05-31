@@ -3,7 +3,7 @@ import moment from "moment";
 import { dateFormat } from "/consts.js";
 
 import Link from "next/link";
-import sortArrayByObjKey from "functions/sortArrayByObjKey";
+import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 
 export default function DataLakeTable(props) {
   const { data, sortKey } = props;

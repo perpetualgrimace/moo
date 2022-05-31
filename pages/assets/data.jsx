@@ -8,8 +8,8 @@ import Button from "/components/Button";
 import ButtonGroup from "/components/ButtonGroup";
 import Select from "/components/Select";
 
-import DataMartList from "../../components/DataMartList";
-import DataLakeTable from "../../components/DataLakeTable";
+import DataMartList from "/components/DataMartList";
+import DataLakeTable from "/components/DataLakeTable";
 
 export default function Data() {
   const lakeSortOptions = [

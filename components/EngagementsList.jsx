@@ -3,8 +3,8 @@ import moment from "moment";
 
 import { dateFormat } from "/consts.js";
 
-import sortArrayByObjKey from "/functions/sortArrayByObjKey";
-import toPercentage from "/functions/toPercentage";
+import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
+import toPercentage from "/helpers/toPercentage";
 
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
