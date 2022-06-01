@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
+
 import checkRoute from "/helpers/checkRoute";
 
 import NavbarLink from "components/NavbarLink";
@@ -37,6 +38,8 @@ export default function Navbar() {
               </NavmenuLink>
             </Navmenu>
           </NavbarLink>
+
+          <NavbarLink label="Log out" href="/logout" />
         </ul>
       </nav>
     </div>

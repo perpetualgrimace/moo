@@ -1,8 +1,25 @@
-import { withFormik, Form, Field } from "formik";
+import { withFormik, setStatus, Form } from "formik";
 import * as Yup from "yup";
+
+import { userService } from "/services/userService";
 
 import TextField from "/components/Textfield";
 import Button from "/components/Button";
+
+function onSubmit(values) {
+  const username = values.email;
+  const { password, router } = values;
+
+  return userService
+    .login(username, password)
+    .then(() => {
+      const returnUrl = router.query.returnUrl || "/";
+      router.push(returnUrl);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+}
 
 const TheForm = (props) => {
   const { touched, errors } = props;
@@ -38,6 +55,7 @@ const LoginForm = withFormik({
     return {
       email: props.email || "",
       password: props.password || "",
+      router: props.router || "",
     };
   },
   validationSchema: Yup.object().shape({
@@ -48,9 +66,7 @@ const LoginForm = withFormik({
       .min(8, "Must be least 8 characters")
       .required("Password required"),
   }),
-  handleSubmit: (values) => {
-    console.log(values);
-  },
+  handleSubmit: (values) => onSubmit(values),
 })(TheForm);
 
 export default LoginForm;
