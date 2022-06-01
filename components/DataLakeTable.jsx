@@ -1,6 +1,6 @@
 import moment from "moment";
 
-import { dateFormat } from "/consts.js";
+import { dateFormat } from "/consts";
 
 import Link from "next/link";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";

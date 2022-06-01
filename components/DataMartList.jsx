@@ -2,7 +2,7 @@ import { useState } from "react";
 import Link from "next/link";
 import moment from "moment";
 
-import { dateFormat } from "/consts.js";
+import { dateFormat } from "/consts";
 
 import uppercaseFirst from "/helpers/uppercaseFirst";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";

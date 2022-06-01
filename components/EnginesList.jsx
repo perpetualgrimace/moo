@@ -1,7 +1,7 @@
 import { useState } from "react";
 import moment from "moment";
 
-import { dateFormat } from "/consts.js";
+import { dateFormat } from "/consts";
 
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 import toPercentage from "/helpers/toPercentage";
