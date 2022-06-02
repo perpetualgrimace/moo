@@ -67,6 +67,18 @@
 
 // progressively enhanced layout
 @supports (display: grid) {
+	@media (min-width: 360px) {
+		.tools-section:nth-child(2) .tools-list {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: 1rem;
+
+		.tools-item .tile {
+			margin-bottom: 0;
+		}
+		}
+	}
+
 	// 2 columns
 	@media (min-width: 600px) {
 		.tools-wrapper {
@@ -75,8 +87,7 @@
 		}
 
 		.tools-section:nth-child(1) { grid-column: 1/4; }
-		.tools-section:nth-child(2) { grid-column: 1/2; }
-		.tools-section:nth-child(3) { grid-column: 3/4; }
+		.tools-section:nth-child(2) { grid-column: 1/4; }
 
 		.tools-heading {
 			text-align: center;
@@ -99,8 +110,7 @@
 		}
 
 		.tools-section:nth-child(1) { grid-column: 1/2; }
-		.tools-section:nth-child(2) { grid-column: 3/4; }
-		.tools-section:nth-child(3) { grid-column: 5/6; }
+		.tools-section:nth-child(2) { grid-column: 3/6; }
 
 		// equal height columns
 		.tools-section,
