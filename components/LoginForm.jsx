@@ -1,4 +1,4 @@
-import { withFormik, setStatus, Form } from "formik";
+import { withFormik, Form } from "formik";
 import * as Yup from "yup";
 
 import { userService } from "/services/userService";
@@ -17,7 +17,7 @@ function onSubmit(values) {
       router.push(returnUrl);
     })
     .catch((error) => {
-      console.log(error);
+      alert(error);
     });
 }
 
