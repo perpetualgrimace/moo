@@ -12,28 +12,30 @@ export default function DataLakeTable(props) {
   const sortedData = sortArrayByObjKey(data, sortKey);
 
   return (
-    <table className="data-lake-table">
-      <thead className="data-lake-thead">
-        <tr className="data-lake-tr">
-          <th className="data-lake-th">Name</th>
-          <th className="data-lake-th">Created</th>
-          <th className="data-lake-th">Size</th>
-          <th className="data-lake-th">Data mart</th>
+    <table className="data-lake-table table">
+      <thead className="data-lake-thead table-thead">
+        <tr className="data-lake-tr table-tr">
+          <th className="data-lake-th table-th">Name</th>
+          <th className="data-lake-th table-th">Created</th>
+          <th className="data-lake-th table-th">Size</th>
+          <th className="data-lake-th table-th">Data mart</th>
         </tr>
       </thead>
       <tbody>
         {sortedData.map((table) => (
-          <tr className="data-lake-tr" key={table.id}>
-            <td className="data-lake-td">
+          <tr className="data-lake-tr table-tr" key={table.id}>
+            <td className="data-lake-td table-td">
               <Link href={`/assets/data/${slugify(table.id)}`}>
-                <a className="data-lake-link">{table.name}</a>
+                <a className="data-lake-link table-table-link">
+                  {table.name}
+                </a>
               </Link>
             </td>
-            <td className="data-lake-td">
+            <td className="data-lake-td table-td">
               {moment(table.created).format(dateFormat)}
             </td>
-            <td className="data-lake-td">{table.size}</td>
-            <td className="data-lake-td">{table.mart}</td>
+            <td className="data-lake-td table-td">{table.size}</td>
+            <td className="data-lake-td table-td">{table.mart}</td>
           </tr>
         ))}
       </tbody>

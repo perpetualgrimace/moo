@@ -2,6 +2,9 @@ import slugify from "/helpers/slugify";
 
 import tables from "/data/tables.json";
 
+import DefaultLayout from "/components/DefaultLayout";
+import Table from "/components/Table";
+
 export const getStaticProps = async ({ params }) => {
   const currTable = tables.filter(
     (table) => slugify(table.id) === params.id
@@ -21,8 +24,13 @@ export const getStaticPaths = async () => {
 };
 
 export default ({ table }) => (
-  <div>
-    {console.log(table)}
-    <h1>{table.id}</h1>
-  </div>
+  <DefaultLayout title={table.name || table.id} slug="data">
+    {table.data ? (
+      <Table data={table.data} />
+    ) : (
+      <p className="u-font-lg">
+        <strong>Error</strong>: missing or malformed data
+      </p>
+    )}
+  </DefaultLayout>
 );

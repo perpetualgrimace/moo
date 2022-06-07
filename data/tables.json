@@ -6,9 +6,9 @@
     "size": "6 mb",
     "created": "2022-01-12",
     "data": {
-      "country": "Abha",
-      "name": "Abdullah",
-      "amount": 232.69
+      "country": ["Abha", "Al Bahah"],
+      "name": ["Abdullah", "Muhammad"],
+      "amount": [232.69, 719.46]
     },
     "quality": {
       "overall": 4.2,

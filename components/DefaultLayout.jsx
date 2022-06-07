@@ -10,7 +10,7 @@ export default function DefaultLayout(props) {
 
   const currRoute = useRouter().pathname;
   let parentSlug, parentTitle;
-  if (currRoute.split("/").length === 3) {
+  if (currRoute.split("/").length >= 3) {
     parentSlug = `/${currRoute.split("/")[1]}`;
     parentTitle = parentSlug === "/assets" ? "Asset Viewer" : parentSlug;
   }
