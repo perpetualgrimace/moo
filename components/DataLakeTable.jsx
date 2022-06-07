@@ -1,8 +1,9 @@
+import Link from "next/link";
 import moment from "moment";
 
 import { dateFormat } from "/consts";
 
-import Link from "next/link";
+import slugify from "/helpers/slugify";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 
 export default function DataLakeTable(props) {
@@ -24,7 +25,7 @@ export default function DataLakeTable(props) {
         {sortedData.map((table) => (
           <tr className="data-lake-tr" key={table.id}>
             <td className="data-lake-td">
-              <Link href={`/assets/data/table/${table.id}`}>
+              <Link href={`/assets/data/${slugify(table.id)}`}>
                 <a className="data-lake-link">{table.name}</a>
               </Link>
             </td>

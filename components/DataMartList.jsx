@@ -5,6 +5,7 @@ import moment from "moment";
 import { dateFormat } from "/consts";
 
 import uppercaseFirst from "/helpers/uppercaseFirst";
+import slugify from "/helpers/slugify";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 
 import Stat from "/components/Stat";
@@ -72,7 +73,7 @@ export default function DataMartList(props) {
             <ul>
               {mart.tables.map((table) => (
                 <li key={table.id}>
-                  <Link href={`/assets/data/table/${table.id}`}>
+                  <Link href={`/assets/data/${slugify(table.id)}`}>
                     <a>{table.name}</a>
                   </Link>
                 </li>
