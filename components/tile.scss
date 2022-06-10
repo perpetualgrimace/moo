@@ -64,7 +64,6 @@
 .darkglass.tile:focus {
   border-color: rgba($white, 0.425);
   box-shadow: 0 1px 14px 0 rgba($white, 0.333);
-  backdrop-filter: blur(1px); // transform + background blur makes inner content blurry
 
   &:not([aria-pressed="true"]):after {
     opacity: 1;
