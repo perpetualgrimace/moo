@@ -65,7 +65,6 @@
 // TOOLS TILE GRID
 //////////////////////////////////
 
-// progressively enhanced layout
 @supports (display: grid) {
 	@media (min-width: 360px) {
 		.tools-section:nth-child(2) .tools-list {
@@ -131,26 +130,33 @@
 //////////////////////////////////
 
 .assets-wrapper {
-	@media (min-width: 480px) {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		grid-template-rows: 1fr 1fr;
-		grid-gap: $sp-md;
-		margin-bottom: $sp-md;
-
-		.tile {
-			margin-bottom: 0;
-		}
+	// grid fallback
+	@media (min-width: 1000px) {
+		columns: 4;
 	}
 
-	@media (min-width: 1080px) {
-		grid-template-columns: 1fr 1fr 1fr 1fr;
-		grid-template-rows: 1fr;
-		grid-gap: $sp-xl;
-		margin-bottom: $sp-xl;
+	@supports (display: grid) {
+		@media (min-width: 480px) {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			grid-template-rows: 1fr 1fr;
+			grid-gap: $sp-md;
+			margin-bottom: $sp-md;
 
-		.tile {
-			margin-bottom: 0;
+			.tile {
+				margin-bottom: 0;
+			}
+		}
+
+		@media (min-width: 1080px) {
+			grid-template-columns: 1fr 1fr 1fr 1fr;
+			grid-template-rows: 1fr;
+			grid-gap: $sp-xl;
+			margin-bottom: $sp-xl;
+
+			.tile {
+				margin-bottom: 0;
+			}
 		}
 	}
 }
@@ -167,29 +173,41 @@ $server-grid-gutter: 5vw;
 $server-arrow-width: 0.75rem;
 
 .servers-grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
-	grid-gap: $server-grid-gutter;
+	// grid fallback
+	.server-tile:not(:last-child) {
+		margin-bottom: $sp-md;
+	}
 
-	.server-tile:not(:last-child):before,
-	.server-tile:not(:last-child):after {
-		@include absolute-vertical-center;
-		content: '';
-		display: block;
-	}
-	.server-tile:not(:last-child):before {
-		border-bottom: 4px solid $light-2;
-		width: calc(#{$server-grid-gutter} - #{$server-arrow-width});
-		left: 100%;
-		z-index: -1;
-	}
-	.server-tile:not(:last-child):after {
-		border-top: $server-arrow-width / 2 solid transparent;
-		border-bottom: $server-arrow-width / 2 solid transparent;
-		border-left: $server-arrow-width solid $light-2;
-		width: 0;
-		height: 0;
-		right: -$server-grid-gutter;
+	@supports (display: grid) {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		grid-gap: $server-grid-gutter;
+
+		.server-tile:not(:last-child) {
+			margin-bottom: 0; // reset fallback layout
+
+			// arrow linking server tiles
+			&:before,
+			&:after {
+				@include absolute-vertical-center;
+				content: '';
+				display: block;
+			}
+			&:before {
+				border-bottom: 4px solid $light-2;
+				width: calc(#{$server-grid-gutter} - #{$server-arrow-width});
+				left: 100%;
+				z-index: -1;
+			}
+			&:after {
+				border-top: $server-arrow-width / 2 solid transparent;
+				border-bottom: $server-arrow-width / 2 solid transparent;
+				border-left: $server-arrow-width solid $light-2;
+				width: 0;
+				height: 0;
+				right: -$server-grid-gutter;
+			}
+		}
 	}
 }
 
