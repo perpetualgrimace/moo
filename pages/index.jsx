@@ -17,13 +17,13 @@ export default function Tools() {
       <ToolsSection sectionTitle="Browse assets">
         <ToolsItem
           href="/assets/servers"
-          imgSrc="business-intelligence-icon"
+          imgSrc="servers-icon"
           label="Servers"
           altText=""
         />
         <ToolsItem
           href="/assets/data"
-          imgSrc="data-viewer-icon"
+          imgSrc="table-icon"
           label="Data"
           altText=""
         />
@@ -35,7 +35,7 @@ export default function Tools() {
         />
         <ToolsItem
           href="/assets/engagements"
-          imgSrc="graph-view-icon"
+          imgSrc="checklist-icon"
           label="Engagements"
           altText=""
         />
