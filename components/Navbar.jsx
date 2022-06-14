@@ -28,6 +28,8 @@ export default function Navbar() {
         </Link>
 
         <ul className="navbar-list">
+          <NavbarLink label="Manage data" href="/manage" />
+
           <NavbarLink label="Asset viewer" href="/assets">
             <Navmenu>
               <NavmenuLink href="/assets/servers">Servers</NavmenuLink>

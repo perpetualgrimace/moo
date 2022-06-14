@@ -7,8 +7,7 @@ export default function Tools() {
     <DefaultLayout title="Welcome" slug="tools">
       <ToolsSection sectionTitle="Manage data">
         <ToolsItem
-          href="#"
-          outbound={true}
+          href="/manage"
           imgSrc="jupyterhub-logo"
           altText="Jupyter Hub"
         />
