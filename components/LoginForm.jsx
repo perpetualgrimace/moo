@@ -3,7 +3,7 @@ import * as Yup from "yup";
 
 import { userService } from "/services/userService";
 
-import TextField from "/components/Textfield";
+import TextField from "/components/TextField";
 import Button from "/components/Button";
 
 function onSubmit(values) {
