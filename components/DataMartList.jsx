@@ -12,6 +12,7 @@ import Stat from "/components/Stat";
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
 import AccordionPanelColumn from "/components/AccordionPanelColumn";
+import RadarChart from "/components/vis/RadarChart";
 
 export default function DataMartList(props) {
   const metaKeys = ["source"];
@@ -83,6 +84,13 @@ export default function DataMartList(props) {
 
           <AccordionPanelColumn>
             <h3 className="u-font-md">Quality breakdown</h3>
+
+            <RadarChart
+              keys={qualityKeys}
+              values={mart.quality}
+              id={mart.id}
+            />
+
             {qualityKeys.map((quality) => (
               <Stat
                 key={`${mart.id}-${quality}`}
