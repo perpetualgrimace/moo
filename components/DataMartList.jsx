@@ -6,6 +6,7 @@ import { dateFormat } from "/consts";
 
 import uppercaseFirst from "/helpers/uppercaseFirst";
 import slugify from "/helpers/slugify";
+import getTheme from "/helpers/getTheme";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 
 import Stat from "/components/Stat";
@@ -13,6 +14,11 @@ import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
 import AccordionPanelColumn from "/components/AccordionPanelColumn";
 import RadarChart from "/components/vis/RadarChart";
+
+function isPanelOpen(openId, currentId) {
+  if (openId === currentId) return true;
+  return false;
+}
 
 export default function DataMartList(props) {
   const metaKeys = ["source"];
@@ -37,7 +43,7 @@ export default function DataMartList(props) {
         <AccordionPanel
           key={mart.id}
           headingLabel={mart.name}
-          isOpen={openPanelId === mart.id}
+          isOpen={isPanelOpen(openPanelId, mart.id)}
           onClick={() =>
             setOpenPanelId(mart.id !== openPanelId ? mart.id : false)
           }
@@ -49,6 +55,10 @@ export default function DataMartList(props) {
             {
               label: "Quality",
               value: mart.quality.overall,
+              theme: getTheme(
+                mart.quality.overall,
+                isPanelOpen(openPanelId, mart.id)
+              ),
             },
           ]}
         >
@@ -96,6 +106,7 @@ export default function DataMartList(props) {
                 key={`${mart.id}-${quality}`}
                 label={uppercaseFirst(quality)}
                 value={mart.quality[[quality]]}
+                theme={getTheme(mart.quality[[quality]])}
               />
             ))}
           </AccordionPanelColumn>

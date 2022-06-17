@@ -30,6 +30,7 @@ export default function AccordionHeader(props) {
               key={`${children}-${stat.label}-stat`}
               label={stat.label}
               value={stat.value}
+              theme={stat.theme}
             />
           ))}
         </div>
