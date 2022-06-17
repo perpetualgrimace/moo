@@ -13,7 +13,7 @@ const outerLineWidth = styles.visOuterLineWidth;
 const backgroundFill = styles.visBackground;
 
 export default function RadarChart(props) {
-  const { keys, values, id } = props;
+  const { keys, values, id, children } = props;
 
   const coords = constructCoords(keys, values);
 
@@ -67,6 +67,8 @@ export default function RadarChart(props) {
           />
         </g>
       </svg>
+
+      {children}
     </div>
   );
 }

@@ -79,7 +79,7 @@ export default function DataMartList(props) {
             ))}
           </AccordionPanelColumn>
 
-          <AccordionPanelColumn>
+          {/* <AccordionPanelColumn>
             <h3 className="u-font-md">Tables included</h3>
             <ul>
               {mart.tables.map((table) => (
@@ -90,7 +90,7 @@ export default function DataMartList(props) {
                 </li>
               ))}
             </ul>
-          </AccordionPanelColumn>
+          </AccordionPanelColumn> */}
 
           <AccordionPanelColumn>
             <h3 className="u-font-md">Quality breakdown</h3>
@@ -99,16 +99,16 @@ export default function DataMartList(props) {
               keys={qualityKeys}
               values={mart.quality}
               id={mart.id}
-            />
-
-            {qualityKeys.map((quality) => (
-              <Stat
-                key={`${mart.id}-${quality}`}
-                label={uppercaseFirst(quality)}
-                value={mart.quality[[quality]]}
-                theme={getTheme(mart.quality[[quality]])}
-              />
-            ))}
+            >
+              {qualityKeys.map((quality) => (
+                <Stat
+                  key={`${mart.id}-${quality}`}
+                  label={uppercaseFirst(quality)}
+                  value={mart.quality[[quality]]}
+                  theme={getTheme(mart.quality[[quality]])}
+                />
+              ))}
+            </RadarChart>
           </AccordionPanelColumn>
         </AccordionPanel>
       ))}
