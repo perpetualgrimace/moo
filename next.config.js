@@ -13,19 +13,5 @@ module.exports = {
         ? "http://localhost:3000/api" // development api
         : "http://localhost:3000/api", // production api
   },
-  // async redirects() {
-  //   return [
-  //     {
-  //       source: "/",
-  //       destination: "/assets",
-  //       permanent: true,
-  //     },
-  //     {
-  //       source: "/tools",
-  //       destination: "/assets",
-  //       permanent: true,
-  //     },
-  //   ];
-  // },
   reactStrictMode: true,
 };

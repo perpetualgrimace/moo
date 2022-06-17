@@ -1,14 +1,16 @@
 import { constructCoords } from "./helpers.js";
+import * as styles from "/styles/1-utils/_variables.module.scss";
 
-const salmon = "#FC8793";
-const sun = "#FFCF5C";
-const spring = "#3DFF80";
+const salmon = styles.salmonMd;
+const sun = styles.sunMd;
+const spring = styles.springMd;
 
-const innerLineColor = "rgba(255, 255, 255, 0.333)";
-const innerLineWidth = "0.5px";
+const innerLineColor = styles.visInnerLineColor;
+const innerLineWidth = styles.visInnerLineWidth;
 
-const backgroundFill = "rgba(42, 51, 60, 0.4)";
-const outerLineColor = "#B8BCC7";
+const outerLineColor = styles.visOuterLineColor;
+const outerLineWidth = styles.visOuterLineWidth;
+const backgroundFill = styles.visBackground;
 
 export default function RadarChart(props) {
   const { keys, values, id } = props;
@@ -38,6 +40,7 @@ export default function RadarChart(props) {
           <path
             fill={backgroundFill}
             stroke={outerLineColor}
+            strokeWidth={outerLineWidth}
             strokeLinejoin="square"
             d="M37 .577 68.543 18.79V55.21L37 73.423 5.457 55.21V18.79L37 .577Z"
           />
