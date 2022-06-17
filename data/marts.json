@@ -29,13 +29,13 @@
     "created": "2022-04-06",
     "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "quality": {
-      "overall": 4.2,
+      "overall": 4.3,
       "completeness": 3.0,
-      "uniqueness": 2.5,
+      "uniqueness": 3.5,
       "timeliness": 4.0,
-      "validity": 3.0,
+      "validity": 2.0,
       "accuracy": 4.0,
-      "consistency": 1.0
+      "consistency": 5.0
     },
     "tables": [
       { "id": "OAA50YWJ5WX", "name": "Table 6" },
@@ -50,13 +50,13 @@
     "created": "2022-12-08",
     "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "quality": {
-      "overall": 3.2,
-      "completeness": 3.0,
-      "uniqueness": 2.5,
-      "timeliness": 4.0,
+      "overall": 2.9,
+      "completeness": 0,
+      "uniqueness": 1.5,
+      "timeliness": 2.0,
       "validity": 3.0,
-      "accuracy": 4.0,
-      "consistency": 1.0
+      "accuracy": 4.5,
+      "consistency": 3.0
     },
     "tables": [
       { "id": "ATF18OBL2GS", "name": "Table 9" },
@@ -75,12 +75,12 @@
     "description": "This data mart is used for lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     "quality": {
       "overall": 3.1,
-      "completeness": 3.0,
-      "uniqueness": 2.5,
+      "completeness": 1.0,
+      "uniqueness": 3.5,
       "timeliness": 4.0,
-      "validity": 3.0,
+      "validity": 4.0,
       "accuracy": 4.0,
-      "consistency": 1.0
+      "consistency": 4.0
     },
     "tables": [
       { "id": "GQN15YUM5GD", "name": "Table 15" },

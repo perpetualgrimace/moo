@@ -1,3 +1,5 @@
+import { constructCoords } from "./helpers.js";
+
 const salmon = "#FC8793";
 const sun = "#FFCF5C";
 const spring = "#3DFF80";
@@ -8,72 +10,10 @@ const innerLineWidth = "0.5px";
 const backgroundFill = "rgba(42, 51, 60, 0.4)";
 const outerLineColor = "#B8BCC7";
 
-function getPercentage(val) {
-  return (val * 20) / 100;
-}
-
-// horizontal helpers
-const horizontalHalf = 36.5;
-
-function calculateLeft(percentage) {
-  const x = horizontalHalf - percentage * horizontalHalf;
-  const xOffset = x + 5 * percentage;
-  return xOffset;
-}
-function calculateRight(percentage) {
-  const x = horizontalHalf * percentage + horizontalHalf;
-  const xOffset = x - 4 * percentage;
-  return xOffset;
-}
-
-// vertical helpers
-const verticalUpper = 19;
-const verticalHalf = 37;
-
-function calculateTop(percentage) {
-  return verticalHalf - percentage * verticalHalf;
-}
-function calculateUpper(percentage) {
-  return verticalHalf - percentage * verticalUpper;
-}
-function calculateLower(percentage) {
-  return verticalHalf + percentage * verticalUpper;
-}
-function calculateBottom(percentage) {
-  return verticalHalf + percentage * verticalHalf;
-}
-
-// coordinate helpers
-function getCoord1(percentage) {
-  return `${verticalHalf}, ${calculateTop(percentage)}`; // 37, 1
-}
-function getCoord2(percentage) {
-  return `${calculateRight(percentage)}, ${calculateUpper(percentage)}`; // 68, 19
-}
-function getCoord3(percentage) {
-  return `${calculateRight(percentage)}, ${calculateLower(percentage)}`; // 68, 55
-}
-function getCoord4(percentage) {
-  return `${verticalHalf}, ${calculateBottom(percentage)}`; // 36.5, 73
-}
-function getCoord5(percentage) {
-  return `${calculateLeft(percentage)}, ${calculateLower(percentage)}`; // 5, 55
-}
-function getCoord6(percentage) {
-  return `${calculateLeft(percentage)}, ${calculateUpper(percentage)}`; // 5, 55
-}
-
 export default function RadarChart(props) {
   const { keys, values, id } = props;
 
-  const coords = `
-    ${getCoord1(getPercentage(values[keys[0]]))}
-    ${getCoord2(getPercentage(values[keys[1]]))}
-    ${getCoord3(getPercentage(values[keys[2]]))}
-    ${getCoord4(getPercentage(values[keys[3]]))}
-    ${getCoord5(getPercentage(values[keys[4]]))}
-    ${getCoord6(getPercentage(values[keys[5]]))}
-  `;
+  const coords = constructCoords(keys, values);
 
   return (
     <div className="radar-chart">
