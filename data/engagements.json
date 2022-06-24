@@ -2,7 +2,8 @@
   {
     "id": "engagement-1",
     "name": "Engagement 1",
-    "eta": "2022-01-08",
+    "startDate": "2021-01-01",
+    "eta": "2022-02-27",
     "tasks": [
       {
         "id": "task-1",
@@ -12,17 +13,17 @@
       {
         "id": "task-2",
         "title": "Task 2 title",
-        "completionDate": null
+        "completionDate": "2021-02-15"
       },
       {
         "id": "task-3",
         "title": "Task 3 title",
-        "completionDate": null
+        "completionDate": "2021-02-17"
       },
       {
         "id": "task-4",
         "title": "Task 4 title",
-        "completionDate": null
+        "completionDate": "2021-02-25"
       }
     ],
     "description": "The purpose of this engagement is to lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
@@ -30,6 +31,7 @@
   {
     "id": "engagement-2",
     "name": "Engagement 2",
+    "startDate": "2021-01-01",
     "eta": "2022-04-06",
     "tasks": [
       {
@@ -68,6 +70,7 @@
   {
     "id": "engagement-3",
     "name": "Engagement 3",
+    "startDate": "2021-01-01",
     "eta": "2022-12-08",
     "tasks": [
       {
@@ -96,6 +99,7 @@
   {
     "id": "engagement-4",
     "name": "Engagement 4",
+    "startDate": "2021-01-01",
     "eta": "2022-11-03",
     "tasks": [],
     "description": "The purpose of this engagement is to lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

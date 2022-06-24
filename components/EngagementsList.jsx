@@ -4,12 +4,14 @@ import moment from "moment";
 import { dateFormat } from "/consts";
 
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
+import tasksToLineChartObj from "/helpers/tasksToLineChartObj";
 import toPercentage from "/helpers/toPercentage";
 
 import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
 import AccordionPanelColumn from "/components/AccordionPanelColumn";
 import TaskItem from "/components/TaskItem";
+import LineChart from "/components/vis/LineChart";
 
 function getCompletedTaskRatio(tasks) {
   const completedTasks = tasks.filter((task) => task.completionDate);
@@ -19,6 +21,17 @@ function getCompletedTaskRatio(tasks) {
 function getCompletedTaskPercentage(tasks) {
   const completedTasks = tasks.filter((task) => task.completionDate);
   return toPercentage(completedTasks.length / tasks.length);
+}
+
+function shouldPrintStatusChart(engagement) {
+  if (
+    engagement.tasks &&
+    engagement.tasks.length &&
+    engagement.startDate &&
+    engagement.eta
+  ) {
+    return true;
+  }
 }
 
 export default function EngagementsList(props) {
@@ -85,6 +98,16 @@ export default function EngagementsList(props) {
               <p>No tasks yet</p>
             )}
           </AccordionPanelColumn>
+
+          {shouldPrintStatusChart(engagement) && (
+            <AccordionPanelColumn>
+              <h3 className="u-font-md">Status</h3>
+              <LineChart
+                data={tasksToLineChartObj(engagement)}
+                yFormat={toPercentage}
+              />
+            </AccordionPanelColumn>
+          )}
         </AccordionPanel>
       ))}
     </Accordion>
