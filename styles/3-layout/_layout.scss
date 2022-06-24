@@ -204,9 +204,8 @@ $server-arrow-width: 0.75rem;
 			// arrow linking server tiles
 			&:before,
 			&:after {
+				@include pseudo;
 				@include absolute-vertical-center;
-				content: '';
-				display: block;
 			}
 			&:before {
 				border-bottom: 4px solid $light-2;

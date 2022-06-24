@@ -16,8 +16,7 @@
 
 // strike
 .hero-headline:before {
-  content: "";
-  display: block;
+  @include pseudo;
   height: 1.21em; // ~48px
   width: 0.14em; // 10px
   position: absolute;

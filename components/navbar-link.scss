@@ -22,8 +22,7 @@
 
 // active page bottom bump
 .navbar-link:after {
-  content: "";
-  display: block;
+  @include pseudo;
   width: calc(100% - 1.25em);
   height: 4px;
   position: absolute;

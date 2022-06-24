@@ -1,6 +1,11 @@
 //////////////////////////////////
-// ABSOLUTELY
+// POSITIONING
 //////////////////////////////////
+
+@mixin pseudo {
+	display: block;
+	content: "";
+}
 
 @mixin absolute-expand {
 	position: absolute;
@@ -108,8 +113,7 @@
 	$color: $prism-transparent,
 	$radius: $radius-md
 ) {
-	content: "";
-  display: block;
+	@include pseudo;
   position: absolute;
   top: -$offset;
   right: -$offset;
