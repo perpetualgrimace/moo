@@ -11,6 +11,7 @@ import Accordion from "/components/Accordion";
 import AccordionPanel from "/components/AccordionPanel";
 import AccordionPanelColumn from "/components/AccordionPanelColumn";
 import TaskItem from "/components/TaskItem";
+import ProgressPill from "/components/ProgressPill";
 import LineChart from "/components/vis/LineChart";
 
 function getCompletedTaskRatio(tasks) {
@@ -66,7 +67,11 @@ export default function EngagementsList(props) {
                   },
                   {
                     label: "Progress",
-                    value: getCompletedTaskPercentage(engagement.tasks),
+                    value: (
+                      <ProgressPill>
+                        {getCompletedTaskPercentage(engagement.tasks)}
+                      </ProgressPill>
+                    ),
                   },
                 ]
               : []

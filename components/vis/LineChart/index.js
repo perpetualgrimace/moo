@@ -57,7 +57,7 @@ const LineChart = ({
     .map((point) => `${point.x},${point.y}`)
     .join(" ");
 
-  console.log(pointsJoined);
+  // console.log(pointsJoined);
 
   const Axis = ({ coords }) => (
     <polyline
