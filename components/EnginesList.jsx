@@ -37,8 +37,7 @@ export default function EnginesList(props) {
             },
           ]}
         >
-          <AccordionPanelColumn>
-            <h3 className="u-font-md">Description</h3>
+          <AccordionPanelColumn title="Description">
             <p className="u-font-xs">{engine.description}</p>
           </AccordionPanelColumn>
         </AccordionPanel>

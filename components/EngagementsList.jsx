@@ -72,14 +72,11 @@ export default function EngagementsList(props) {
               : []
           }
         >
-          <AccordionPanelColumn>
-            <h3 className="u-font-md">Description</h3>
+          <AccordionPanelColumn title="Description">
             <p className="u-font-xs">{engagement.description}</p>
           </AccordionPanelColumn>
 
-          <AccordionPanelColumn>
-            <h3 className="u-font-md">Tasks</h3>
-
+          <AccordionPanelColumn title="Tasks">
             {engagement.tasks && engagement.tasks.length ? (
               <ul className="task-list">
                 {engagement.tasks.map((task) => (
@@ -100,8 +97,7 @@ export default function EngagementsList(props) {
           </AccordionPanelColumn>
 
           {shouldPrintStatusChart(engagement) && (
-            <AccordionPanelColumn>
-              <h3 className="u-font-md">Status</h3>
+            <AccordionPanelColumn title="Status">
               <LineChart
                 data={tasksToLineChartObj(engagement)}
                 yFormat={toPercentage}

@@ -62,14 +62,11 @@ export default function DataMartList(props) {
             },
           ]}
         >
-          <AccordionPanelColumn>
-            <h3 className="u-font-md">Description</h3>
+          <AccordionPanelColumn title="Description">
             <p className="u-font-xs">{mart.description}</p>
           </AccordionPanelColumn>
 
-          <AccordionPanelColumn>
-            <h3 className="u-font-md">Metadata</h3>
-
+          <AccordionPanelColumn title="Metadata">
             {metaKeys.map((meta) => (
               <Stat
                 key={`${mart.id}-${meta}`}
@@ -79,8 +76,7 @@ export default function DataMartList(props) {
             ))}
           </AccordionPanelColumn>
 
-          {/* <AccordionPanelColumn>
-            <h3 className="u-font-md">Tables included</h3>
+          {/* <AccordionPanelColumn title="Tables included">
             <ul>
               {mart.tables.map((table) => (
                 <li key={table.id}>
@@ -92,9 +88,7 @@ export default function DataMartList(props) {
             </ul>
           </AccordionPanelColumn> */}
 
-          <AccordionPanelColumn>
-            <h3 className="u-font-md">Quality breakdown</h3>
-
+          <AccordionPanelColumn title="Quality breakdown">
             <RadarChart
               keys={qualityKeys}
               values={mart.quality}
