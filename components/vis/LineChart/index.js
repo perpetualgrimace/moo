@@ -1,6 +1,4 @@
 // https://www.headway.io/blog/building-a-svg-line-chart-in-react
-
-import { Fragment } from "react";
 import moment from "moment";
 
 import { chartDateFormat } from "/consts";
@@ -28,10 +26,8 @@ const chartWidth = 500;
 function formatXLabel(val) {
   return moment(val).format(chartDateFormat);
 }
-function formatYLabels(max, index, PARTS) {
-  return toPercentage(
-    parseFloat(max * (index / PARTS)).toFixed(precision)
-  );
+function formatYLabels(max, i, PARTS) {
+  return toPercentage(parseFloat(max * (i / PARTS)).toFixed(precision));
 }
 
 const LineChart = ({ data }) => {
@@ -70,7 +66,7 @@ const LineChart = ({ data }) => {
     <polyline
       fill="none"
       stroke={outerLineColor}
-      strokechartWidth={outerLinechartWidth}
+      strokeWidth={outerLinechartWidth}
       points={coords}
     />
   );
@@ -95,20 +91,19 @@ const LineChart = ({ data }) => {
     const startY = padding;
     const endY = chartHeight - padding;
 
-    return new Array(guideCount).fill(0).map((_, index) => {
-      const ratio = (index + 1) / guideCount;
+    return new Array(guideCount).fill(0).map((_, i) => {
+      const ratio = (i + 1) / guideCount;
 
       const xCoordinate = padding + ratio * (chartWidth - padding * 2);
 
       return (
-        <Fragment key={index}>
-          <polyline
-            fill="none"
-            stroke={innerLineColor}
-            strokechartWidth={innerLinechartWidth}
-            points={`${xCoordinate},${startY} ${xCoordinate},${endY}`}
-          />
-        </Fragment>
+        <polyline
+          key={`vertical-guide-${i}`}
+          fill="none"
+          stroke={innerLineColor}
+          strokeWidth={innerLinechartWidth}
+          points={`${xCoordinate},${startY} ${xCoordinate},${endY}`}
+        />
       );
     });
   };
@@ -117,21 +112,20 @@ const LineChart = ({ data }) => {
     const startX = padding;
     const endX = chartWidth - padding;
 
-    return new Array(horizontalGuideCount).fill(0).map((_, index) => {
-      const ratio = (index + 1) / horizontalGuideCount;
+    return new Array(horizontalGuideCount).fill(0).map((_, i) => {
+      const ratio = (i + 1) / horizontalGuideCount;
 
       const yCoordinate =
         chartHeightOffset - chartHeightOffset * ratio + padding;
 
       return (
-        <Fragment key={index}>
-          <polyline
-            fill="none"
-            stroke={innerLineColor}
-            strokechartWidth={innerLinechartWidth}
-            points={`${startX},${yCoordinate} ${endX},${yCoordinate}`}
-          />
-        </Fragment>
+        <polyline
+          key={`horizontal-guide-${i}`}
+          fill="none"
+          stroke={innerLineColor}
+          strokeWidth={innerLinechartWidth}
+          points={`${startX},${yCoordinate} ${endX},${yCoordinate}`}
+        />
       );
     });
   };
@@ -139,14 +133,14 @@ const LineChart = ({ data }) => {
   const XAxisLabels = () => {
     const y = chartHeight - padding + FONT_SIZE * 2;
 
-    return data.map((element, index) => {
+    return data.map((element, i) => {
       const x =
         (element.x / maximumXFromData) * chartWidthOffset +
         padding / 2 -
         FONT_SIZE / 2;
 
       return (
-        <text key={index} x={x} y={y} style={labelTextStyle}>
+        <text key={i} x={x} y={y} style={labelTextStyle}>
           {formatXLabel(element.label)}
         </text>
       );
@@ -156,9 +150,9 @@ const LineChart = ({ data }) => {
   const YAxisLabels = () => {
     const PARTS = horizontalGuideCount;
 
-    return new Array(PARTS + 1).fill(0).map((_, index) => {
+    return new Array(PARTS + 1).fill(0).map((_, i) => {
       const x = FONT_SIZE;
-      const ratio = index / horizontalGuideCount;
+      const ratio = i / horizontalGuideCount;
 
       const yCoordinate =
         chartHeightOffset -
@@ -167,23 +161,34 @@ const LineChart = ({ data }) => {
         FONT_SIZE / 2;
 
       return (
-        <text key={index} x={x} y={yCoordinate} style={labelTextStyle}>
-          {formatYLabels(maximumYFromData, index, PARTS)}
+        <text
+          key={`text-label-${i}`}
+          x={x}
+          y={yCoordinate}
+          style={labelTextStyle}
+        >
+          {formatYLabels(maximumYFromData, i, PARTS)}
         </text>
       );
     });
   };
 
   const Dots = () =>
-    points.map((dot) => (
-      <circle cx={dot.x} cy={dot.y} r="5" fill={spring} />
+    points.map((dot, i) => (
+      <circle
+        key={`point-${i}`}
+        cx={dot.x}
+        cy={dot.y}
+        r="5"
+        fill={spring}
+      />
     ));
 
   const Line = () => (
     <polyline
       fill="none"
       stroke={spring}
-      strokechartWidth={outerLinechartWidth}
+      strokeWidth={outerLinechartWidth}
       points={pointsJoined}
     />
   );
