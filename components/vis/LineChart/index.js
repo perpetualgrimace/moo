@@ -1,39 +1,47 @@
 // https://www.headway.io/blog/building-a-svg-line-chart-in-react
 
 import { Fragment } from "react";
+import moment from "moment";
+
+import { chartDateFormat } from "/consts";
 
 import toPercentage from "/helpers/toPercentage";
 
 import * as styles from "/styles/1-utils/_variables.module.scss";
 
-const salmon = styles.salmonMd;
-const sun = styles.sunMd;
 const spring = styles.springMd;
 
 const innerLineColor = styles.visInnerLineColor;
-const innerLineWidth = styles.visInnerLineWidth;
+const innerLinechartWidth = styles.visInnerLinechartWidth;
 
 const outerLineColor = styles.visOuterLineColor;
-const outerLineWidth = styles.visOuterLineWidth;
-const backgroundFill = styles.visBackground;
+const outerLinechartWidth = styles.visOuterLinechartWidth;
 
 const labelColor = styles.visLabelColor;
 const labelFont = styles.labelFont;
 
-function defaultFormat(val) {
-  return val;
+const precision = 2;
+const horizontalGuideCount = 2;
+const chartHeight = 225;
+const chartWidth = 500;
+
+function formatXLabel(val) {
+  return moment(val).format(chartDateFormat);
+}
+function formatYLabels(max, index, PARTS) {
+  return toPercentage(
+    parseFloat(max * (index / PARTS)).toFixed(precision)
+  );
 }
 
-const LineChart = ({
-  data,
-  height,
-  width,
-  horizontalGuides: numberOfHorizontalGuides,
-  precision,
-  xFormat = (x) => defaultFormat(x),
-  yFormat = (y) => defaultFormat(y),
-}) => {
-  const FONT_SIZE = width / 33.333;
+const LineChart = ({ data }) => {
+  const FONT_SIZE = chartWidth / 33.333;
+  const labelTextStyle = {
+    fill: labelColor,
+    fontSize: FONT_SIZE,
+    fontFamily: labelFont,
+  };
+
   const maximumXFromData = Math.max(...data.map((e) => e.x));
   const maximumYFromData = Math.max(...data.map((e) => e.y));
 
@@ -41,15 +49,16 @@ const LineChart = ({
     parseFloat(maximumYFromData.toString()).toFixed(precision).length + 1;
 
   const padding = (FONT_SIZE + digits) * 3;
-  const chartWidth = width - padding * 2;
-  const chartHeight = height - padding * 2;
+  const chartWidthOffset = chartWidth - padding * 2;
+  const chartHeightOffset = chartHeight - padding * 2;
 
   const points = data.map((element) => {
-    const x = (element.x / maximumXFromData) * chartWidth + padding;
+    const x = (element.x / maximumXFromData) * chartWidthOffset + padding;
     const y =
-      chartHeight -
-      (element.y / maximumYFromData) * chartHeight +
+      chartHeightOffset -
+      (element.y / maximumYFromData) * chartHeightOffset +
       padding;
+
     return { x, y };
   });
 
@@ -57,28 +66,26 @@ const LineChart = ({
     .map((point) => `${point.x},${point.y}`)
     .join(" ");
 
-  // console.log(pointsJoined);
-
   const Axis = ({ coords }) => (
     <polyline
       fill="none"
       stroke={outerLineColor}
-      strokeWidth={outerLineWidth}
+      strokechartWidth={outerLinechartWidth}
       points={coords}
     />
   );
 
   const XAxis = () => (
     <Axis
-      coords={`${padding},${height - padding} ${width - padding},${
-        height - padding
-      }`}
+      coords={`${padding},${chartHeight - padding} ${
+        chartWidth - padding
+      },${chartHeight - padding}`}
     />
   );
 
   const YAxis = () => (
     <Axis
-      coords={`${padding},${padding} ${padding},${height - padding}`}
+      coords={`${padding},${padding} ${padding},${chartHeight - padding}`}
     />
   );
 
@@ -86,19 +93,19 @@ const LineChart = ({
     const guideCount = data.length - 1;
 
     const startY = padding;
-    const endY = height - padding;
+    const endY = chartHeight - padding;
 
     return new Array(guideCount).fill(0).map((_, index) => {
       const ratio = (index + 1) / guideCount;
 
-      const xCoordinate = padding + ratio * (width - padding * 2);
+      const xCoordinate = padding + ratio * (chartWidth - padding * 2);
 
       return (
         <Fragment key={index}>
           <polyline
             fill="none"
             stroke={innerLineColor}
-            strokeWidth={innerLineWidth}
+            strokechartWidth={innerLinechartWidth}
             points={`${xCoordinate},${startY} ${xCoordinate},${endY}`}
           />
         </Fragment>
@@ -108,19 +115,20 @@ const LineChart = ({
 
   const HorizontalGuides = () => {
     const startX = padding;
-    const endX = width - padding;
+    const endX = chartWidth - padding;
 
-    return new Array(numberOfHorizontalGuides).fill(0).map((_, index) => {
-      const ratio = (index + 1) / numberOfHorizontalGuides;
+    return new Array(horizontalGuideCount).fill(0).map((_, index) => {
+      const ratio = (index + 1) / horizontalGuideCount;
 
-      const yCoordinate = chartHeight - chartHeight * ratio + padding;
+      const yCoordinate =
+        chartHeightOffset - chartHeightOffset * ratio + padding;
 
       return (
         <Fragment key={index}>
           <polyline
             fill="none"
             stroke={innerLineColor}
-            strokeWidth={innerLineWidth}
+            strokechartWidth={innerLinechartWidth}
             points={`${startX},${yCoordinate} ${endX},${yCoordinate}`}
           />
         </Fragment>
@@ -128,55 +136,39 @@ const LineChart = ({
     });
   };
 
-  const LabelsXAxis = () => {
-    const y = height - padding + FONT_SIZE * 2;
+  const XAxisLabels = () => {
+    const y = chartHeight - padding + FONT_SIZE * 2;
 
     return data.map((element, index) => {
       const x =
-        (element.x / maximumXFromData) * chartWidth +
+        (element.x / maximumXFromData) * chartWidthOffset +
         padding / 2 -
         FONT_SIZE / 2;
+
       return (
-        <text
-          key={index}
-          x={x}
-          y={y}
-          style={{
-            fill: labelColor,
-            fontSize: FONT_SIZE,
-            fontFamily: labelFont,
-          }}
-        >
-          {element.label}
+        <text key={index} x={x} y={y} style={labelTextStyle}>
+          {formatXLabel(element.label)}
         </text>
       );
     });
   };
 
-  const LabelsYAxis = () => {
-    const PARTS = numberOfHorizontalGuides;
+  const YAxisLabels = () => {
+    const PARTS = horizontalGuideCount;
+
     return new Array(PARTS + 1).fill(0).map((_, index) => {
       const x = FONT_SIZE;
-      const ratio = index / numberOfHorizontalGuides;
+      const ratio = index / horizontalGuideCount;
 
       const yCoordinate =
-        chartHeight - chartHeight * ratio + padding + FONT_SIZE / 2;
+        chartHeightOffset -
+        chartHeightOffset * ratio +
+        padding +
+        FONT_SIZE / 2;
+
       return (
-        <text
-          key={index}
-          x={x}
-          y={yCoordinate}
-          style={{
-            fill: labelColor,
-            fontSize: FONT_SIZE,
-            fontFamily: labelFont,
-          }}
-        >
-          {toPercentage(
-            parseFloat(maximumYFromData * (index / PARTS)).toFixed(
-              precision
-            )
-          )}
+        <text key={index} x={x} y={yCoordinate} style={labelTextStyle}>
+          {formatYLabels(maximumYFromData, index, PARTS)}
         </text>
       );
     });
@@ -186,49 +178,33 @@ const LineChart = ({
     points.map((dot) => (
       <circle cx={dot.x} cy={dot.y} r="5" fill={spring} />
     ));
+
+  const Line = () => (
+    <polyline
+      fill="none"
+      stroke={spring}
+      strokechartWidth={outerLinechartWidth}
+      points={pointsJoined}
+    />
+  );
+
   return (
     <svg
-      viewBox={`0 0 ${width} ${height}`}
+      viewBox={`0 0 ${chartWidth} ${chartHeight}`}
       style={{ marginTop: -(padding / 2) }}
     >
       <XAxis />
-      <LabelsXAxis />
-      <YAxis />
-      <LabelsYAxis />
+      <XAxisLabels />
       <VerticalGuides />
-      <HorizontalGuides />
-      <Dots />
 
-      <polyline
-        fill="none"
-        stroke={spring}
-        strokeWidth={outerLineWidth}
-        points={pointsJoined}
-      />
+      <YAxis />
+      <YAxisLabels />
+      <HorizontalGuides />
+
+      <Dots />
+      <Line />
     </svg>
   );
 };
-
-LineChart.defaultProps = {
-  height: 225,
-  width: 500,
-  horizontalGuides: 2,
-  verticalGuides: true,
-  precision: 2,
-};
-
-// LineChart.propTypes = {
-//   data: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       value: PropTypes.number,
-//       label: PropTypes.string,
-//     })
-//   ).isRequired,
-//   height: PropTypes.number,
-//   width: PropTypes.number,
-//   horizontalGuides: PropTypes.number,
-//   verticalGuides: PropTypes.number,
-//   precision: PropTypes.number,
-// };
 
 export default LineChart;

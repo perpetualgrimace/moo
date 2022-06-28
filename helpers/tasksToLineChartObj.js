@@ -28,8 +28,6 @@ export default function tasksToLineChartObj(engagement) {
     completedTasksCount / totalTasksCount
   );
 
-  console.log(completedTasksPercentage);
-
   const data = tasks.map((task, i) =>
     task.completionDate
       ? {
