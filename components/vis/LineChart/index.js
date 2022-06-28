@@ -30,25 +30,35 @@ function formatYLabels(max, i, PARTS) {
   return toPercentage(parseFloat(max * (i / PARTS)).toFixed(precision));
 }
 
+function filterOutEmptyKeys(arr) {
+  return arr.filter((obj) => {
+    if (typeof obj === "object" && Object.keys(obj).length !== 0) {
+      return true;
+    }
+  });
+}
+
 const LineChart = ({ data }) => {
-  const FONT_SIZE = chartWidth / 33.333;
+  const fontSize = chartWidth / 33.333;
   const labelTextStyle = {
     fill: labelColor,
-    fontSize: FONT_SIZE,
+    fontSize: fontSize,
     fontFamily: labelFont,
   };
 
-  const maximumXFromData = Math.max(...data.map((e) => e.x));
-  const maximumYFromData = Math.max(...data.map((e) => e.y));
+  const filteredData = filterOutEmptyKeys(data);
+
+  const maximumXFromData = Math.max(...filteredData.map((e) => e.x));
+  const maximumYFromData = Math.max(...filteredData.map((e) => e.y));
 
   const digits =
     parseFloat(maximumYFromData.toString()).toFixed(precision).length + 1;
 
-  const padding = (FONT_SIZE + digits) * 3;
+  const padding = (fontSize + digits) * 3;
   const chartWidthOffset = chartWidth - padding * 2;
   const chartHeightOffset = chartHeight - padding * 2;
 
-  const points = data.map((element) => {
+  const points = filteredData.map((element) => {
     const x = (element.x / maximumXFromData) * chartWidthOffset + padding;
     const y =
       chartHeightOffset -
@@ -86,7 +96,7 @@ const LineChart = ({ data }) => {
   );
 
   const VerticalGuides = () => {
-    const guideCount = data.length - 1;
+    const guideCount = filteredData.length - 1;
 
     const startY = padding;
     const endY = chartHeight - padding;
@@ -131,13 +141,13 @@ const LineChart = ({ data }) => {
   };
 
   const XAxisLabels = () => {
-    const y = chartHeight - padding + FONT_SIZE * 2;
+    const y = chartHeight - padding + fontSize * 2;
 
-    return data.map((element, i) => {
+    return filteredData.map((element, i) => {
       const x =
         (element.x / maximumXFromData) * chartWidthOffset +
-        padding / 2 -
-        FONT_SIZE / 2;
+        padding * 0.75 -
+        fontSize / 2;
 
       return (
         <text key={i} x={x} y={y} style={labelTextStyle}>
@@ -151,14 +161,14 @@ const LineChart = ({ data }) => {
     const PARTS = horizontalGuideCount;
 
     return new Array(PARTS + 1).fill(0).map((_, i) => {
-      const x = FONT_SIZE;
+      const x = fontSize;
       const ratio = i / horizontalGuideCount;
 
       const yCoordinate =
         chartHeightOffset -
         chartHeightOffset * ratio +
         padding +
-        FONT_SIZE / 2;
+        fontSize / 2;
 
       return (
         <text
