@@ -35,6 +35,15 @@ function shouldPrintStatusChart(engagement) {
   }
 }
 
+function shouldPrintEta(engagement) {
+  if (
+    engagement.eta &&
+    engagement.tasks.filter((task) => !task.completionDate).length
+  ) {
+    return true;
+  }
+}
+
 export default function EngagementsList(props) {
   const { data, sortKey } = props;
   const sortedData = sortArrayByObjKey(data, sortKey);
@@ -56,7 +65,7 @@ export default function EngagementsList(props) {
           meta={
             engagement.tasks && engagement.tasks.length
               ? [
-                  {
+                  shouldPrintEta(engagement) === true && {
                     label: "ETA",
                     value:
                       moment(engagement.eta).format(dateFormat) || null,
