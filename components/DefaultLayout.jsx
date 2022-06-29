@@ -24,7 +24,7 @@ export default function DefaultLayout(props) {
       <main className="main" id="#main">
         <Hero
           pageTitle={title}
-          imgSlug={slug}
+          imgSlug={slug === "manage" ? "tools" : slug}
           parentSlug={parentSlug}
           parentTitle={parentTitle}
         />

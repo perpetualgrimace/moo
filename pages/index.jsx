@@ -7,9 +7,24 @@ export default function Tools() {
     <DefaultLayout title="Welcome" slug="tools">
       <ToolsSection sectionTitle="Manage data">
         <ToolsItem
-          href="/manage"
+          href="/manage/jupyterhub"
           imgSrc="jupyterhub-logo"
           altText="Jupyter Hub"
+          outbound="true"
+        />
+        <ToolsItem
+          href="/manage/data-integration"
+          imgSrc="data-integration-icon"
+          label="Data integration"
+          altText=""
+          outbound="true"
+        />
+        <ToolsItem
+          href="/manage/business-intelligence"
+          imgSrc="visualizations-icon"
+          label="Business intelligence"
+          altText=""
+          outbound="true"
         />
       </ToolsSection>
 

@@ -80,17 +80,26 @@
 // TOOLS TILE GRID
 //////////////////////////////////
 
+.tools-heading {
+	margin-top: -$sp-lg;
+	z-index: 1;
+}
+
 @supports (display: grid) {
 	@media (min-width: 360px) {
-		.tools-section:nth-child(2) .tools-list {
+		.tools-section .tools-list {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			grid-gap: 1rem;
 
-		.tools-item .tile {
-			margin-bottom: 0;
+			.tools-item .tile {
+				margin-bottom: 0;
+				min-height: 11rem;
+			}
 		}
-		}
+		.tools-section:first-of-type .tools-item:first-of-type  { grid-column: 1/3; }
+		.tools-section:first-of-type .tools-item:nth-of-type(2) { grid-column: 1/2; }
+		.tools-section:first-of-type .tools-item:last-of-type   { grid-column: 2/3; }
 	}
 
 	// 2 columns
@@ -110,21 +119,17 @@
 		.tools-item:last-child .tile {
 			margin-bottom: 0;
 		}
-
-		// magic number to keep tiles vertically aligned when text breaks
-		.tools-item .tile {
-			min-height: 200px;
-		}
 	}
 
 	// 3 columns
 	@media (min-width: 900px) {
 		.tools-wrapper {
-			grid-template-columns: 1fr 2rem 1fr 2rem 1fr;
+			grid-template-columns: 1fr 1fr;
+			grid-gap: $sp-xl;
 		}
 
 		.tools-section:nth-child(1) { grid-column: 1/2; }
-		.tools-section:nth-child(2) { grid-column: 3/6; }
+		.tools-section:nth-child(2) { grid-column: 2/3; }
 
 		// equal height columns
 		.tools-section,
@@ -136,6 +141,26 @@
 		.tools-item:only-child,
 		.tools-item:only-child > .tile {
 			height: 100%;
+		}
+	}
+}
+
+//////////////////////////////////
+// MANAGE
+//////////////////////////////////
+
+.tools-section:only-child .tools-list {
+	@media (min-width: 700px) {
+		grid-template-columns: 1fr 1fr 1fr;
+
+		.tools-item:first-child {
+			grid-column: 1/2;
+		}
+		.tools-item:nth-child(2) {
+			grid-column: 2/3;
+		}
+		.tools-item:last-child {
+			grid-column: 3/4;
 		}
 	}
 }

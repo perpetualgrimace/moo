@@ -7,12 +7,7 @@ export default function IframeLayout(props) {
 
   return (
     <div className={`${slug}-layout iframe-layout`}>
-      <Meta pageTitle={title} description="Data science toolkit">
-        <meta
-          http-equiv="Content-Security-Policy"
-          content="frame-src http://averroes.andal.us:8003/ http://averroes.andal.us:8003/*"
-        />
-      </Meta>
+      <Meta pageTitle={title} description="Data science toolkit" />
 
       <Navbar />
 

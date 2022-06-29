@@ -3,7 +3,7 @@
   top: calc(100% - 1rem);
   right: 0.25rem;
   min-width: calc(100% - 0.5rem);
-  width: min-content;
+  width: max-content;
   padding: 0.125rem;
   background-color: $dark-2;
   border: 1px solid $dark-1;

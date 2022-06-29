@@ -1,6 +1,6 @@
 import IframeLayout from "/components/IframeLayout";
 
-export default function Tools() {
+export default function Jupyterhub() {
   return (
     <IframeLayout
       title="Manage data"
