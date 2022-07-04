@@ -1,9 +1,7 @@
 const { secretString } = require("./data/secretString.js");
 
 module.exports = {
-  experimental: {
-    output: "standalone",
-  },
+  output: "standalone",
   serverRuntimeConfig: {
     secret: secretString,
   },
