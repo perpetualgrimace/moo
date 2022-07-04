@@ -13,6 +13,10 @@
     padding-left: $sp-xl;
     padding-right: $sp-xl;
   }
+
+	& > h2:first-child {
+	z-index: 1;
+}
 }
 
 //////////////////////////////////
@@ -79,11 +83,6 @@
 //////////////////////////////////
 // TOOLS TILE GRID
 //////////////////////////////////
-
-.tools-heading {
-	margin-top: -$sp-lg;
-	z-index: 1;
-}
 
 @supports (display: grid) {
 	@media (min-width: 360px) {
