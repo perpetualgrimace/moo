@@ -29,7 +29,7 @@ export default function Home() {
         />
       </HomeSection>
 
-      <HomeSection sectionTitle="Browse assets">
+      <HomeSection sectionTitle="Asset viewer">
         <HomeItem
           href="/assets/servers"
           imgSrc="servers-icon"
