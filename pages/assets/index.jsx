@@ -1,7 +1,8 @@
 import assetsSummary from "/data/assetsSummary";
 
-import DefaultLayout from "/components/DefaultLayout";
-import AssetTile from "/components/AssetTile";
+import DefaultLayout from "/components/layout/DefaultLayout";
+
+import AssetTile from "/components/pages/assets/AssetTile";
 
 export default function Assets() {
   const { serverStats, dataStats, engineStats, engagementStats } =

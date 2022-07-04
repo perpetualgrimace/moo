@@ -3,8 +3,8 @@ import * as Yup from "yup";
 
 import { userService } from "/services/userService";
 
-import TextField from "/components/TextField";
-import Button from "/components/Button";
+import TextField from "/components/controls/TextField";
+import Button from "/components/controls/Button";
 
 function onSubmit(values) {
   const username = values.email;

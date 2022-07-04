@@ -1,7 +1,7 @@
 import { userService } from "/services/userService";
 
-import Meta from "/components/Meta";
-import SpaceBG from "/components/SpaceBG";
+import Meta from "/components/layout/components/Meta";
+import SpaceBG from "/components/layout/components/SpaceBG";
 
 export default function Login() {
   userService.logout();

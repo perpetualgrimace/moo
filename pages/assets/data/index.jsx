@@ -3,13 +3,13 @@ import { useState } from "react";
 import marts from "/data/marts.json";
 import tables from "/data/tables.json";
 
-import DefaultLayout from "/components/DefaultLayout";
-import Button from "/components/Button";
-import ButtonGroup from "/components/ButtonGroup";
-import Select from "/components/Select";
+import DefaultLayout from "/components/layout/DefaultLayout";
+import Button from "/components/controls/Button";
+import ButtonGroup from "/components/controls/ButtonGroup";
+import Select from "/components/controls/Select";
 
-import DataMartList from "/components/DataMartList";
-import DataLakeTable from "/components/DataLakeTable";
+import DataMartList from "/components/pages/assets/data/DataMartList";
+import DataLakeTable from "/components/pages/assets/data/DataLakeTable";
 
 export default function Data() {
   const lakeSortOptions = [
@@ -33,8 +33,10 @@ export default function Data() {
   }
 
   return (
-    <DefaultLayout title="Data" slug="data">
-      <div className="controls u-mb-lg">
+    <DefaultLayout
+      title="Data"
+      slug="data"
+      controls={[
         <ButtonGroup toggle label="select view">
           <Button
             aria-pressed={view === "lake"}
@@ -50,7 +52,7 @@ export default function Data() {
           >
             Data marts
           </Button>
-        </ButtonGroup>
+        </ButtonGroup>,
 
         <Select
           label="Sort by"
@@ -58,9 +60,9 @@ export default function Data() {
           selection={sortBy}
           onChange={handleSortByChange}
           inline
-        />
-      </div>
-
+        />,
+      ]}
+    >
       {view === "lake" ? (
         <DataLakeTable data={tables} sortKey={sortBy} />
       ) : (

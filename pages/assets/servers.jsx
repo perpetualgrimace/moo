@@ -4,9 +4,9 @@ import servers from "/data/servers.json";
 
 import constructSummaryStatsObject from "/helpers/constructSummaryStatsObject";
 
-import DefaultLayout from "/components/DefaultLayout";
-import ServerTile from "/components/ServerTile";
-import ServerCard from "/components/ServerCard";
+import DefaultLayout from "/components/layout/DefaultLayout";
+import ServerTile from "/components/pages/assets/servers/ServerTile";
+import ServerCard from "/components/pages/assets/servers/ServerCard";
 
 export default function Servers() {
   const { Muthalath, Mudavar, Muraba } = servers;

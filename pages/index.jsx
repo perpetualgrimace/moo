@@ -1,59 +1,60 @@
-import DefaultLayout from "/components/DefaultLayout";
-import ToolsSection from "/components/ToolsSection";
-import ToolsItem from "/components/ToolsItem";
+import DefaultLayout from "/components/layout/DefaultLayout";
 
-export default function Tools() {
+import HomeSection from "/components/pages/home/HomeSection";
+import HomeItem from "/components/pages/home/HomeItem";
+
+export default function Home() {
   return (
-    <DefaultLayout title="Welcome" slug="tools">
-      <ToolsSection sectionTitle="Manage data">
-        <ToolsItem
+    <DefaultLayout title="Welcome" slug="home">
+      <HomeSection sectionTitle="Manage data">
+        <HomeItem
           href="/manage/jupyterhub"
           imgSrc="jupyterhub-logo"
           altText="Jupyter Hub"
           outbound="true"
         />
-        <ToolsItem
+        <HomeItem
           href="/manage/data-integration"
           imgSrc="data-integration-icon"
           label="Data integration"
           altText=""
           outbound="true"
         />
-        <ToolsItem
+        <HomeItem
           href="/manage/business-intelligence"
           imgSrc="visualizations-icon"
           label="Business intelligence"
           altText=""
           outbound="true"
         />
-      </ToolsSection>
+      </HomeSection>
 
-      <ToolsSection sectionTitle="Browse assets">
-        <ToolsItem
+      <HomeSection sectionTitle="Browse assets">
+        <HomeItem
           href="/assets/servers"
           imgSrc="servers-icon"
           label="Servers"
           altText=""
         />
-        <ToolsItem
+        <HomeItem
           href="/assets/data"
           imgSrc="table-icon"
           label="Data"
           altText=""
         />
-        <ToolsItem
+        <HomeItem
           href="/assets/engines"
           imgSrc="prediction-engines-icon"
           label="Engines"
           altText=""
         />
-        <ToolsItem
+        <HomeItem
           href="/assets/engagements"
           imgSrc="checklist-icon"
           label="Engagements"
           altText=""
         />
-      </ToolsSection>
+      </HomeSection>
     </DefaultLayout>
   );
 }

@@ -2,11 +2,9 @@ import { useState } from "react";
 
 import engines from "/data/engines.json";
 
-import DefaultLayout from "/components/DefaultLayout";
-import Button from "/components/Button";
-import Select from "/components/Select";
-
-import EnginesList from "/components/EnginesList";
+import DefaultLayout from "/components/layout/DefaultLayout";
+import Select from "/components/controls/Select";
+import EnginesList from "/components/pages/assets/engines/EnginesList";
 
 export default function Engines() {
   const sortOptions = [
@@ -22,8 +20,10 @@ export default function Engines() {
   }
 
   return (
-    <DefaultLayout title="Engines" slug="engines">
-      <div className="controls u-mb-lg">
+    <DefaultLayout
+      title="Engines"
+      slug="engines"
+      controls={
         <Select
           label="Sort by"
           options={sortOptions}
@@ -31,7 +31,8 @@ export default function Engines() {
           onChange={handleSortByChange}
           inline
         />
-      </div>
+      }
+    >
       <EnginesList data={engines} sortKey={sortBy} />
     </DefaultLayout>
   );

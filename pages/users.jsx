@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 
 import { userService } from "/services/userService";
 
-import DefaultLayout from "/components/DefaultLayout";
+import DefaultLayout from "/components/layout/DefaultLayout";
 
 export default function Home() {
   const [users, setUsers] = useState(null);

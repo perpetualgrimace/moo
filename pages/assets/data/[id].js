@@ -2,8 +2,8 @@ import slugify from "/helpers/slugify";
 
 import tables from "/data/tables.json";
 
-import DefaultLayout from "/components/DefaultLayout";
-import Table from "/components/Table";
+import DefaultLayout from "/components/layout/DefaultLayout";
+import Table from "/components/common/Table";
 
 export const getStaticProps = async ({ params }) => {
   const currTable = tables.filter(

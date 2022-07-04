@@ -1,0 +1,17 @@
+.controls {
+	height: 2rem;
+	display: flex;
+	align-items: stretch;
+
+	& > :first-child {
+		margin-right: auto;
+	}
+
+	& * {
+		height: 100%;
+	}
+}
+
+.hero + .wrapper > .controls:first-child {
+	margin-top: -$sp-xl;
+}

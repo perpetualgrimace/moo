@@ -1,4 +1,4 @@
-import IframeLayout from "/components/IframeLayout";
+import IframeLayout from "/components/layout/IframeLayout";
 
 export default function Jupyterhub() {
   return (

@@ -2,11 +2,9 @@ import { useState } from "react";
 
 import engagements from "/data/engagements.json";
 
-import DefaultLayout from "/components/DefaultLayout";
-import Button from "/components/Button";
-import Select from "/components/Select";
-
-import EngagementsList from "/components/EngagementsList";
+import DefaultLayout from "/components/layout/DefaultLayout";
+import Select from "/components/controls/Select";
+import EngagementsList from "/components/pages/assets/engagements/EngagementsList";
 
 export default function Engagements() {
   const sortOptions = [
@@ -22,8 +20,10 @@ export default function Engagements() {
   }
 
   return (
-    <DefaultLayout title="Engagements" slug="engagements">
-      <div className="controls u-mb-lg">
+    <DefaultLayout
+      title="Engagements"
+      slug="engagements"
+      controls={
         <Select
           label="Sort by"
           options={sortOptions}
@@ -31,7 +31,8 @@ export default function Engagements() {
           onChange={handleSortByChange}
           inline
         />
-      </div>
+      }
+    >
       <EngagementsList data={engagements} sortKey={sortBy} />
     </DefaultLayout>
   );
