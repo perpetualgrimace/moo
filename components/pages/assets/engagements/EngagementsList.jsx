@@ -26,6 +26,26 @@ function getCompletedTaskPercentage(tasks) {
   return toPercentage(completedTasks.length / tasks.length);
 }
 
+function filterArrayByObjKey(array, filterBy) {
+  let filteredObjArr = [...array];
+
+  if (filterBy === "incomplete") {
+    return filteredObjArr.filter(
+      (obj) => getCompletedTaskPercentage(obj.tasks) !== "100%"
+    );
+  } else if (filterBy === "complete") {
+    return filteredObjArr.filter(
+      (obj) => getCompletedTaskPercentage(obj.tasks) === "100%"
+    );
+  } else if (filterBy === "not yet started") {
+    return filteredObjArr.filter(
+      (obj) => !parseInt(getCompletedTaskPercentage(obj.tasks))
+    );
+  }
+
+  return filteredObjArr;
+}
+
 function shouldPrintStatusChart(engagement) {
   if (
     engagement.tasks &&
@@ -47,8 +67,9 @@ function shouldPrintEta(engagement) {
 }
 
 export default function EngagementsList(props) {
-  const { data, sortKey } = props;
-  const sortedData = sortArrayByObjKey(data, sortKey);
+  const { data, filterKey, sortKey } = props;
+  const filteredData = filterArrayByObjKey(data, filterKey);
+  const sortedData = sortArrayByObjKey(filteredData, sortKey);
 
   const [openPanelId, setOpenPanelId] = useState(false);
 
