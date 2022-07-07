@@ -5,7 +5,7 @@ export default function DataIntegration() {
     <IframeLayout
       title="Data integration"
       slug="integration"
-      src="http://averroes.andal.us:8001/"
+      src="http://averroes.andal.us:8000/jenkins/"
       loading="lazy"
     />
   );
