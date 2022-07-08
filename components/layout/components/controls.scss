@@ -2,9 +2,13 @@
 	height: 2rem;
 	display: flex;
 	align-items: stretch;
+	flex-wrap: wrap;
 
-	& > :first-child {
-		margin-right: auto;
+	& > :not(:last-child) {
+		margin-right: $sp-xl;
+	}
+	& > :last-child {
+		margin-left: auto;
 	}
 
 	& * {
