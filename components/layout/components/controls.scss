@@ -1,18 +1,35 @@
+$field-height: 2rem;
+
 .controls {
-	height: 2rem;
 	display: flex;
-	align-items: stretch;
-	flex-wrap: wrap;
 
-	& > :not(:last-child) {
-		margin-right: $sp-xl;
-	}
-	& > :last-child {
-		margin-left: auto;
+	* {
+		height: $field-height;
 	}
 
-	& * {
-		height: 100%;
+	@media (max-width: 699px) {
+		flex-direction: column;
+
+		& > *:not(:last-child) {
+			margin-bottom: $sp-md;
+
+			.select-inner {
+				flex: 1 0 calc(100% - 4rem);
+			}
+
+			& > * {
+				width: 100%;
+			}
+		}
+	}
+
+	@media (min-width: 700px) {
+		& > :not(:last-child) {
+			margin-right: $sp-xl;
+		}
+		& > :last-child {
+			margin-left: auto;
+		}
 	}
 }
 
