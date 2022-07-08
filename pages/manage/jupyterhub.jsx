@@ -5,7 +5,7 @@ export default function Jupyterhub() {
     <IframeLayout
       title="Manage data"
       slug="manage"
-      src="http://averroes.andal.us:8003/"
+      src="http://averroes.andal.us:8000/jupyter/"
       loading="lazy"
     />
   );
