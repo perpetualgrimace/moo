@@ -28,6 +28,14 @@
 	-moz-appearance: none;
 	-webkit-appearance: none;
 	appearance: none;
+
+  &:hover, &:focus {
+    color: $white;
+
+    & + svg path {
+      fill: currentColor;
+    }
+  }
 }
 /* Hide arrow icon in IE browsers */
 .select::-ms-expand {

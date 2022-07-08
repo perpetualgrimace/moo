@@ -1,3 +1,22 @@
+input[type="text"] {
+  transition:
+    background-color 0.2s ease-out,
+    border-color 0.2s ease-out,
+    color 0.2s ease-out;
+
+  &:hover, &:focus {
+    background-color: rgba($dark-2, 0.666);
+  }
+
+  &:hover {
+    border-color: $light-3;
+  }
+
+  &:focus {
+    border-color: $light-2;
+  }
+}
+
 // .control {
 //   padding-left: 1.5rem;
 // }
