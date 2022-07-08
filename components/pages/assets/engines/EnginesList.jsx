@@ -3,6 +3,7 @@ import moment from "moment";
 
 import { dateFormat } from "/consts";
 
+import filterDataByQuery from "/helpers/filterDataByQuery";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 import toPercentage from "/helpers/toPercentage";
 
@@ -11,8 +12,10 @@ import AccordionPanel from "/components/common/Accordion/AccordionPanel";
 import AccordionPanelColumn from "/components/common/Accordion/AccordionPanelColumn";
 
 export default function EnginesList(props) {
-  const { data, sortKey } = props;
-  const sortedData = sortArrayByObjKey(data, sortKey);
+  const { data, sortKey, searchVal } = props;
+
+  const filteredData = filterDataByQuery(data, searchVal);
+  const sortedData = sortArrayByObjKey(filteredData, sortKey);
 
   const [openPanelId, setOpenPanelId] = useState(false);
 

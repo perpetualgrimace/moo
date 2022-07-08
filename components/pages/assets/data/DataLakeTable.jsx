@@ -3,13 +3,15 @@ import moment from "moment";
 
 import { dateFormat } from "/consts";
 
+import filterDataByQuery from "/helpers/filterDataByQuery";
 import slugify from "/helpers/slugify";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 
 export default function DataLakeTable(props) {
-  const { data, sortKey } = props;
+  const { data, sortKey, searchVal } = props;
 
-  const sortedData = sortArrayByObjKey(data, sortKey);
+  const filteredData = filterDataByQuery(data, searchVal);
+  const sortedData = sortArrayByObjKey(filteredData, sortKey);
 
   return (
     <table className="table data-lake-table">

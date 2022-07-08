@@ -3,6 +3,7 @@ import moment from "moment";
 
 import { dateFormat } from "/consts";
 
+import filterDataByQuery from "/helpers/filterDataByQuery";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 import tasksToLineChartObj from "/helpers/tasksToLineChartObj";
 import toPercentage from "/helpers/toPercentage";
@@ -67,8 +68,11 @@ function shouldPrintEta(engagement) {
 }
 
 export default function EngagementsList(props) {
-  const { data, filterKey, sortKey } = props;
-  const filteredData = filterArrayByObjKey(data, filterKey);
+  const { data, filterKey, sortKey, searchVal } = props;
+  const filteredData = filterDataByQuery(
+    filterArrayByObjKey(data, filterKey),
+    searchVal
+  );
   const sortedData = sortArrayByObjKey(filteredData, sortKey);
 
   const [openPanelId, setOpenPanelId] = useState(false);

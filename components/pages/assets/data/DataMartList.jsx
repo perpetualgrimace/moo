@@ -3,9 +3,10 @@ import moment from "moment";
 
 import { dateFormat } from "/consts";
 
-import uppercaseFirst from "/helpers/uppercaseFirst";
+import filterDataByQuery from "/helpers/filterDataByQuery";
 import getTheme from "/helpers/getTheme";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
+import uppercaseFirst from "/helpers/uppercaseFirst";
 
 import Stat from "/components/common/Stat";
 import Accordion from "/components/common/Accordion";
@@ -18,20 +19,22 @@ function isPanelOpen(openId, currentId) {
   return false;
 }
 
+const metaKeys = ["source"];
+
+const qualityKeys = [
+  "completeness",
+  "uniqueness",
+  "timeliness",
+  "validity",
+  "accuracy",
+  "consistency",
+];
+
 export default function DataMartList(props) {
-  const metaKeys = ["source"];
+  const { data, sortKey, searchVal } = props;
 
-  const qualityKeys = [
-    "completeness",
-    "uniqueness",
-    "timeliness",
-    "validity",
-    "accuracy",
-    "consistency",
-  ];
-
-  const { data, sortKey } = props;
-  const sortedData = sortArrayByObjKey(data, sortKey);
+  const filteredData = filterDataByQuery(data, searchVal);
+  const sortedData = sortArrayByObjKey(filteredData, sortKey);
 
   const [openPanelId, setOpenPanelId] = useState(false);
 

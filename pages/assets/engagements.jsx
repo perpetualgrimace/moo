@@ -4,29 +4,35 @@ import engagements from "/data/engagements.json";
 
 import DefaultLayout from "/components/layout/DefaultLayout";
 import Select from "/components/controls/Select";
+import FilterSearch from "/components/controls/FilterSearch";
+
 import EngagementsList from "/components/pages/assets/engagements/EngagementsList";
 
-export default function Engagements() {
-  const sortOptions = [
-    { value: "name", label: "Name" },
-    { value: "eta", label: "ETA" },
-    { value: "progress", label: "progress" },
-  ];
-  const filterOptions = [
-    { value: "all", label: "All engagements" },
-    { value: "incomplete", label: "In progress" },
-    { value: "complete", label: "Completed" },
-    { value: "not yet started", label: "Not yet started" },
-  ];
+const sortOptions = [
+  { value: "name", label: "Name" },
+  { value: "eta", label: "ETA" },
+  { value: "progress", label: "progress" },
+];
+const filterOptions = [
+  { value: "all", label: "All engagements" },
+  { value: "incomplete", label: "In progress" },
+  { value: "complete", label: "Completed" },
+  { value: "not yet started", label: "Not yet started" },
+];
 
+export default function Engagements() {
   const [sortBy, setSortBy] = useState("one");
   const [filterBy, setFilterBy] = useState("all");
+  const [searchVal, setSearchVal] = useState("");
 
   function handleSortByChange(event) {
     setSortBy(event.target.value);
   }
   function handleFilterByChange(event) {
     setFilterBy(event.target.value);
+  }
+  function handleSearchValChange(event) {
+    setSearchVal(event.target.value);
   }
 
   return (
@@ -48,12 +54,17 @@ export default function Engagements() {
           onChange={handleFilterByChange}
           inline
         />,
+        <FilterSearch
+          label="Search engagements..."
+          onChange={handleSearchValChange}
+        />,
       ]}
     >
       <EngagementsList
         data={engagements}
         sortKey={sortBy}
         filterKey={filterBy}
+        searchVal={searchVal}
       />
     </DefaultLayout>
   );
