@@ -4,20 +4,12 @@ import { dateFormat } from "/consts";
 
 import toPercentage from "/helpers/toPercentage";
 
+function getTimestamp(date) {
+  return moment(date).unix();
+}
+
 export default function tasksToLineChartObj(engagement) {
   const { tasks, startDate, eta } = engagement;
-
-  // tasks = [{
-  //   id: "task-1",
-  //   title: "Task 1 title",
-  //   completionDate: "2021-02-13" || null
-  // }]
-
-  // data = [
-  //   { label: "S", x: 0, y: 0 },
-  //   { label: "M", x: 1, y: 400 },
-  //   { label: "S", x: 6, y: 400 },
-  // ];
 
   const totalTasksCount = tasks.length;
 
@@ -28,11 +20,24 @@ export default function tasksToLineChartObj(engagement) {
     completedTasksCount / totalTasksCount
   );
 
+  let startDateTimestamp, latestTaskTimestamp, etaTimestamp;
+  if (startDate) {
+    startDateTimestamp = getTimestamp(startDate);
+  }
+  if (completedTasks && completedTasks.length > 0) {
+    latestTaskTimestamp = getTimestamp(
+      completedTasks[completedTasks.length - 1].completionDate
+    );
+  }
+  if (eta) {
+    etaTimestamp = getTimestamp(eta);
+  }
+
   const data = tasks.map((task, i) =>
     task.completionDate
       ? {
           label: task.completionDate,
-          x: i + 1,
+          x: getTimestamp(task.completionDate) - startDateTimestamp,
           y: (i + 1) / totalTasksCount,
         }
       : {}
@@ -44,13 +49,17 @@ export default function tasksToLineChartObj(engagement) {
     y: 0,
   });
 
-  // console.log(tasks);
-
-  // let formattedEta;
-  // if (eta) {
-  //   formattedEta = moment(eta).format(dateFormat);
-  //   // console.log(formattedEta);
-  // }
+  if (
+    eta &&
+    completedTasksPercentage !== "100%" &&
+    etaTimestamp > latestTaskTimestamp
+  ) {
+    data.push({
+      label: eta,
+      x: etaTimestamp - startDateTimestamp,
+      y: 1,
+    });
+  }
 
   return data;
 }

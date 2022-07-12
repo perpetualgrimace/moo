@@ -10,10 +10,13 @@ import * as styles from "/styles/1-utils/_variables.module.scss";
 const spring = styles.springMd;
 
 const innerLineColor = styles.visInnerLineColor;
-const innerLinechartWidth = styles.visInnerLinechartWidth;
+const innerLineWidth = styles.visInnerLineWidth;
+
+const connectingLineColor = styles.gray;
+const connectingLineWidth = "2px";
 
 const outerLineColor = styles.visOuterLineColor;
-const outerLinechartWidth = styles.visOuterLinechartWidth;
+const outerLineWidth = styles.visOuterLineWidth;
 
 const labelColor = styles.visLabelColor;
 const labelFont = styles.labelFont;
@@ -38,7 +41,9 @@ function filterOutEmptyKeys(arr) {
   });
 }
 
-const LineChart = ({ data }) => {
+export default function LineChart(props) {
+  const { data, isComplete } = props;
+
   const fontSize = chartWidth / 33.333;
   const labelTextStyle = {
     fill: labelColor,
@@ -76,7 +81,7 @@ const LineChart = ({ data }) => {
     <polyline
       fill="none"
       stroke={outerLineColor}
-      strokeWidth={outerLinechartWidth}
+      strokeWidth={outerLineWidth}
       points={coords}
     />
   );
@@ -111,7 +116,7 @@ const LineChart = ({ data }) => {
           key={`vertical-guide-${i}`}
           fill="none"
           stroke={innerLineColor}
-          strokeWidth={innerLinechartWidth}
+          strokeWidth={innerLineWidth}
           points={`${xCoordinate},${startY} ${xCoordinate},${endY}`}
         />
       );
@@ -133,7 +138,7 @@ const LineChart = ({ data }) => {
           key={`horizontal-guide-${i}`}
           fill="none"
           stroke={innerLineColor}
-          strokeWidth={innerLinechartWidth}
+          strokeWidth={innerLineWidth}
           points={`${startX},${yCoordinate} ${endX},${yCoordinate}`}
         />
       );
@@ -150,9 +155,11 @@ const LineChart = ({ data }) => {
         fontSize / 2;
 
       return (
-        <text key={i} x={x} y={y} style={labelTextStyle}>
-          {formatXLabel(element.label)}
-        </text>
+        (i === 0 || i === filteredData.length - 1) && (
+          <text key={i} x={x} y={y} style={labelTextStyle}>
+            {formatXLabel(element.label)}
+          </text>
+        )
       );
     });
   };
@@ -190,15 +197,19 @@ const LineChart = ({ data }) => {
         cx={dot.x}
         cy={dot.y}
         r="5"
-        fill={spring}
+        fill={
+          (i === points.length - 1 && isComplete === false) || i === 0
+            ? connectingLineColor
+            : spring
+        }
       />
     ));
 
   const Line = () => (
     <polyline
       fill="none"
-      stroke={spring}
-      strokeWidth={outerLinechartWidth}
+      stroke={connectingLineColor}
+      strokeWidth={connectingLineWidth}
       points={pointsJoined}
     />
   );
@@ -216,10 +227,8 @@ const LineChart = ({ data }) => {
       <YAxisLabels />
       <HorizontalGuides />
 
-      <Dots />
       <Line />
+      <Dots />
     </svg>
   );
-};
-
-export default LineChart;
+}

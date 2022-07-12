@@ -141,7 +141,9 @@ export default function EngagementsList(props) {
             <AccordionPanelColumn title="Status">
               <LineChart
                 data={tasksToLineChartObj(engagement)}
-                yFormat={toPercentage}
+                isComplete={
+                  getCompletedTaskPercentage(engagement.tasks) === "100%"
+                }
               />
             </AccordionPanelColumn>
           )}
