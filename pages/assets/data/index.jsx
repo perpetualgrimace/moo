@@ -41,37 +41,39 @@ export default function Data() {
     <DefaultLayout
       title="Data"
       slug="data"
-      controls={[
-        <ButtonGroup toggle label="select view">
-          <Button
-            aria-pressed={view === "lake"}
-            onClick={() => setView("lake")}
-            fontSize="md"
-          >
-            Data lake
-          </Button>
-          <Button
-            aria-pressed={view === "marts"}
-            onClick={() => setView("marts")}
-            fontSize="md"
-          >
-            Data marts
-          </Button>
-        </ButtonGroup>,
+      controls={
+        <>
+          <ButtonGroup toggle label="select view">
+            <Button
+              aria-pressed={view === "lake"}
+              onClick={() => setView("lake")}
+              fontSize="md"
+            >
+              Data lake
+            </Button>
+            <Button
+              aria-pressed={view === "marts"}
+              onClick={() => setView("marts")}
+              fontSize="md"
+            >
+              Data marts
+            </Button>
+          </ButtonGroup>
 
-        <Select
-          label="Sort by"
-          options={options}
-          selection={sortBy}
-          onChange={handleSortByChange}
-          inline
-        />,
+          <Select
+            label="Sort by"
+            options={options}
+            selection={sortBy}
+            onChange={handleSortByChange}
+            inline
+          />
 
-        <FilterSearch
-          label="Search data..."
-          onChange={handleSearchValChange}
-        />,
-      ]}
+          <FilterSearch
+            label="Search data..."
+            onChange={handleSearchValChange}
+          />
+        </>
+      }
     >
       {view === "lake" ? (
         <DataLakeTable

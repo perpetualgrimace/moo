@@ -29,19 +29,21 @@ export default function Engines() {
     <DefaultLayout
       title="Engines"
       slug="engines"
-      controls={[
-        <Select
-          label="Sort by"
-          options={sortOptions}
-          selection={sortBy}
-          onChange={handleSortByChange}
-          inline
-        />,
-        <FilterSearch
-          label="Search engines..."
-          onChange={handleSearchValChange}
-        />,
-      ]}
+      controls={
+        <>
+          <Select
+            label="Sort by"
+            options={sortOptions}
+            selection={sortBy}
+            onChange={handleSortByChange}
+            inline
+          />
+          <FilterSearch
+            label="Search engines..."
+            onChange={handleSearchValChange}
+          />
+        </>
+      }
     >
       <EnginesList
         data={engines}

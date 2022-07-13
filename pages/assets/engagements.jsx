@@ -39,26 +39,28 @@ export default function Engagements() {
     <DefaultLayout
       title="Engagements"
       slug="engagements"
-      controls={[
-        <Select
-          label="Sort by"
-          options={sortOptions}
-          selection={sortBy}
-          onChange={handleSortByChange}
-          inline
-        />,
-        <Select
-          label="View"
-          options={filterOptions}
-          selection={filterBy}
-          onChange={handleFilterByChange}
-          inline
-        />,
-        <FilterSearch
-          label="Search engagements..."
-          onChange={handleSearchValChange}
-        />,
-      ]}
+      controls={
+        <>
+          <Select
+            label="Sort by"
+            options={sortOptions}
+            selection={sortBy}
+            onChange={handleSortByChange}
+            inline
+          />
+          <Select
+            label="View"
+            options={filterOptions}
+            selection={filterBy}
+            onChange={handleFilterByChange}
+            inline
+          />
+          <FilterSearch
+            label="Search engagements..."
+            onChange={handleSearchValChange}
+          />
+        </>
+      }
     >
       <EngagementsList
         data={engagements}
