@@ -101,7 +101,7 @@ export default function LineChart(props) {
   );
 
   const VerticalGuides = () => {
-    const guideCount = filteredData.length - 1;
+    const guideCount = 2;
 
     const startY = padding;
     const endY = chartHeight - padding;
