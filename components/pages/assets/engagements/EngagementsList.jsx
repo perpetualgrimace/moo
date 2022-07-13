@@ -11,9 +11,9 @@ import toPercentage from "/helpers/toPercentage";
 import Accordion from "/components/common/Accordion";
 import AccordionPanel from "/components/common/Accordion/AccordionPanel";
 import AccordionPanelColumn from "/components/common/Accordion/AccordionPanelColumn";
+import ProgressPill from "/components/common/ProgressPill";
 
 import TaskItem from "/components/pages/assets/engagements/TaskItem";
-import ProgressPill from "/components/common/ProgressPill";
 
 import LineChart from "/components/visualizations/LineChart";
 

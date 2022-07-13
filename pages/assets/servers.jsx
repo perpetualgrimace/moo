@@ -5,6 +5,7 @@ import servers from "/data/servers.json";
 import constructSummaryStatsObject from "/helpers/constructSummaryStatsObject";
 
 import DefaultLayout from "/components/layout/DefaultLayout";
+import Tooltip from "/components/common/Tooltip";
 import ServerTile from "/components/pages/assets/servers/ServerTile";
 import ServerCard from "/components/pages/assets/servers/ServerCard";
 
@@ -45,14 +46,14 @@ export default function Servers() {
         />
       </div>
 
-      <div className={`server-details tooltip ${currServer}-is-selected`}>
+      <Tooltip className={`server-tooltip ${currServer}-is-selected`}>
         <ServerCard
           label={currServer}
           remote={servers[[currServer]].remote}
           servers={servers[[currServer]].servers}
           summary={summary}
         />
-      </div>
+      </Tooltip>
     </DefaultLayout>
   );
 }

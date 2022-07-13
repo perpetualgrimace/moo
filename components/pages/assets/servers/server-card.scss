@@ -1,7 +1,7 @@
 .server-card {
   display: flex;
   justify-content: space-between;
-  padding: $sp-lg 0;
+  padding: $sp-xs 0;
 }
 
 .server-card-col {
@@ -20,25 +20,16 @@
   }
 }
 
-.tooltip {
-  background-color: $dark-2;
-  border: 1px solid $dark-1;
-  border-radius: $radius-md;
-  box-shadow: 0 1px 12px 0 rgba($black, 0.5);
+// tooltip overrides
+.server-tooltip {
+  padding-left: 0;
+  padding-right: 0;
 
-  &:before {
-    @include pseudo;
-    width: 1.5rem;
-    height: 1.5rem;
-    position: absolute;
-    transform: translateX(-50%) rotate(45deg);
-    top: -0.7625rem;
-    left: 50%;
-    margin-left: -0.25rem;
-    background-color: $dark-2;
-    border-top: 1px solid $dark-1;
-    border-left: 1px solid $dark-1;
-    border-top-left-radius: $radius-md;
+  &:before, &:after {
+    will-change: left;
+    transition:
+      transform 0.3s ease-out,
+      left 0.3s ease-out;
   }
 
   &.Muthalath-is-selected:before {
