@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import { pathPrefix } from "/.env";
 import toPercentage from "/helpers/toPercentage";
 
 function formatStat(stat) {
@@ -38,7 +39,7 @@ export default function Tile(props) {
           {imgSrc && (
             <img
               className="asset-tile-header-bg"
-              src={`/thumbnail/${imgSrc}-thumb.png`}
+              src={`/${pathPrefix}/thumbnail/${imgSrc}-thumb.png`}
               alt=""
               draggable="false"
               loading="lazy"

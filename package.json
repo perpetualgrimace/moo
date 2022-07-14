@@ -1,7 +1,7 @@
 {
   "private": true,
   "scripts": {
-    "dev": "open 'http://localhost:3000' && next",
+    "dev": "open 'http://localhost:3000/mu' && next",
     "build": "next build",
     "start": "next start"
   },

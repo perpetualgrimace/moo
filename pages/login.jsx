@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 
+import { pathPrefix } from "/.env";
 import { userService } from "/services/userService";
 
 import LoginForm from "/components/LoginForm";
@@ -24,8 +25,10 @@ export default function Login() {
       <div className="login-logo">
         <img
           className="login-logo-img"
-          src="/logo-vertical.png"
-          srcSet="/logo-vertical.png 1x, /logo-vertical@2x.png 2x"
+          src={`/${pathPrefix}/logo-vertical.png`}
+          srcSet={`
+            /${pathPrefix}/logo-vertical.png 1x,
+            /${pathPrefix}/logo-vertical@2x.png 2x`}
           alt="Mu, home"
           draggable="false"
         />

@@ -1,6 +1,8 @@
 const { secretString } = require("./data/secretString.js");
+const { pathPrefix } = require("./.env");
 
 module.exports = {
+  basePath: `/${pathPrefix}`,
   output: "standalone",
   serverRuntimeConfig: {
     secret: secretString,
@@ -8,8 +10,8 @@ module.exports = {
   publicRuntimeConfig: {
     apiUrl:
       process.env.NODE_ENV === "development"
-        ? "http://localhost:3000/api" // development api
-        : "http://averroes.andal.us:8000/api", // production api
+        ? `http://localhost:3000/${pathPrefix}/api` // development api
+        : `http://averroes.andal.us:8000/${pathPrefix}/api`, // production api
   },
   reactStrictMode: true,
 };

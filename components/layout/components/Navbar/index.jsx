@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
+import { pathPrefix } from "/.env";
 import checkRoute from "/helpers/checkRoute";
 
 import NavbarLink from "./NavbarLink";
@@ -19,8 +20,10 @@ export default function Navbar() {
             aria-current={checkRoute("/", currRoute)}
           >
             <img
-              src="/logo-horizontal.png"
-              srcSet="/logo-horizontal.png 1x, /logo-horizontal@2x.png 2x"
+              src={`/${pathPrefix}/logo-horizontal.png`}
+              srcSet={`
+                /${pathPrefix}/logo-horizontal.png 1x,
+                /${pathPrefix}/logo-horizontal@2x.png 2x`}
               alt="Mu, home"
               draggable="false"
             />

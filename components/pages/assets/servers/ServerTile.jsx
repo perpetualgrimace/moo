@@ -1,3 +1,5 @@
+import { pathPrefix } from "/.env";
+
 import ServerLocation from "./ServerLocation";
 import StatusIcon from "/components/common/StatusIcon";
 
@@ -25,8 +27,10 @@ export default function ServerTile(props) {
                   </h3>
                   <img
                     className="server-img"
-                    src={`/icons/server.png`}
-                    srcSet={`/icons/server.png 1x, /icons/server@2x.png 2x`}
+                    src={`/${pathPrefix}/icons/server.png`}
+                    srcSet={`
+                      /${pathPrefix}/icons/server.png 1x,
+                      /${pathPrefix}/icons/server@2x.png 2x`}
                     alt=""
                     draggable="false"
                     loading="lazy"

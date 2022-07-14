@@ -1,3 +1,5 @@
+import { pathPrefix } from "/.env";
+
 export default function SpaceBG(props) {
   const { className, variant } = props;
 
@@ -5,10 +7,10 @@ export default function SpaceBG(props) {
     <div className={`space-bg${className ? ` ${className}` : ""}`}>
       <img
         className="space-bg-img"
-        src={`/bg.jpg${variant ? `-${variant}` : ""}`}
-        srcSet={`/bg.jpg${variant ? `-${variant}` : ""} 1x, /bg${
-          variant ? `-${variant}` : ""
-        }@2x.jpg 2x`}
+        src={`/${pathPrefix}/bg.jpg${variant ? `-${variant}` : ""}`}
+        srcSet={`
+          /${pathPrefix}/bg.jpg${variant ? `-${variant}` : ""} 1x,
+          /${pathPrefix}/bg${variant ? `-${variant}` : ""}@2x.jpg 2x`}
         alt=""
         draggable="false"
       />

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { pathPrefix } from "/.env";
 import OutboundIcon from "/components/icons/OutboundIcon";
 
 export default function Tile(props) {
@@ -16,8 +17,8 @@ export default function Tile(props) {
           {imgSrc && (
             <img
               className="tile-img u-mh-auto"
-              src={`/icons/tile/${imgSrc}.png`}
-              srcSet={`/icons/tile/${imgSrc}.svg`}
+              src={`/${pathPrefix}/icons/tile/${imgSrc}.png`}
+              srcSet={`/${pathPrefix}/icons/tile/${imgSrc}.svg`}
               alt={altText}
               draggable="false"
             />

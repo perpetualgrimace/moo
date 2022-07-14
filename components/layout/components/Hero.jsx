@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { pathPrefix } from "/.env";
 
 export default function Hero(props) {
   const { pageTitle, imgSlug, parentSlug, parentTitle } = props;
@@ -19,8 +20,10 @@ export default function Hero(props) {
       {imgSlug && (
         <img
           className="hero-img"
-          src={`/hero/${imgSlug}-hero.png`}
-          srcSet={`/hero/${imgSlug}-hero.png 1x, /hero/${imgSlug}-hero@2x.png 2x`}
+          src={`/${pathPrefix}/hero/${imgSlug}-hero.png`}
+          srcSet={`
+            /${pathPrefix}/hero/${imgSlug}-hero.png 1x,
+            /${pathPrefix}/hero/${imgSlug}-hero@2x.png 2x`}
           alt=""
           draggable="false"
           loading="lazy"
