@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-
+import { pathPrefix } from "/.env";
 import { userService } from "/services/userService";
 
 import "/styles/global.scss";
@@ -30,13 +30,14 @@ export default function App({ Component, pageProps }) {
 
   // redirect to login page if accessing a private page and not logged in
   function authCheck(url) {
-    const publicPaths = ["/login"];
+    const publicPaths = [`/${pathPrefix}/login`];
     const path = url.split("?")[0];
+
     if (!userService.userValue && !publicPaths.includes(path)) {
       setAuthorized(false);
       router.push({
         pathname: "/login",
-        query: { returnUrl: router.asPath },
+        // query: { returnUrl: router.asPath }, // not working
       });
     } else {
       setAuthorized(true);
