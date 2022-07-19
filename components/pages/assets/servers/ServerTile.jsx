@@ -1,4 +1,4 @@
-import { pathPrefix } from "/.env";
+import { pathPrefix } from "/environment.js";
 
 import ServerLocation from "./ServerLocation";
 import StatusIcon from "/components/common/StatusIcon";

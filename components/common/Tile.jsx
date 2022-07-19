@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { pathPrefix } from "/.env";
+import { pathPrefix } from "/environment.js";
 import OutboundIcon from "/components/icons/OutboundIcon";
 
 export default function Tile(props) {

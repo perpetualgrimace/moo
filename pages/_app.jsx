@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
-import { pathPrefix } from "/.env";
+import { pathPrefix } from "/environment.js";
 import { userService } from "/services/userService";
 
 import "/styles/global.scss";

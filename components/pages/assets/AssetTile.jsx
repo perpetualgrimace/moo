@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { pathPrefix } from "/.env";
+import { pathPrefix } from "/environment.js";
 import toPercentage from "/helpers/toPercentage";
 
 function formatStat(stat) {

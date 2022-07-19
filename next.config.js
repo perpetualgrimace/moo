@@ -1,5 +1,5 @@
 const { secretString } = require("./data/secretString.js");
-const { pathPrefix } = require("./.env");
+const { pathPrefix } = require("./environment.js");
 
 module.exports = {
   basePath: `/${pathPrefix}`,

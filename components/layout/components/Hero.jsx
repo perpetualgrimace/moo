@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { pathPrefix } from "/.env";
+import { pathPrefix } from "/environment.js";
 
 export default function Hero(props) {
   const { pageTitle, imgSlug, parentSlug, parentTitle } = props;

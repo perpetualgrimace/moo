@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-import { pathPrefix } from "/.env";
+import { pathPrefix } from "/environment.js";
 import checkRoute from "/helpers/checkRoute";
 
 import NavbarLink from "./NavbarLink";

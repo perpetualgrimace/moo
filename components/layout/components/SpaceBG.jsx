@@ -1,4 +1,4 @@
-import { pathPrefix } from "/.env";
+import { pathPrefix } from "/environment.js";
 
 export default function SpaceBG(props) {
   const { className, variant } = props;
