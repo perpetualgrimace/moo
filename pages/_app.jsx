@@ -30,14 +30,14 @@ export default function App({ Component, pageProps }) {
 
   // redirect to login page if accessing a private page and not logged in
   function authCheck(url) {
-    const publicPaths = [`/${pathPrefix}/login`];
-    const path = url.split("?")[0];
+    const publicPaths = ["/login", "/logout"];
+    const path = url.split("?")[0].replace(`${pathPrefix}/`, "");
 
     if (!userService.userValue && !publicPaths.includes(path)) {
       setAuthorized(false);
       router.push({
         pathname: "/login",
-        // query: { returnUrl: router.asPath }, // not working
+        query: { returnUrl: router.asPath },
       });
     } else {
       setAuthorized(true);

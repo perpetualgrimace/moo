@@ -56,7 +56,10 @@ export default function Navbar() {
             </Navmenu>
           </NavbarLink>
 
-          <NavbarLink label="Log out" href="/logout" />
+          <NavbarLink
+            label="Log out"
+            href={`/logout?returnUrl=${currRoute}`}
+          />
         </ul>
       </nav>
     </div>
