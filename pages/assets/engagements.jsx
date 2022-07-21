@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useAtom } from "jotai";
 
 import engagements from "/data/engagements.json";
+
+import { sortByAtom } from "/helpers/atoms/sortByAtom";
+import { filterByStatusAtom } from "/helpers/atoms/filterByStatusAtom";
 
 import DefaultLayout from "/components/layout/DefaultLayout";
 import Select from "/components/controls/Select";
@@ -21,8 +25,8 @@ const filterOptions = [
 ];
 
 export default function Engagements() {
-  const [sortBy, setSortBy] = useState("one");
-  const [filterBy, setFilterBy] = useState("all");
+  const [sortBy, setSortBy] = useAtom(sortByAtom);
+  const [filterBy, setFilterBy] = useAtom(filterByStatusAtom);
   const [searchVal, setSearchVal] = useState("");
 
   function handleSortByChange(event) {

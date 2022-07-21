@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useAtom } from "jotai";
 import moment from "moment";
 
 import { dateFormat } from "/consts";
 
+import { activeAccordionPanelAtom } from "/helpers/atoms/activeAccordionPanelAtom";
 import filterDataByQuery from "/helpers/filterDataByQuery";
 import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 import toPercentage from "/helpers/toPercentage";
@@ -17,7 +18,7 @@ export default function EnginesList(props) {
   const filteredData = filterDataByQuery(data, searchVal);
   const sortedData = sortArrayByObjKey(filteredData, sortKey);
 
-  const [openPanelId, setOpenPanelId] = useState(false);
+  const [openPanelId, setOpenPanelId] = useAtom(activeAccordionPanelAtom);
 
   return (
     <Accordion>

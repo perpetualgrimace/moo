@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useAtom } from "jotai";
 
 import servers from "/data/servers.json";
 
+import { serverSelectAtom } from "/helpers/atoms/serverSelectAtom";
 import constructSummaryStatsObject from "/helpers/constructSummaryStatsObject";
 
 import DefaultLayout from "/components/layout/DefaultLayout";
@@ -12,7 +13,7 @@ import ServerCard from "/components/pages/assets/servers/ServerCard";
 export default function Servers() {
   const { Muthalath, Mudavar, Muraba } = servers;
 
-  const [currServer, setCurrServer] = useState("Muthalath");
+  const [currServer, setCurrServer] = useAtom(serverSelectAtom);
 
   const summary = constructSummaryStatsObject(
     servers[[currServer]].servers

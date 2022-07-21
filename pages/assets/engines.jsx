@@ -1,6 +1,9 @@
 import { useState } from "react";
+import { useAtom } from "jotai";
 
 import engines from "/data/engines.json";
+
+import { sortByAtom } from "/helpers/atoms/sortByAtom";
 
 import DefaultLayout from "/components/layout/DefaultLayout";
 import Select from "/components/controls/Select";
@@ -15,7 +18,7 @@ const sortOptions = [
 ];
 
 export default function Engines() {
-  const [sortBy, setSortBy] = useState("one");
+  const [sortBy, setSortBy] = useAtom(sortByAtom);
   const [searchVal, setSearchVal] = useState("");
 
   function handleSortByChange(event) {

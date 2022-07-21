@@ -1,7 +1,11 @@
 import { useState } from "react";
+import { useAtom } from "jotai";
 
 import marts from "/data/marts.json";
 import tables from "/data/tables.json";
+
+import { dataViewAtom } from "/helpers/atoms/dataViewAtom";
+import { sortByAtom } from "/helpers/atoms/sortByAtom";
 
 import DefaultLayout from "/components/layout/DefaultLayout";
 import Button from "/components/controls/Button";
@@ -24,8 +28,8 @@ const martSortOptions = [
 ];
 
 export default function Data() {
-  const [view, setView] = useState("lake");
-  const [sortBy, setSortBy] = useState("name");
+  const [view, setView] = useAtom(dataViewAtom);
+  const [sortBy, setSortBy] = useAtom(sortByAtom);
   const [searchVal, setSearchVal] = useState("");
 
   const options = view === "lake" ? lakeSortOptions : martSortOptions;

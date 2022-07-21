@@ -8,6 +8,7 @@
   "dependencies": {
     "express-jwt": "^7.7.4",
     "formik": "^2.2.9",
+    "jotai": "^1.7.6",
     "jsonwebtoken": "^8.5.1",
     "moment": "^2.29.3",
     "next": "latest",
