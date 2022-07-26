@@ -1,11 +1,14 @@
 // https://www.headway.io/blog/building-a-svg-line-chart-in-react
+import { useState, useRef } from "react";
 import moment from "moment";
 
-import { chartDateFormat } from "/consts";
+import { dateFormat, chartDateFormat } from "/consts";
 
 import toPercentage from "/helpers/toPercentage";
 
 import * as styles from "/styles/1-utils/_variables.module.scss";
+
+import Tooltip from "/components/common/Tooltip";
 
 const spring = styles.springMd;
 
@@ -41,6 +44,23 @@ function filterOutEmptyKeys(arr) {
   });
 }
 
+function isEtaPoint(i, points, isComplete) {
+  if (i === points.length - 1 && isComplete === false) return true;
+}
+
+function getTooltipProps(el, i, points, isComplete) {
+  const label = moment(points[i].label).format(dateFormat);
+
+  let description;
+  if (i === 0) description = "Project start date";
+  else if (isEtaPoint(i, points, isComplete)) description = "ETA";
+  else description = `Task ${i} completed`;
+
+  const position = {};
+
+  return { label, description, style: position };
+}
+
 export default function LineChart(props) {
   const { data, isComplete } = props;
 
@@ -70,12 +90,15 @@ export default function LineChart(props) {
       (element.y / maximumYFromData) * chartHeightOffset +
       padding;
 
-    return { x, y };
+    return { x, y, label: element.label };
   });
 
   const pointsJoined = points
     .map((point) => `${point.x},${point.y}`)
     .join(" ");
+
+  const ref = useRef([]);
+  const [hasFocusedNode, setFocusedNode] = useState(false);
 
   const Axis = ({ coords }) => (
     <polyline
@@ -194,11 +217,18 @@ export default function LineChart(props) {
     points.map((dot, i) => (
       <circle
         key={`point-${i}`}
+        ref={(el) => (ref.current[i] = el)}
         cx={dot.x}
         cy={dot.y}
         r="5"
+        tabIndex={0}
+        stroke="transparent"
+        strokeWidth="10"
+        onMouseOver={(e) => {
+          setFocusedNode(i);
+        }}
         fill={
-          (i === points.length - 1 && isComplete === false) || i === 0
+          isEtaPoint(i, points, isComplete) || i === 0
             ? connectingLineColor
             : spring
         }
@@ -215,20 +245,38 @@ export default function LineChart(props) {
   );
 
   return (
-    <svg
-      viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-      style={{ marginTop: -(padding / 2) }}
+    <div
+      className="line-chart"
+      onMouseLeave={() => setFocusedNode(false)}
     >
-      <XAxis />
-      <XAxisLabels />
-      <VerticalGuides />
+      <svg
+        className="line-chart-svg"
+        viewBox={`0 0 ${chartWidth} ${chartHeight}`}
+        style={{ marginTop: -(padding / 2) }}
+      >
+        <XAxis />
+        <XAxisLabels />
+        <VerticalGuides />
 
-      <YAxis />
-      <YAxisLabels />
-      <HorizontalGuides />
+        <YAxis />
+        <YAxisLabels />
+        <HorizontalGuides />
 
-      <Line />
-      <Dots />
-    </svg>
+        <Line />
+        <Dots />
+      </svg>
+
+      {hasFocusedNode !== false && (
+        <Tooltip
+          {...getTooltipProps(
+            ref.current[hasFocusedNode],
+            hasFocusedNode,
+            points,
+            isComplete
+          )}
+          autoPosition
+        />
+      )}
+    </div>
   );
 }

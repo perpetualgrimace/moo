@@ -18,4 +18,10 @@
     border-left: 1px solid $dark-1;
     border-top-left-radius: $radius-md;
   }
+
+  &.is-auto-positioned {
+    position: absolute;
+    pointer-events: none;
+    z-index: 11;
+  }
 }
