@@ -20,7 +20,9 @@
   }
 
   &.is-auto-positioned {
-    position: absolute;
+    @include absolute-horizontal-center;
+    position: fixed;
+    width: max-content;
     pointer-events: none;
     z-index: 11;
   }

@@ -3,7 +3,7 @@
     "id": "engagement-1",
     "name": "Engagement 1",
     "startDate": "2021-01-01",
-    "eta": "2022-02-27",
+    "eta": "2021-02-27",
     "tasks": [
       {
         "id": "task-1",
@@ -17,13 +17,12 @@
       },
       {
         "id": "task-3",
-        "title": "Task 3 title",
-        "completionDate": "2021-02-17"
+        "title": "Task 3 title"
       },
       {
         "id": "task-4",
         "title": "Task 4 title",
-        "completionDate": "2021-02-25"
+        "completionDate": "2021-02-17"
       }
     ],
     "description": "The purpose of this engagement is to lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."

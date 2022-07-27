@@ -4,10 +4,12 @@ import moment from "moment";
 
 import { dateFormat, chartDateFormat } from "/consts";
 
+import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 import toPercentage from "/helpers/toPercentage";
 
 import * as styles from "/styles/1-utils/_variables.module.scss";
 
+import InPortal from "/components/InPortal";
 import Tooltip from "/components/common/Tooltip";
 
 const spring = styles.springMd;
@@ -56,7 +58,14 @@ function getTooltipProps(el, i, points, isComplete) {
   else if (isEtaPoint(i, points, isComplete)) description = "ETA";
   else description = `Task ${i} completed`;
 
-  const position = {};
+  let position = false;
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const left = rect.left + window.scrollX + 7;
+    const top = rect.top + 37;
+
+    position = { top, left };
+  }
 
   return { label, description, style: position };
 }
@@ -71,10 +80,13 @@ export default function LineChart(props) {
     fontFamily: labelFont,
   };
 
-  const filteredData = filterOutEmptyKeys(data);
+  const filteredData = sortArrayByObjKey(
+    filterOutEmptyKeys(data),
+    "label"
+  );
 
   const maximumXFromData = Math.max(...filteredData.map((e) => e.x));
-  const maximumYFromData = Math.max(...filteredData.map((e) => e.y));
+  const maximumYFromData = 1;
 
   const digits =
     parseFloat(maximumYFromData.toString()).toFixed(precision).length + 1;
@@ -221,12 +233,11 @@ export default function LineChart(props) {
         cx={dot.x}
         cy={dot.y}
         r="5"
-        tabIndex={0}
+        aria-label={`Task ${i}: ${points[i].label}`}
         stroke="transparent"
         strokeWidth="10"
-        onMouseOver={(e) => {
-          setFocusedNode(i);
-        }}
+        onMouseOver={(e) => setFocusedNode(i)}
+        onMouseLeave={(e) => setFocusedNode(false)}
         fill={
           isEtaPoint(i, points, isComplete) || i === 0
             ? connectingLineColor
@@ -245,10 +256,7 @@ export default function LineChart(props) {
   );
 
   return (
-    <div
-      className="line-chart"
-      onMouseLeave={() => setFocusedNode(false)}
-    >
+    <div className="line-chart">
       <svg
         className="line-chart-svg"
         viewBox={`0 0 ${chartWidth} ${chartHeight}`}
@@ -267,15 +275,17 @@ export default function LineChart(props) {
       </svg>
 
       {hasFocusedNode !== false && (
-        <Tooltip
-          {...getTooltipProps(
-            ref.current[hasFocusedNode],
-            hasFocusedNode,
-            points,
-            isComplete
-          )}
-          autoPosition
-        />
+        <InPortal>
+          <Tooltip
+            {...getTooltipProps(
+              ref.current[hasFocusedNode],
+              hasFocusedNode,
+              points,
+              isComplete
+            )}
+            autoPosition
+          />
+        </InPortal>
       )}
     </div>
   );

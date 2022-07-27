@@ -44,5 +44,13 @@ export default function App({ Component, pageProps }) {
     }
   }
 
-  return authorized && <Component {...pageProps} />;
+  return (
+    authorized && (
+      <>
+        <Component {...pageProps} />
+
+        <div id="portal-container" />
+      </>
+    )
+  );
 }

@@ -1,7 +1,6 @@
 import moment from "moment";
 
-import { dateFormat } from "/consts";
-
+import sortArrayByObjKey from "/helpers/sortArrayByObjKey";
 import toPercentage from "/helpers/toPercentage";
 
 function getTimestamp(date) {
@@ -13,7 +12,10 @@ export default function tasksToLineChartObj(engagement) {
 
   const totalTasksCount = tasks.length;
 
-  const completedTasks = tasks.filter((task) => task.completionDate);
+  const completedTasks = sortArrayByObjKey(
+    tasks.filter((task) => task.completionDate),
+    "completionDate"
+  );
   const completedTasksCount = completedTasks.length;
 
   const completedTasksPercentage = toPercentage(
@@ -33,7 +35,7 @@ export default function tasksToLineChartObj(engagement) {
     etaTimestamp = getTimestamp(eta);
   }
 
-  const data = tasks.map((task, i) =>
+  const data = completedTasks.map((task, i) =>
     task.completionDate
       ? {
           label: task.completionDate,
