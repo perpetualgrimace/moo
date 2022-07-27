@@ -25,5 +25,11 @@
     width: max-content;
     pointer-events: none;
     z-index: 11;
+    transform-origin: -50% -20%;
+    animation: scale-up 0.15s ease-out;
   }
+}
+
+.tooltip-label + .tooltip-description {
+  margin-top: -$sp-sm;
 }
