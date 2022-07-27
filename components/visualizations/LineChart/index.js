@@ -50,13 +50,9 @@ function isEtaPoint(i, points, isComplete) {
   if (i === points.length - 1 && isComplete === false) return true;
 }
 
-function getTooltipProps(el, i, points, isComplete) {
+function getTooltipProps(el, i, points) {
   const label = moment(points[i].label).format(dateFormat);
-
-  let description;
-  if (i === 0) description = "Project start date";
-  else if (isEtaPoint(i, points, isComplete)) description = "ETA";
-  else description = `Task ${i} completed`;
+  const description = points[i].description;
 
   let position = false;
   if (el) {
@@ -96,13 +92,14 @@ export default function LineChart(props) {
   const chartHeightOffset = chartHeight - padding * 2;
 
   const points = filteredData.map((element) => {
+    const { label, description } = element;
     const x = (element.x / maximumXFromData) * chartWidthOffset + padding;
     const y =
       chartHeightOffset -
       (element.y / maximumYFromData) * chartHeightOffset +
       padding;
 
-    return { x, y, label: element.label };
+    return { label, description, x, y };
   });
 
   const pointsJoined = points
@@ -280,8 +277,7 @@ export default function LineChart(props) {
             {...getTooltipProps(
               ref.current[hasFocusedNode],
               hasFocusedNode,
-              points,
-              isComplete
+              points
             )}
             autoPosition
           />

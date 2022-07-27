@@ -39,6 +39,7 @@ export default function tasksToLineChartObj(engagement) {
     task.completionDate
       ? {
           label: task.completionDate,
+          description: `${task.title} completed`,
           x: getTimestamp(task.completionDate) - startDateTimestamp,
           y: (i + 1) / totalTasksCount,
         }
@@ -47,6 +48,7 @@ export default function tasksToLineChartObj(engagement) {
 
   data.unshift({
     label: startDate,
+    description: "Engagement start date",
     x: 0,
     y: 0,
   });
@@ -58,6 +60,7 @@ export default function tasksToLineChartObj(engagement) {
   ) {
     data.push({
       label: eta,
+      description: "Engagement ETA",
       x: etaTimestamp - startDateTimestamp,
       y: 1,
     });
