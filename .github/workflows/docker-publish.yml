@@ -45,6 +45,11 @@ jobs:
     if: github.event_name == 'push'
 
     steps:
+      - uses: pCYSl5EDgo/cat@master
+        id: tag
+        with:
+          path: cadvisor/TAG
+
       - uses: actions/checkout@v2
 
       - name: Build image
@@ -66,8 +71,9 @@ jobs:
           # Strip "v" prefix from tag name
           [[ "${{ github.ref }}" == "refs/tags/"* ]] && VERSION=$(echo $VERSION | sed -e 's/^v//')
 
-          # Use Docker `latest` tag convention
-          [ "$VERSION" == "main" ] && VERSION=latest
+          # Use contents of TAG file to define version.
+          # This should match the git tag so be careful!
+          [ "$VERSION" == "main" ] && VERSION=${{ steps.tag.outputs.text }}
 
           echo IMAGE_ID=$IMAGE_ID
           echo VERSION=$VERSION
