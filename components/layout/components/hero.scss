@@ -41,6 +41,7 @@
 
 .hero-img {
   @include absolute-expand;
+  @include hue-shift;
   object-fit: cover;
   z-index: -1;
 }

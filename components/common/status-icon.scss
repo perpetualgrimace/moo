@@ -5,17 +5,17 @@
   width: 1.125em;
   height: 1.125em;
   border-radius: 50%;
-  background-color: $spring-dark;
-  border: 1px solid $spring-light;
+  background-color: $malachite-dark;
+  border: 1px solid $malachite-light;
 
   &.is-down {
-    background-color: $magenta-dark;
-    border: 1px solid $magenta-light;
+    background-color: $mulberry-dark;
+    border: 1px solid $mulberry-light;
   }
 
   &.is-warning {
-    background-color: $sun-dark;
-    border: 1px solid $sun-light;
+    background-color: $salmon-dark;
+    border: 1px solid $salmon-light;
   }
 
   svg {
@@ -30,14 +30,14 @@
 
 // active server tile button
 [aria-pressed="true"] .status-icon {
-  border-color: $spring-darker;
+  border-color: $malachite-darker;
 
   &.is-down {
-    border-color: $magenta-darker;
+    border-color: $mulberry-darker;
   }
 
   &.is-warning {
-    border-color: $sun-darker;
+    border-color: $salmon-darker;
   }
 
   path {

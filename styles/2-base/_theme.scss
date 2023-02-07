@@ -1,7 +1,6 @@
 html {
 	background-color: $black;
-	color: $light-1; // fallback
-	color: $lightglass;
+	color: $light-3;
 }
 
 a, button,
@@ -14,20 +13,18 @@ h1, h2, h3, h4, h5, h6,
 .darkglass {
 	text-align: center;
 	text-decoration: none;
-	background-color: $dark-2; // fallback
-	background-color: $darkglass;
-	border: 1px solid $light-2;
+	background-color: $dark-3;
+	border: 1px solid $dark-2;
 	border-radius: $radius-md;
 	box-shadow: 0 1px 12px 0 $shadow;
-	backdrop-filter: blur(4px);
 }
 
 a:focus, button:focus, [tabindex]:focus {
-	outline: 3px dotted rgba($sky-light, 0.5);
+	outline: 3px dotted rgba($cornflower-light, 0.5);
 	outline-offset: 3px;
 }
 
 ::selection {
 	color: $white;
-	background-color: rgba($magenta-light, 0.6);
+	background-color: rgba($cornflower-light, 0.6);
 }

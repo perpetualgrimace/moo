@@ -1,9 +1,9 @@
 import { constructCoords } from "./helpers.js";
 import * as styles from "/styles/1-utils/_variables.module.scss";
 
+const mulberry = styles.mulberryMd;
 const salmon = styles.salmonMd;
-const sun = styles.sunMd;
-const spring = styles.springMd;
+const malachite = styles.malachiteMd;
 
 const innerLineColor = styles.visInnerLineColor;
 const innerLineWidth = styles.visInnerLineWidth;
@@ -28,9 +28,9 @@ export default function RadarChart(props) {
       >
         <defs>
           <radialGradient id={`${id}-prism-gradient`}>
-            <stop offset="0%" stopColor={salmon} />
-            <stop offset="33%" stopColor={sun} />
-            <stop offset="100%" stopColor={spring} />
+            <stop offset="0%" stopColor={mulberry} />
+            <stop offset="33%" stopColor={salmon} />
+            <stop offset="100%" stopColor={malachite} />
           </radialGradient>
         </defs>
 

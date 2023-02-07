@@ -9,7 +9,7 @@ $subhead-font: $body-font;
 $body-weight    : 400;
 $bold-weight    : 600;
 $title-weight   : 700;
-$subhead-weight : 700;
+$subhead-weight : 600;
 
 $font-size-xxxxl : 3.5rem; // 70px
 $font-size-xxxl  : 2.2rem; // 44px
@@ -28,47 +28,41 @@ $font-size-xxs   : 0.5rem; // 10px
 $white      : #FFFFFF;
 $light-1    : #E0E2EB;
 $light-2    : #B8BCC7;
-$light-3    : #8F96A3;
+$light-3    : #8B949E;
 $gray       : #707B89;
 $dark-1     : #55606D;
-$dark-2     : #2A333C;
-$dark-3     : #091A25;
-$black      : #03090C;
+$dark-2     : #30363D;
+$dark-3     : #161B22;
+$black      : #0E1117;
 
-$lightglass : rgba($light-1, 0.9);
-$darkglass  : rgba($dark-2, 0.4);
 $shadow     : rgba($black, 0.25);
 
 $vis-inner-line : rgba($white, 0.333);
 $vis-outer-line : $light-2;
 $vis-background : rgba($dark-2, 0.4);
 
-$sky-light      : #42C6FF;
-$sky-md         : #0AB6FF;
-$sky-dark       : #0B678E;
-$sky-darker     : #084B68;
+$cornflower-light  : #B3B8FA;
+$cornflower-md     : #939AFF;
+$cornflower-dark   : #3D439E;
+$cornflower-darker : #1C1F4A;
 
-$spring-light   : #3DFF80;
-$spring-md      : #16D459;
-$spring-dark    : #17823C;
-$spring-darker  : #115F2C;
+$malachite-light   : #B3FAB9;
+$malachite-md      : #7EE787;
+$malachite-dark    : #3D7641;
+$malachite-darker  : #1C4A1F;
 
-$magenta-light  : #F71DE2;
-$magenta-md     : #C309B0;
-$magenta-dark   : #821777;
-$magenta-darker : #5F1158;
+$mulberry-light    : #FAB3E6;
+$mulberry-md       : #E868C4;
+$mulberry-dark     : #9E3D83;
+$mulberry-darker   : #4A1C3D;
 
-$sun-light      : #FFCF5C;
-$sun-md         : #FFC742;
-$sun-dark       : #8E670B;
-$sun-darker     : #684C08;
+$salmon-light      : #FAC1B3;
+$salmon-md         : #FFA28B;
+$salmon-dark       : #9E513D;
+$salmon-darker     : #4A251C;
 
-$salmon-md      : #FC8793;
-
-$prism: makePrism(1, to bottom left);
-$prism-transparent: makePrism(0.6);
-$prism-button: makePrism(0.6, to bottom left);
-$prism-horizontal: makePrism(1, to left);
+$prism: makePrism(1, to right);
+$prism-transparent: makePrism(0.55);
 $prism-vertical: makePrism(1, to bottom);
 
 //////////////////////////////////
@@ -86,7 +80,7 @@ $radius-sm: 2px;
 $radius-md: 4px;
 $radius-lg: 6px;
 
-$navbar-height: 4rem;
+$navbar-height: 2.5rem;
 $navbar-link-padding: $sp-xs;
 
 //////////////////////////////////
@@ -104,8 +98,6 @@ $navbar-link-padding: $sp-xs;
   dark3: $dark-3;
   black: $black;
 
-  lightglass: $lightglass;
-  darkglass: $darkglass;
   shadow: $shadow;
 
   visInnerLineWidth: 0.5px;
@@ -113,28 +105,28 @@ $navbar-link-padding: $sp-xs;
   visInnerLineColor: $vis-inner-line;
   visOuterLineColor: $vis-outer-line;
   visBackground: $vis-background;
-  visLabelColor: $lightglass;
+  visLabelColor: $light-2;
   visLabelFont: $body-font;
 
-  skyLight: $sky-light;
-  skyMd: $sky-md;
-  skyDark: $sky-dark;
-  skyDarker: $sky-darker;
+  cornflowerLight: $cornflower-light;
+  cornflowerMd: $cornflower-md;
+  cornflowerDark: $cornflower-dark;
+  cornflowerDarker: $cornflower-darker;
 
-  springLight: $spring-light;
-  springMd: $spring-md;
-  springDark: $spring-dark;
-  springDarker: $spring-darker;
+  malachiteLight: $malachite-light;
+  malachiteMd: $malachite-md;
+  malachiteDark: $malachite-dark;
+  malachiteDarker: $malachite-darker;
 
-  magentaLight: $magenta-light;
-  magentaMd: $magenta-md;
-  magentaDark: $magenta-dark;
-  magentaDarker: $magenta-darker;
+  mulberryLight: $mulberry-light;
+  mulberryMd: $mulberry-md;
+  mulberryDark: $mulberry-dark;
+  mulberryDarker: $mulberry-darker;
 
-  sunLight: $sun-light;
-  sunMd: $sun-md;
-  sunDark: $sun-dark;
-  sunDarker: $sun-darker;
+  salmonLight: $salmon-light;
+  salmonMd: $salmon-md;
+  salmonDark: $salmon-dark;
+  salmonDarker: $salmon-darker;
 
   salmonMd: $salmon-md;
 }

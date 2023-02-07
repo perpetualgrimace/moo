@@ -12,7 +12,7 @@ import * as styles from "/styles/1-utils/_variables.module.scss";
 import InPortal from "/components/InPortal";
 import Tooltip from "/components/common/Tooltip";
 
-const spring = styles.springMd;
+const malachite = styles.malachiteMd;
 
 const innerLineColor = styles.visInnerLineColor;
 const innerLineWidth = styles.visInnerLineWidth;
@@ -238,7 +238,7 @@ export default function LineChart(props) {
         fill={
           isEtaPoint(i, points, isComplete) || i === 0
             ? connectingLineColor
-            : spring
+            : malachite
         }
       />
     ));

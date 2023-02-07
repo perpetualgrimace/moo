@@ -18,6 +18,7 @@ $assetTileHeaderHeight: $sp-xl * 3;
 }
 .asset-tile-header-bg {
   @include absolute-expand;
+  @include hue-shift;
   object-fit: cover;
   z-index: -1;
 }
