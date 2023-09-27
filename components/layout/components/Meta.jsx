@@ -17,6 +17,8 @@ export default function Meta(props) {
       <meta name="theme-color" content="#03090C" />
       <link rel="apple-touch-icon" href="/favicon/180.png" />
 
+      <meta name="robots" content="noindex" />
+
       {children}
     </Head>
   );
