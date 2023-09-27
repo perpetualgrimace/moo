@@ -31,7 +31,7 @@ export default function Navbar() {
         </Link>
 
         <ul className="navbar-list">
-          <NavbarLink label="Manage data" href="/manage">
+          {/* <NavbarLink label="Manage data" href="/manage">
             <Navmenu>
               <NavmenuLink href="/manage/jupyterhub">
                 Jupyterhub
@@ -43,7 +43,7 @@ export default function Navbar() {
                 Business intelligence
               </NavmenuLink>
             </Navmenu>
-          </NavbarLink>
+          </NavbarLink> */}
 
           <NavbarLink label="Asset viewer" href="/assets">
             <Navmenu>

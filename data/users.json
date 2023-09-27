@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "username": "hello@jamesferrell.me",
-    "password": "testtest",
-    "firstName": "James",
-    "lastName": "Ferrell"
+    "username": "username",
+    "password": "password",
+    "firstName": "Test",
+    "lastName": "User"
   }
 ]

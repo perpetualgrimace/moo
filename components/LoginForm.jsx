@@ -28,7 +28,7 @@ const TheForm = (props) => {
     <Form className="login-form">
       <TextField
         labelText="Email address"
-        placeholder="Your email address"
+        placeholder="please type 'username'"
         name="email"
         touched={touched}
         errors={errors}
@@ -36,7 +36,7 @@ const TheForm = (props) => {
 
       <TextField
         labelText="Password"
-        placeholder="8+ characters"
+        placeholder="please type 'password'"
         type="password"
         name="password"
         touched={touched}
@@ -60,11 +60,13 @@ const LoginForm = withFormik({
   },
   validationSchema: Yup.object().shape({
     email: Yup.string()
-      .email("Invalid email address")
-      .required("Email address required"),
+      // .email("Invalid email address")
+      // .required("Email address required"),
+      .required("please type 'username'"),
     password: Yup.string()
-      .min(8, "Must be least 8 characters")
-      .required("Password required"),
+      // .min(8, "Must be least 8 characters")
+      // .required("Password required"),
+      .required("please type 'password'"),
   }),
   handleSubmit: (values) => onSubmit(values),
 })(TheForm);

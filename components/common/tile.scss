@@ -4,6 +4,22 @@
   text-align: center;
   padding: 2.5rem;
   z-index: 1;
+
+  &[disabled] {
+    z-index: 0;
+    pointer-events: none;
+
+    & *:not(.tile-icon) {
+      opacity: 0.333;
+    }
+
+    &:before {
+      @include pseudo;
+      @include absolute-expand;
+      z-index: 1;
+      cursor: not-allowed;
+    }
+  }
 }
 
 .tile-img {
@@ -27,10 +43,7 @@
 
 // outbound icon
 .tile-icon {
-  position: absolute;
-  top: $sp-xs;
-  right: $sp-xs;
-  transform: scale(0.875);
+  @include absolute-center;
   transition: transform 0.2s ease-out;
 
   path {

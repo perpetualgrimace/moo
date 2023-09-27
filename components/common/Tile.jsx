@@ -7,10 +7,14 @@ export default function Tile(props) {
 
   return (
     <Link href={href}>
-      <a className="tile darkglass u-mb-md">
+      <a
+        className="tile darkglass u-mb-md"
+        disabled={outbound ? true : false}
+      >
         {outbound && (
-          <div className="tile-icon">
-            <OutboundIcon />
+          <div className="tile-icon u-subhead u-font-md">
+            COMING SOON
+            {/* <OutboundIcon /> */}
           </div>
         )}
         <div className="tile-inner u-m-auto">
