@@ -2,7 +2,7 @@ const { secretString } = require("./data/secretString.js");
 const { pathPrefix } = require("./environment.js");
 
 module.exports = {
-  // basePath: `/${pathPrefix}`,
+  basePath: `/${pathPrefix}`,
   output: "standalone",
   serverRuntimeConfig: {
     secret: secretString,
