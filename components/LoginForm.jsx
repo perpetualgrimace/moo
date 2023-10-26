@@ -25,7 +25,7 @@ const TheForm = (props) => {
   const { touched, errors } = props;
 
   return (
-    <Form className="login-form">
+    <Form className="login-form" autocomplete="off">
       <TextField
         labelText="Email address"
         placeholder="please type 'username'"
@@ -53,8 +53,10 @@ const TheForm = (props) => {
 const LoginForm = withFormik({
   mapPropsToValues: (props) => {
     return {
-      email: props.email || "",
-      password: props.password || "",
+      // email: props.email || "",
+      // password: props.password || "",
+      email: "username",
+      password: "password",
       router: props.router || "",
     };
   },
