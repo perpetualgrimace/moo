@@ -6,7 +6,7 @@ import Meta from "/components/layout/components/Meta";
 import SpaceBG from "/components/layout/components/SpaceBG";
 
 export default function Login() {
-  userService.logout(useRouter().query.returnUrl || null);
+  // userService.logout(useRouter().query.returnUrl || null);
 
   return (
     <div className="login-layout">
